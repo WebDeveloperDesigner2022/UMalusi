@@ -1,12 +1,42 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+﻿ <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="UMelusiTrack.SignupPage">
+             x:Class="UMelusiTrack.SignupPage" Title="Sign Up">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Label Text="Umalusi- were tech meets nature" FontSize="Large" />
+            <Label Text="Create a new account" FontSize="Title" TextColor="DarkCyan"/>
+            <Grid
+                Padding="10,20,10,10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Label Text="Name" Grid.Row="0" Grid.Column="0"/>
+                <Entry Text="{Binding name}" Grid.Row="0" Grid.Column="1"/>
+                <Label Text="Surname" Grid.Row="1" Grid.Column="0"/>
+                <Entry Text="{Binding surname}" Grid.Row="1" Grid.Column="1"/>
+                <Label Text="Username" Grid.Row="2" Grid.Column="0"/>
+                <Entry Text="{Binding username}" Grid.Row="2" Grid.Column="1"/>
+                <Label Text="Password" Grid.Row="3" Grid.Column="0"/>
+                <Entry Text="{Binding password}" IsPassword="True" Grid.Row="3" Grid.Column="1"/>
+
+                <Label Text="Yes, I agree to the Umalusi terms and conditions" Grid.ColumnSpan="2"  Grid.Column="0" Grid.Row="5" HorizontalOptions="Start"/>
+                <Switch Grid.Row="5" Grid.Column="1" HorizontalOptions="End" IsToggled="{Binding Path=Done}"  />
+
+                <Button Grid.Row="7" BorderColor="LightCyan" BorderWidth="5" CornerRadius="10" Text="Sign Up" x:Name="Signup" Clicked="Signup_Clicked" BackgroundColor="DarkCyan"/>
+            </Grid>
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

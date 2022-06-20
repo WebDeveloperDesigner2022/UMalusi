@@ -16,5 +16,15 @@ namespace UMelusiTrack
         {
             InitializeComponent();
         }
+
+        private void Login_Clicked(object sender, EventArgs e)
+        {
+
+        }
+
+        private async void Signup_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new SignupPage());
+        }
     }
 }
