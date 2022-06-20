@@ -11,7 +11,7 @@ namespace UMelusiTrack.ViewModel
         static UmelusiDB database;
 
         // Create the database connection as a singleton.
-        public static UmelusiDB Database
+       /* public static UmelusiDB Database
         {
             get
             {
@@ -21,6 +21,6 @@ namespace UMelusiTrack.ViewModel
                 }
                 return database;
             }
-        }
+        }*/
     }
 }

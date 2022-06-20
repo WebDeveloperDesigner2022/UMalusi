@@ -9,46 +9,52 @@ namespace UMelusiTrack.Services
 {
     public class UmelusiDB
     {
-        readonly SQLiteAsyncConnection database;
+        static SQLiteAsyncConnection Database;
 
-        public UmelusiDB(string dbPath)
+        public static readonly AsyncLazy<UmelusiDB> Instance = new AsyncLazy<UmelusiDB>(async () =>
         {
-            database = new SQLiteAsyncConnection(dbPath);
-            database.CreateTableAsync<SigningDataModel>().Wait();
+            var instance = new UmelusiDB();
+            CreateTableResult result = await Database.CreateTableAsync<SigningDataModel>();
+            return instance;
+        });
+
+        public UmelusiDB()
+        {
+            Database = new SQLiteAsyncConnection(Constants.DatabasePath, Constants.Flags);
         }
 
-        public Task<List<SigningDataModel>> GetSigningDataAsync()
+        public Task<List<SigningDataModel>> GetItemsAsync()
         {
-            //Get all notes.
-            return database.Table<SigningDataModel>().ToListAsync();
+            return Database.Table<SigningDataModel>().ToListAsync();
         }
 
-        public Task<SigningDataModel> GetSigningDatumAsync(int id)
+        public Task<List<SigningDataModel>> GetItemsNotDoneAsync()
         {
-            // Get a specific note.
-            return database.Table<SigningDataModel>()
-                            .Where(i => i.Id == id)
-                            .FirstOrDefaultAsync();
+            return Database.QueryAsync<SigningDataModel>("SELECT * FROM [SwagItem] WHERE [Done] = 0");
         }
 
-        public Task<int> SaveSigningDatumAsync(SigningDataModel data)
+        public Task<SigningDataModel> GetItemAsync(int id)
         {
-            if (data.Id != 0)
-            {
-                // Update an existing note.
-                return database.UpdateAsync(data);
-            }
-            else
-            {
-                // Save a new note.
-                return database.InsertAsync(data);
-            }
+            return Database.Table<SigningDataModel>().Where(i => i.Id == id).FirstOrDefaultAsync();
         }
 
-        public Task<int> DeleteSigningDatumAsync(SigningDataModel data)
+        public Task<int> SaveItemAsync(SigningDataModel item)
         {
-            // Delete a note.
-            return database.DeleteAsync(data);
+            return Database.InsertAsync(item);
+
+            /*   if (item.ID != 0)
+               {
+                   return Database.UpdateAsync(item);
+               }
+               else
+               {
+                   return Database.InsertAsync(item);
+               }*/
+        }
+
+        public Task<int> DeleteItemAsync(SigningDataModel item)
+        {
+            return Database.DeleteAsync(item);
         }
     }
 }
