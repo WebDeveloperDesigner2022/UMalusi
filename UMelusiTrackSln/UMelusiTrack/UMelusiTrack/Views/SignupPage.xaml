@@ -1,4 +1,4 @@
-﻿ <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+﻿  <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="UMelusiTrack.SignupPage" Title="Sign Up">
     <ContentPage.Content>
@@ -34,6 +34,8 @@
                 <Label Text="Yes, I agree to the Umalusi terms and conditions" Grid.ColumnSpan="2"  Grid.Column="0" Grid.Row="5" HorizontalOptions="Start"/>
                 <Switch Grid.Row="5" Grid.Column="1" HorizontalOptions="End" IsToggled="{Binding Path=Done}"  />
 
+                <!--
+           -->
                 <Button Grid.Row="7" BorderColor="LightCyan" BorderWidth="5" CornerRadius="10" Text="Sign Up" x:Name="Signup" Clicked="Signup_Clicked" BackgroundColor="DarkCyan"/>
             </Grid>
 

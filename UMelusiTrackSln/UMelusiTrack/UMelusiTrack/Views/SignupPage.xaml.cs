@@ -17,7 +17,7 @@ namespace UMelusiTrack
         public SignupPage()
         {
             InitializeComponent();
-            BindingContext = new SigningDataModel();
+            //BindingContext = new SigningDataModel();
         }
 
         protected override void OnAppearing()
@@ -28,12 +28,9 @@ namespace UMelusiTrack
 
         }
 
-        private async Task Signup_ClickedAsync(object sender, EventArgs e)
+        private void Signup_Clicked(object sender, EventArgs e)
         {
-            var data = (SigningDataModel)BindingContext;
-            UmelusiDB database = await UmelusiDB.Instance;
-            await database.SaveItemAsync(data);
-            await Navigation.PopAsync();
+            
         }
     }
 }

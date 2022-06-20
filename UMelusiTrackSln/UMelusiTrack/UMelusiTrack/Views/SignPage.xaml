@@ -3,35 +3,21 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="UMelusiTrack.SignPage" Title="Login" >
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Umalusi- were tech meets nature" FontSize="Large" />
-            <Label Text="Sign in" FontSize="Title" TextColor="DarkCyan"/>
-            <Grid
-                Padding="10,20,10,10">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    
-                </Grid.RowDefinitions>
-
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
+        <StackLayout Spacing="20">
+            <Label Text="Umalusi- were tech meets nature" FontSize="Large" HorizontalOptions="CenterAndExpand" />
+            <Label Text="Sign in" FontSize="Title" TextColor="DarkCyan" HorizontalOptions="CenterAndExpand"/>
+            
                 
-                <Label Text="Username" Grid.Row="2" Grid.Column="0"/>
-                <Entry Text="{Binding username}" Grid.Row="2" Grid.Column="1" />
-                <Label Text="Password" Grid.Row="3" Grid.Column="0"/>
-                <Entry Text="{Binding password}" IsPassword="True" Grid.Row="3" Grid.Column="1"/>
+                
+                <Label Text="Username" HorizontalOptions="CenterAndExpand" />
+                <Entry Text="{Binding username}" HorizontalOptions="CenterAndExpand" WidthRequest="150" HorizontalTextAlignment="Center" />
+                <Label Text="Password" HorizontalOptions="CenterAndExpand" />
+                <Entry Text="{Binding password}" IsPassword="True" HorizontalOptions="CenterAndExpand" WidthRequest="150" HorizontalTextAlignment="Center" />
 
-                <Button Grid.Row="7" BorderColor="LightCyan" BorderWidth="5" CornerRadius="10" Grid.Column="0" Text="Login" x:Name="Login" Clicked="Login_Clicked" BackgroundColor="DarkCyan"/>
+                <Button BorderColor="LightCyan" WidthRequest="150" HorizontalOptions="CenterAndExpand" BorderWidth="5" CornerRadius="10" Text="Login" x:Name="Login" Clicked="Login_Clicked" BackgroundColor="DarkCyan"/>
 
-                <Button Grid.Row="7" BorderColor="LightCyan" BorderWidth="5" CornerRadius="10" Grid.Column="1" Text="Sign Up" x:Name="Signup" Clicked="Signup_Clicked" BackgroundColor="DarkCyan"/>
-            </Grid>
+                <Button BorderColor="LightCyan" WidthRequest="150" BorderWidth="5" HorizontalOptions="CenterAndExpand" CornerRadius="10"  Text="Sign Up" x:Name="Signup" Clicked="Signup_Clicked" BackgroundColor="DarkCyan"/>
+            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
