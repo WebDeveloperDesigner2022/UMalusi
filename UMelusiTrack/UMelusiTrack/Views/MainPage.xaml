@@ -1,10 +1,54 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="UMelusiTrack.MainPage" >
+             x:Class="UMelusiTrack.MainPage" BackgroundImageSource="background.png" NavigationPage.HasNavigationBar="False">
 
     <StackLayout>
-     
+        <ImageButton Source="menu.png" VerticalOptions ="Start" HorizontalOptions ="Start" Clicked="MenuButton" BackgroundColor="Transparent"/>
+        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="1" HeightRequest="120" ColumnSpacing="0">
+                
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+        </Grid>
+        
+        <Grid Grid.Column="0" Grid.Row="0" Padding="60" >
+            <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                  <ImageButton Source="Manage.png" WidthRequest="90" HeightRequest="100" Clicked="ManageButton" BackgroundColor="Transparent" BorderColor="Black"/>
+                  <Label Text="Manage Data" TextColor="Black"  FontSize="20"/>
+                
+            </StackLayout>
+        </Grid>
+            <Grid Grid.Column="1" Grid.Row="0" Padding="60"  >
+                <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                    <ImageButton Source="Locate.png" WidthRequest="90" HeightRequest="100"  Clicked="LocateButton" BackgroundColor="Transparent" />
+                    <Label Text="Locate" TextColor="Black"  FontSize="20"/>
+                    
+                </StackLayout>
+            </Grid>
+
+            <Grid Grid.Column="0"   Padding="40" >
+                <StackLayout HorizontalOptions="EndAndExpand" VerticalOptions="EndAndExpand">
+                    <ImageButton Source="Alert.png" WidthRequest="90" HeightRequest="100" Clicked="AlertButton" BackgroundColor="Transparent"/>
+                    <Label Text="  Alerts" TextColor="Black"  FontSize="20"/>
+
+                </StackLayout>
+            </Grid>
+            <Grid Grid.Column="1"  Padding="40" >
+                <StackLayout HorizontalOptions="EndAndExpand" VerticalOptions="EndAndExpand">
+                    <ImageButton Source="shop.png" WidthRequest="150" HeightRequest="100" Clicked="shopButton" BackgroundColor="Transparent"/>
+                    <Label Text="        Order" TextColor="Black"  FontSize="20"/>
+
+                </StackLayout>
+            </Grid>
+        </Grid>
     </StackLayout>
 
 </ContentPage>

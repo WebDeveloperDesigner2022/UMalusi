@@ -35,7 +35,7 @@ namespace com.xamarin.sample.splashscreen
         {
            // Window.Current.SizeChanged += new WindowSizeChangedEventHandler(ExtendedSplash_OnResize);
             Log.Debug(TAG, "Performing some startup work that takes a bit of time.");
-            await Task.Delay(10000); // Simulate a bit of startup work.
+            await Task.Delay(50); // Simulate a bit of startup work.
             Log.Debug(TAG, "Startup work is finished - starting MainActivity.");
             StartActivity(new Intent(Application.Context, typeof (MainActivity)));
         }
