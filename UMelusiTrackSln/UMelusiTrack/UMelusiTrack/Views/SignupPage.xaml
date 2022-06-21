@@ -3,41 +3,56 @@
              x:Class="UMelusiTrack.SignupPage" Title="Sign Up">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Umalusi- were tech meets nature" FontSize="Large" />
-            <Label Text="Create a new account" FontSize="Title" TextColor="DarkCyan"/>
-            <Grid
-                Padding="10,20,10,10">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                </Grid.RowDefinitions>
+            <StackLayout.Padding>
+                <OnPlatform 
+                        x:TypeArguments="Thickness"
+                        iOS="20"
+                        Android="20,100,20,0">
+                </OnPlatform>
+            </StackLayout.Padding>
+            <Label Text="Umalusi_Where tech meets nature" FontSize="Large" HorizontalOptions="CenterAndExpand" />
+            
+            
+            <Label Text="Create a new account" FontSize="Title" 
+                   TextColor="DarkCyan" HorizontalOptions="CenterAndExpand"
+                   Margin="0,50,0,20"/>
 
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Label Text="Name" Grid.Row="0" Grid.Column="0"/>
-                <Entry Text="{Binding name}" Grid.Row="0" Grid.Column="1"/>
-                <Label Text="Surname" Grid.Row="1" Grid.Column="0"/>
-                <Entry Text="{Binding surname}" Grid.Row="1" Grid.Column="1"/>
-                <Label Text="Username" Grid.Row="2" Grid.Column="0"/>
-                <Entry Text="{Binding username}" Grid.Row="2" Grid.Column="1"/>
-                <Label Text="Password" Grid.Row="3" Grid.Column="0"/>
-                <Entry Text="{Binding password}" IsPassword="True" Grid.Row="3" Grid.Column="1"/>
+             <Label Text="Name" HorizontalOptions="CenterAndExpand"/>
+            <Entry Text="{Binding Name}"
+                   Placeholder="Name"
+                   HorizontalOptions="CenterAndExpand"
+                   HorizontalTextAlignment="Center"
+                   WidthRequest="200"/>
+            <Label Text="Surname" HorizontalOptions="CenterAndExpand"/>
+            <Entry Text="{Binding Surname}" HorizontalOptions="CenterAndExpand"
+                   Placeholder="Surname"
+                   HorizontalTextAlignment="Center"
+                   WidthRequest="200"/>
+            <Label Text="Username" HorizontalOptions="CenterAndExpand"/>
+            <Entry Text="{Binding Username}" HorizontalOptions="CenterAndExpand"
+                   Placeholder="Username"
+                   HorizontalTextAlignment="Center"
+                   WidthRequest="200"/>
+            <Label Text="Password" HorizontalOptions="CenterAndExpand"/>
+            <Entry Text="{Binding Password}" HorizontalOptions="CenterAndExpand"
+                   Placeholder="Password" IsPassword="True"
+                   HorizontalTextAlignment="Center"
+                   WidthRequest="200"/>
 
-                <Label Text="Yes, I agree to the Umalusi terms and conditions" Grid.ColumnSpan="2"  Grid.Column="0" Grid.Row="5" HorizontalOptions="Start"/>
-                <Switch Grid.Row="5" Grid.Column="1" HorizontalOptions="End" IsToggled="{Binding Path=Done}"  />
+            <Label Text="Yes, I agree to the Umalusi terms and conditions"
+                   HorizontalOptions="CenterAndExpand"
+                   TextColor="Blue" />
+            <Switch  HorizontalOptions="CenterAndExpand" IsToggled="{Binding Path=Done}"  />
 
                 <!--
            -->
-                <Button Grid.Row="7" BorderColor="LightCyan" BorderWidth="5" CornerRadius="10" Text="Sign Up" x:Name="Signup" Clicked="Signup_Clicked" BackgroundColor="DarkCyan"/>
-            </Grid>
+            <Button
+                HorizontalOptions="CenterAndExpand"
+                BorderColor="LightCyan"
+                BorderWidth="5" CornerRadius="10"
+                Text="Sign Up" x:Name="Signup" Clicked="Signup_Clicked"
+                BackgroundColor="DarkCyan"/>
+            
 
         </StackLayout>
     </ContentPage.Content>
