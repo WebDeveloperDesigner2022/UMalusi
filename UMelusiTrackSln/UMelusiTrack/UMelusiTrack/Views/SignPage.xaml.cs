@@ -41,5 +41,10 @@ namespace UMelusiTrack
         {
             await Navigation.PushAsync(new SignupPage());
         }
+
+        private async void TestBtn(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new TestDBPage());
+        }
     }
 }
