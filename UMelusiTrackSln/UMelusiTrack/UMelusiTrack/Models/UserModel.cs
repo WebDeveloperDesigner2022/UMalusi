@@ -57,8 +57,9 @@ namespace UMelusiTrack.Models
             }
             else
             {
-                MessagingCenter.Send(this, "Login Alert", Username + " & " + Password);
                 umelusiDB = new UmelusiDB();
+                MessagingCenter.Send(this, "Login Alert", Username + " & " + Password);
+                
 
 
             }

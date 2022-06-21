@@ -83,7 +83,11 @@
                     CornerRadius="10"  Text="Create account"
                     x:Name="Signup" 
                     Clicked="Signup_Clicked" />
-                <Button Text="-->" Clicked="TestBtn" />
+                <Button Text="-->" 
+                        Clicked="TestBtn" 
+                        BackgroundColor="Snow"
+                        BorderColor="Snow"
+                        />
 
             </StackLayout>
         </StackLayout>
