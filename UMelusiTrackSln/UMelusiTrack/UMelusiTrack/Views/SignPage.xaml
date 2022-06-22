@@ -18,6 +18,18 @@
 
                 <Button BorderColor="LightCyan" WidthRequest="150" BorderWidth="5" HorizontalOptions="CenterAndExpand" CornerRadius="10"  Text="Sign Up" x:Name="Signup" Clicked="Signup_Clicked" BackgroundColor="DarkCyan"/>
             
-        </StackLayout>
+        </StackLayout>30
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     </ContentPage.Content>
 </ContentPage>
