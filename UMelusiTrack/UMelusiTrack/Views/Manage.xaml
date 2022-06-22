@@ -1,12 +1,59 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="UMelusiTrack.Views.Manage">
+             x:Class="UMelusiTrack.Views.Manage" NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Frame BackgroundColor="green" Margin="0" CornerRadius="0" BorderColor="Black" HeightRequest="120" >
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <ImageButton Source="arrow.png" HeightRequest="30" WidthRequest="30" Clicked="arrowbtn"  />
+                    <SearchBar Placeholder="Search livestock"
+                   CancelButtonColor="black"
+                   PlaceholderColor="black"
+                   TextColor="Green"
+                   HorizontalTextAlignment="Start" Grid.Row="0" Grid.Column="1" />
+                    <Label Text="Livestock Management" TextColor="White" FontSize="Large" FontAttributes="Bold" Grid.Row="1" />
+
+                </Grid>
+            </Frame>
+
+            <ScrollView>
+                <ListView x:Name="listView"
+              Margin="20"
+              ItemSelected="OnListItemSelected">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Margin="20,0,0,0"
+                                 Orientation="Horizontal"
+                                 HorizontalOptions="FillAndExpand">
+                                    <Label Text="{Binding Picture}"
+                               VerticalTextAlignment="Center"
+                               HorizontalOptions="StartAndExpand" />
+                                    <Label Text="{Binding Trackerid}"
+                               VerticalTextAlignment="Center"
+                               HorizontalOptions="Center" />
+                                    <Label Text="{Binding Color}"
+                               VerticalTextAlignment="Center"
+                               HorizontalOptions="Center" />
+
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </ScrollView>
+            <Button Text="Registered new Livestock" TextColor="black" BackgroundColor="green" FontSize="20" Clicked="register"  BorderWidth="2"
+        BorderColor="white" CornerRadius="20"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
