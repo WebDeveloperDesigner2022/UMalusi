@@ -16,6 +16,8 @@
                 <ColumnDefinition Width="*"/>   
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
+                
+                
            
      
             <StackLayout Grid.Column="0" Grid.Row="0" Padding="60" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
