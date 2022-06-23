@@ -19,23 +19,3 @@ namespace UMelusiTrack.ViewModel
         }
     }    
 }
-  //static UmelusiDB database;
-
-        // Create the database connection as a singleton.
-        /* public static UmelusiDB Database
-         {
-             get
-             {
-                 if (database == null)
-                 {
-                     database = new UmelusiDB(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "LoginDetails.db3"));
-                 }
-                 return database;
-             }
-         }*/
-        /*
-        var data = (SigningDataModel)BindingContext;
-        UmelusiDB database = await UmelusiDB.Instance;
-        await database.SaveItemAsync(data);
-        await Navigation.PopAsync();
-        */

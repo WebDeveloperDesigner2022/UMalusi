@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using UMelusiTrack.Models;
 using UMelusiTrack.Services;
+using UMelusiTrack.ViewModel;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -13,13 +13,13 @@ namespace UMelusiTrack
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SignPage : ContentPage
     {
-        public UserModel userModel;
+        public UserViewModel userModel;
         public SignPage()
         {
             InitializeComponent();
-            userModel = new UserModel();
+            userModel = new UserViewModel();
             
-            MessagingCenter.Subscribe<UserModel, string>(this, "Login Alert", (sender, username) =>
+            MessagingCenter.Subscribe<UserViewModel, string>(this, "Login Alert", (sender, username) =>
             {
                 DisplayAlert("", username, "Ok");
             });

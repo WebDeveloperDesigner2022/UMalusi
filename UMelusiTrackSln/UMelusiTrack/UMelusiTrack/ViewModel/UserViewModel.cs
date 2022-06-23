@@ -6,9 +6,9 @@ using System.Windows.Input;
 using UMelusiTrack.Services;
 using Xamarin.Forms;
 
-namespace UMelusiTrack.Models
+namespace UMelusiTrack.ViewModel
 {
-    public class UserModel : INotifyPropertyChanged
+    public class UserViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
         public string username;
@@ -36,12 +36,12 @@ namespace UMelusiTrack.Models
 
         public ICommand SubmitCommand { get; set; }
 
-        public UserModel()
+        public UserViewModel()
         {
             SubmitCommand = new Command(OnSubmit);
         }
 
-        public void OnSubmit()
+        public async void OnSubmit()
         {
             if (string.IsNullOrEmpty(Username) && string.IsNullOrEmpty(Password))
             {
@@ -57,11 +57,20 @@ namespace UMelusiTrack.Models
             }
             else
             {
-                umelusiDB = new UmelusiDB();
-                MessagingCenter.Send(this, "Login Alert", Username + " & " + Password);
-                
+                //   umelusiDB = new UmelusiDB();
+                var db = await UmelusiDB.Instance;
 
+                var login = await db.Login(Username, Password);
 
+                if(login == true)
+                {
+                    await App.Current.MainPage.Navigation.PushAsync(new TestDBPage());
+                }
+                //
+                else
+                {
+                    MessagingCenter.Send(this, "Login Alert", "Wrong username or password");
+                }
             }
 
         }

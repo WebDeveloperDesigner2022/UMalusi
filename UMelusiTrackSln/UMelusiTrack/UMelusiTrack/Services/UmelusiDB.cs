@@ -21,6 +21,8 @@ namespace UMelusiTrack.Services
         public UmelusiDB()
         {
             Database = new SQLiteAsyncConnection(Constants.DatabasePath, Constants.Flags);
+
+             Database.CreateTableAsync<SigningDataModel>().Wait();
         }
 
         public Task<List<SigningDataModel>> GetItemsAsync()
@@ -55,6 +57,19 @@ namespace UMelusiTrack.Services
         public Task<int> DeleteItemAsync(SigningDataModel item)
         {
             return Database.DeleteAsync(item);
+        }
+
+        public async Task<bool> Login(string userName, string password)
+        {
+            var user = await Database.Table<SigningDataModel>().Where(x => x.Username == userName).FirstOrDefaultAsync();
+
+            if (user != null)
+            {
+                if (password == user.Password)
+                    return true;
+            }
+
+            return false;
         }
     }
 }

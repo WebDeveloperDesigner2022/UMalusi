@@ -7,7 +7,7 @@
                 <OnPlatform 
                         x:TypeArguments="Thickness"
                         iOS="20"
-                        Android="20,100,20,0">
+                        Android="20,80,20,0">
                 </OnPlatform>
             </StackLayout.Padding>
             <Label Text="Umalusi_Where tech meets nature" FontSize="Large" HorizontalOptions="CenterAndExpand" />
@@ -15,7 +15,7 @@
             
             <Label Text="Create a new account" FontSize="Title" 
                    TextColor="DarkCyan" HorizontalOptions="CenterAndExpand"
-                   Margin="0,50,0,20"/>
+                   Margin="0,0,0,20"/>
 
              <Label Text="Name" HorizontalOptions="CenterAndExpand"/>
             <Entry Text="{Binding Name}"
