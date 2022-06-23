@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UMelusiTrack.Views;
 using Xamarin.Forms;
 
 namespace UMelusiTrack
@@ -13,6 +14,32 @@ namespace UMelusiTrack
         public MainPage()
         {
             InitializeComponent();
+        }
+
+     
+        private async void ManageButton(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Manage());
+        }
+
+        private async void shopButton(object sender, EventArgs e)
+        {
+           await Navigation.PushAsync(new Order());
+        }
+
+        private async void AlertButton(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Alerts());
+        }
+
+        private async void LocateButton(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new locate());
+        }
+
+        private void MenuButton(object sender, EventArgs e)
+        {
+
         }
     }
 }

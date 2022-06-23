@@ -1,23 +1,48 @@
-﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="UMelusiTrack.MainPage">
+             x:Class="UMelusiTrack.MainPage" BackgroundImageSource="background.png" NavigationPage.HasNavigationBar="False">
 
     <StackLayout>
-        <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
-            <Label Text="Welcome to Xamarin.Forms!" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
-        </Frame>
-        <Label Text="Start developing now" FontSize="Title" Padding="30,10,30,10"/>
-        <Label Text="Make changes to your XAML file and save to see your UI update in the running app with XAML Hot Reload. Give it a try!" FontSize="16" Padding="30,0,30,0"/>
-        <Label FontSize="16" Padding="30,24,30,0">
-            <Label.FormattedText>
-                <FormattedString>
-                    <FormattedString.Spans>
-                        <Span Text="Learn more at "/>
-                        <Span Text="https://aka.ms/xamarin-quickstart" FontAttributes="Bold"/>
-                    </FormattedString.Spans>
-                </FormattedString>
-            </Label.FormattedText>
-        </Label>
+
+        <ImageButton Source="menu.png" VerticalOptions ="Start" HorizontalOptions ="Start" Clicked="MenuButton" BackgroundColor="Transparent"/>
+            <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>   
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+           
+     
+            <StackLayout Grid.Column="0" Grid.Row="0" Padding="60" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                  <ImageButton Source="Manage.png" WidthRequest="90" HeightRequest="100" Clicked="ManageButton" BackgroundColor="Transparent" BorderColor="Black"/>
+                  <Label Text="Manage Data" TextColor="Black"  FontSize="20"/>
+                
+            </StackLayout>
+       
+            <StackLayout Grid.Column="1" Grid.Row="0" Padding="60"   HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                    <ImageButton Source="Locate.png" WidthRequest="90" HeightRequest="100"  Clicked="LocateButton" BackgroundColor="Transparent" />
+                    <Label Text="Locate" TextColor="Black"  FontSize="20"/>
+                    
+                </StackLayout>
+           
+            <StackLayout Grid.Column="0"   Padding="40"  HorizontalOptions="EndAndExpand" VerticalOptions="EndAndExpand">
+                    <ImageButton Source="Alert.png" WidthRequest="90" HeightRequest="100" Clicked="AlertButton" BackgroundColor="Transparent"/>
+                    <Label Text="  Alerts" TextColor="Black"  FontSize="20"/>
+
+                </StackLayout>
+           
+            <StackLayout  Grid.Column="1"  Padding="40" HorizontalOptions="EndAndExpand" VerticalOptions="EndAndExpand">
+                    <ImageButton Source="shop.png" WidthRequest="150" HeightRequest="100" Clicked="shopButton" BackgroundColor="Transparent"/>
+                    <Label Text="        Order" TextColor="Black"  FontSize="20"/>
+
+                </StackLayout>
+           
+        </Grid>
     </StackLayout>
 
 </ContentPage>
