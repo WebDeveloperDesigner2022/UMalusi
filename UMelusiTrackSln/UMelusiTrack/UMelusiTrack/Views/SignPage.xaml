@@ -1,35 +1,82 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="UMelusiTrack.SignPage" Title="Login" >
     <ContentPage.Content>
         <StackLayout Spacing="20">
-            <Label Text="Umalusi- were tech meets nature" FontSize="Large" HorizontalOptions="CenterAndExpand" />
-            <Label Text="Sign in" FontSize="Title" TextColor="DarkCyan" HorizontalOptions="CenterAndExpand"/>
-            
-                
-                
-                <Label Text="Username" HorizontalOptions="CenterAndExpand" />
-                <Entry Text="{Binding username}" HorizontalOptions="CenterAndExpand" WidthRequest="150" HorizontalTextAlignment="Center" />
-                <Label Text="Password" HorizontalOptions="CenterAndExpand" />
-                <Entry Text="{Binding password}" IsPassword="True" HorizontalOptions="CenterAndExpand" WidthRequest="150" HorizontalTextAlignment="Center" />
+          
+        
+            <StackLayout 
+                VerticalOptions="StartAndExpand">
+                <StackLayout.Padding>
+                    <OnPlatform 
+                        x:TypeArguments="Thickness"
+                        iOS="20"
+                        Android="20,100,20,0">
+                    </OnPlatform>
+                </StackLayout.Padding>
 
-                <Button BorderColor="LightCyan" WidthRequest="150" HorizontalOptions="CenterAndExpand" BorderWidth="5" CornerRadius="10" Text="Login" x:Name="Login" Clicked="Login_Clicked" BackgroundColor="DarkCyan"/>
+                <Label Text="Umalusi_Where tech meets nature" FontSize="Large" HorizontalOptions="CenterAndExpand" />
+                <Label Text="Sign in" FontSize="Title" TextColor="DarkCyan"
+                       HorizontalOptions="CenterAndExpand"
+                       Margin="0,50,0,20"/>
 
-                <Button BorderColor="LightCyan" WidthRequest="150" BorderWidth="5" HorizontalOptions="CenterAndExpand" CornerRadius="10"  Text="Sign Up" x:Name="Signup" Clicked="Signup_Clicked" BackgroundColor="DarkCyan"/>
-            
-        </StackLayout>30
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+
+                <Label 
+                    Text="Username"
+                    TextColor="#34495e"
+                    HorizontalOptions="Center"
+                    FontSize="Title"
+                    Font="Arial,10"/>
+                <Entry
+                    Placeholder="Username"
+                    PlaceholderColor="#95a5a6"
+                    FontSize="12"
+                    FontFamily="Arial"
+                    x:Name="entUsername"
+                    HorizontalOptions="CenterAndExpand"
+                    WidthRequest="200"
+                    HorizontalTextAlignment="Center"
+                    Text="{Binding Username}"/>
+                <Label 
+                    Text="Password"
+                    TextColor="#34495e"
+                    HorizontalOptions="Center"
+                    FontSize="Title"
+                    Font="Arial,10"/>
+                <Entry
+                    Placeholder="Password"
+                    PlaceholderColor="#95a5a6"
+                    FontSize="12"
+                    HorizontalOptions="CenterAndExpand"
+                    WidthRequest="200"
+                    FontFamily="Arial"
+                    IsPassword="True"
+                    HorizontalTextAlignment="Center"
+                    x:Name="entPassword"
+                    Text="{Binding Password}"/>
+                <Button 
+                    Text="Login"
+                    FontSize="12"
+                    HorizontalOptions="CenterAndExpand"
+                    BackgroundColor="#3498db"
+                    WidthRequest="200"
+                    CornerRadius="10"
+                    Command="{Binding SubmitCommand}"/>
+
+                <Button
+                    WidthRequest="200"
+                    BorderWidth="5" 
+                    HorizontalOptions="CenterAndExpand"
+                    CornerRadius="10"  Text="Create account"
+                    x:Name="Signup" 
+                    Clicked="Signup_Clicked" />
+                <Button Text="-->" 
+                        Clicked="TestBtn" 
+                        BackgroundColor="Snow"
+                        BorderColor="Snow"
+                        />
+
+            </StackLayout>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -17,20 +17,15 @@ namespace UMelusiTrack
         public SignupPage()
         {
             InitializeComponent();
-            //BindingContext = new SigningDataModel();
+            BindingContext = new SigningDataModel();
         }
 
-        protected override void OnAppearing()
+        private async void Signup_Clicked(object sender, EventArgs e)
         {
-            base.OnAppearing();
-
-            // collectionView.ItemsSource = await UmelusiVM.Database.GetSigningDataAsync();
-
-        }
-
-        private void Signup_Clicked(object sender, EventArgs e)
-        {
-            
+            var data = (SigningDataModel)BindingContext;
+            UmelusiDB database = await UmelusiDB.Instance;
+            await database.SaveItemAsync(data);
+            await Navigation.PopAsync();
         }
     }
 }
