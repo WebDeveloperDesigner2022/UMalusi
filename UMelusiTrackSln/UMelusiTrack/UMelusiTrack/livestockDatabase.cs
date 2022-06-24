@@ -19,7 +19,7 @@ namespace UMelusiTrack
 
         public livestockDatabase()
         {
-            Database = new SQLiteAsyncConnection(Constantss.DatabasePath, Constantss.Flags);
+            Database = new SQLiteAsyncConnection(Constants.DatabasePath, Constants.Flags);
         }
 
         public Task<List<livestock>> GetItemsAsync()
