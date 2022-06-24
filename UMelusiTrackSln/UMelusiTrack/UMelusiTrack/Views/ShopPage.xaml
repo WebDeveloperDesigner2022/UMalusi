@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="UMelusiTrack.ShopPage" BackgroundColor="White">
+
+    <StackLayout>
+        <Frame BackgroundColor="DarkOliveGreen" HeightRequest="115">
+
+
+            <StackLayout>
+                <Image Source="https://cdn-icons-png.flaticon.com/512/270/270818.png?w=740" VerticalOptions="Center" HeightRequest="60"/>
+                <Label Text="Complete the order form below and click on the SEND ORDER button at the buttom of the form, For queries conntact us on +(064) 984-311 or E-Mail us at umalusitrackers@yahoo.com" TextColor="Black"/>
+            </StackLayout>
+
+        </Frame>
+        <!-- <SearchBar Placeholder="Search items"
+                   CancelButtonColor="AntiqueWhite"
+                   PlaceholderColor="DarkOliveGreen"
+                   TextColor="ForestGreen"
+                   HorizontalTextAlignment="Start" />-->
+
+        <ScrollView VerticalOptions="FillAndExpand" 
+                        HeightRequest="1">
+            <StackLayout>
+                <Label Text="First Name : " />
+                <Entry Text="" />
+                <Label Text="Last Name :" />
+                <Entry Text="" />
+                <Label Text="Quantity :" />
+                <Entry Text="" />
+                <Label Text="Reference Number :" />
+                <Entry Text="" />
+                <Label Text="Delivery options :" />
+                <Entry Text=""/>
+                <Label Text="Delivery Addrress :"/>
+                <Entry Text=""/>
+                <Label Text="Contact Number :" />
+                <Entry Text=""/>
+
+                <Label Text="IMPORTANT:" FontSize="Subtitle"  TextColor="Black" FontAttributes="Italic"/>
+                <Label Text="Please ensure that the correct bank account and customer code reference number is used when depositing." TextColor="Black" FontAttributes="Italic" FontSize="Default"/>
+
+                <StackLayout>
+                    <!-- <StackLayout Margin="15,25,10,10">
+                        <Button Text="Send Order" BackgroundColor="DarkOliveGreen" HeightRequest="50"/>
+                    </StackLayout>-->
+
+                </StackLayout>
+                <StackLayout>
+                    <Label Text="BANKING DETAILS" FontAttributes="Bold"></Label>
+                    <StackLayout>
+                        <Label Text="BANK                      ABSA"></Label>
+                        <Label Text="Account Type              Transmission Account"></Label>
+                        <Label Text="Account Name              CIPC"></Label>
+                        <Label Text="Account NO.               1234 56 7899"></Label>
+                        <Label Text="Branch Name               Cape Town CBD"></Label>
+                        <Label Text="Payment Reference         Customer Code"></Label>
+
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+        <StackLayout Margin="80,10,50,10">
+            <StackLayout Orientation="Horizontal">
+                <Button Text="Cancel" Clicked="cancelBtn" />
+                <Button Text="Order" Clicked="saveBtn"/>
+            </StackLayout>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>
