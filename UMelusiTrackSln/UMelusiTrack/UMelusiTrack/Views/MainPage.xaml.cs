@@ -24,7 +24,7 @@ namespace UMelusiTrack
 
         private async void shopButton(object sender, EventArgs e)
         {
-           await Navigation.PushAsync(new Order());
+           await Navigation.PushAsync(new ShopPage());
         }
 
         private async void AlertButton(object sender, EventArgs e)

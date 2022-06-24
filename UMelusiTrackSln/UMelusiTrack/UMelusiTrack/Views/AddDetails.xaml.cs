@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using UMelusiTrack.Services;
+
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -22,7 +22,7 @@ namespace UMelusiTrack.Views
     async void OnSaveClicked(object sender, EventArgs e)
     {
         var livestocks = (livestock)BindingContext;
-        livestockDatabase database = await UmelusiDB.Instance;
+        livestockDatabase database = await livestockDatabase.Instance;
         await database.SaveItemAsync(livestocks);
         await Navigation.PopAsync();
 
@@ -31,7 +31,7 @@ namespace UMelusiTrack.Views
     async void OnDeleteClicked(object sender, EventArgs e)
     {
         var livestocks = (livestock)BindingContext;
-        livestockDatabase database = await UmelusiDB.Instance;
+        livestockDatabase database = await livestockDatabase.Instance;
         await database.DeleteItemAsync(livestocks);
         await Navigation.PopAsync();
 
