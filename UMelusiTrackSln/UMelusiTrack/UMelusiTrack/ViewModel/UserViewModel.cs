@@ -12,7 +12,7 @@ namespace UMelusiTrack.ViewModel
     {
         public event PropertyChangedEventHandler PropertyChanged;
         public string username;
-        UmelusiDB umelusiDB;
+       // UmelusiDB umelusiDB;
         public string Username
         {
             get { return username; }

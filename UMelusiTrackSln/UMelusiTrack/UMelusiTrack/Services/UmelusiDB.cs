@@ -32,7 +32,7 @@ namespace UMelusiTrack.Services
 
         public Task<List<SigningDataModel>> GetItemsNotDoneAsync()
         {
-            return Database.QueryAsync<SigningDataModel>("SELECT * FROM [SwagItem] WHERE [Done] = 0");
+            return Database.QueryAsync<SigningDataModel>("SELECT * FROM [SigningDataModel] WHERE [Done] = 0");
         }
 
         public Task<SigningDataModel> GetItemAsync(int id)
@@ -42,16 +42,15 @@ namespace UMelusiTrack.Services
 
         public Task<int> SaveItemAsync(SigningDataModel item)
         {
-            return Database.InsertAsync(item);
+            //return Database.InsertAsync(item);
 
-            /*   if (item.ID != 0)
+               if (item.Id != 0)
                {
                    return Database.UpdateAsync(item);
                }
-               else
-               {
-                   return Database.InsertAsync(item);
-               }*/
+              
+               return Database.InsertAsync(item);
+             
         }
 
         public Task<int> DeleteItemAsync(SigningDataModel item)

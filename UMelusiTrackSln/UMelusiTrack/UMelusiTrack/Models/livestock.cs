@@ -15,7 +15,5 @@ namespace UMelusiTrack
         public string Gender { get; set; } 
         public DateTime Dateofbirth { get; set; }
         public string Color { get; set; }
-
     }
-
 }

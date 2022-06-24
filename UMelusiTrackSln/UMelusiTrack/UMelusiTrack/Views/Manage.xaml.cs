@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using UMelusiTrack.Services;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -17,7 +17,7 @@ namespace UMelusiTrack.Views
             InitializeComponent();
         }
 
-        protected override async void OnAppearing()
+        protected async override  void OnAppearing()
         {
             base.OnAppearing();
 

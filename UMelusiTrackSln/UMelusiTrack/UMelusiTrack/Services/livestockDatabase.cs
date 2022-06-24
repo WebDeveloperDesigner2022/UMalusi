@@ -4,13 +4,13 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UMelusiTrack
+namespace UMelusiTrack.Services
 {
     public class livestockDatabase
     {
         static SQLiteAsyncConnection Database;
 
-        public static readonly Lazy<livestockDatabase> Instance = new Lazy<livestockDatabase>(async () =>
+        public static readonly AsyncLazy<livestockDatabase> Instance = new AsyncLazy<livestockDatabase>(async () =>
         {
             var instance = new livestockDatabase();
             CreateTableResult result = await Database.CreateTableAsync<livestock>();
