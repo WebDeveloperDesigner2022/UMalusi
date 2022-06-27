@@ -37,7 +37,9 @@
             <Entry Text="{Binding Password}" HorizontalOptions="CenterAndExpand"
                    Placeholder="Password" IsPassword="True"
                    HorizontalTextAlignment="Center"
-                   WidthRequest="200"/>
+                   WidthRequest="200">
+               
+            </Entry>
 
             <Label Text="Yes, I agree to the Umalusi terms and conditions"
                    HorizontalOptions="CenterAndExpand"
