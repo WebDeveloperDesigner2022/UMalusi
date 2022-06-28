@@ -17,19 +17,21 @@
                         HeightRequest="1">
             <StackLayout>
                 <Label Text="First Name : " />
-                <Entry Text="" />
+                <Entry Text="{Binding Name}" />
                 <Label Text="Last Name :" />
-                <Entry Text="" />
+                <Entry Text="{Binding Surname}" />
                 <Label Text="Quantity :" />
-                <Entry Text="" />
+                <Entry Text="{Binding Quantity}" />
                 <Label Text="Reference Number :" />  
-                <Entry Text="" />
+                <Entry Text="{Binding Reference}" />
                 <Label Text="Delivery options :" />
-                <Entry Text=""/>
+                <Entry Text="{Binding DelOptions}"/>
                 <Label Text="Delivery Addrress :"/>
-                <Entry Text=""/>
+                <Entry Text="{Binding Address}"/>
                 <Label Text="Contact Number :" />
-                <Entry Text=""/>
+                <Entry Text="{Binding ContNumber}"/>
+                <Label Text="Email"/>
+                <Entry Text="{Binding Email}"/>
 
                 <Label Text="IMPORTANT:" FontSize="Subtitle"  TextColor="Black" FontAttributes="Italic"/>
                 <Label Text="Please ensure that the correct bank account and customer code reference number is used when depositing." TextColor="Black" FontAttributes="Italic" FontSize="Default"/>
