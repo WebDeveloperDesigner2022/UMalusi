@@ -11,12 +11,7 @@
                 <Label Text="Complete the order form below and click on the SEND ORDER button at the buttom of the form, For queries conntact us on +(064) 984-311 or E-Mail us at umalusitrackers@yahoo.com" TextColor="Black"/>
             </StackLayout>
 
-        </Frame>
-        <!-- <SearchBar Placeholder="Search items"
-                   CancelButtonColor="AntiqueWhite"
-                   PlaceholderColor="DarkOliveGreen"
-                   TextColor="ForestGreen"
-                   HorizontalTextAlignment="Start" />-->
+        </Frame>        
 
         <ScrollView VerticalOptions="FillAndExpand" 
                         HeightRequest="1">
@@ -40,9 +35,7 @@
                 <Label Text="Please ensure that the correct bank account and customer code reference number is used when depositing." TextColor="Black" FontAttributes="Italic" FontSize="Default"/>
 
                 <StackLayout>
-                    <!-- <StackLayout Margin="15,25,10,10">
-                        <Button Text="Send Order" BackgroundColor="DarkOliveGreen" HeightRequest="50"/>
-                    </StackLayout>-->
+
 
                 </StackLayout>
                 <StackLayout>
