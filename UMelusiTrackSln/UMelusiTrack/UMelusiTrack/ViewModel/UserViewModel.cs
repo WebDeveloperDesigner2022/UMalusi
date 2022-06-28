@@ -6,10 +6,12 @@ using System.Windows.Input;
 using UMelusiTrack.Services;
 using Xamarin.Forms;
 
-namespace UMelusiTrack.ViewModel
+namespace UMelusiTrack.ViewModel 
 {
     public class UserViewModel : INotifyPropertyChanged
     {
+
+
         public event PropertyChangedEventHandler PropertyChanged;
         public string username;
        // UmelusiDB umelusiDB;
@@ -55,7 +57,7 @@ namespace UMelusiTrack.ViewModel
             {
                 MessagingCenter.Send(this, "Login Alert", "Please enter password the form");
             }
-            else
+            else 
             {
                 //   umelusiDB = new UmelusiDB();
                 var db = await UmelusiDB.Instance;

@@ -46,7 +46,7 @@ namespace UMelusiTrack.Views
 
         private void register(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new Manage());
+            Navigation.PushAsync(new AddDetails());
         }
 
         private void arrowbtn(object sender, EventArgs e)

@@ -30,7 +30,7 @@ namespace UMelusiTrack.Views
             Detail = new NavigationPage(page);
             IsPresented = false;
 
-            FlyoutPage.ListView.SelectedItem = null;
+            FlyoutPage.ListView.SelectedItem = null;   
         }
     }
 }
