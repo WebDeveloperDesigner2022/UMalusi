@@ -27,7 +27,7 @@
                 <Entry Text="" />
                 <Label Text="Quantity :" />
                 <Entry Text="" />
-                <Label Text="Reference Number :" />
+                <Label Text="Reference Number :" />  
                 <Entry Text="" />
                 <Label Text="Delivery options :" />
                 <Entry Text=""/>

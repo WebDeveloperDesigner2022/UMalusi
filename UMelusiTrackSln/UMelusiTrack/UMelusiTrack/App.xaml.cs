@@ -10,10 +10,8 @@ namespace UMelusiTrack
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new SignPage())
-            { 
-                 
-            };
+            MainPage = new NavigationPage(new SignPage());
+            
         }
 
         protected override void OnStart()
