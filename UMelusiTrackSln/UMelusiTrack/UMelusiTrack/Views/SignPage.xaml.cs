@@ -13,13 +13,13 @@ namespace UMelusiTrack
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SignPage : ContentPage
     {
-        public UserViewModel userModel;
+        public SigninViewModel userModel;
         public  SignPage()
         {
             InitializeComponent();
-            userModel = new UserViewModel();
+            userModel = new SigninViewModel();
             
-            MessagingCenter.Subscribe<UserViewModel, string>(this, "Login Alert", (sender, username) =>
+            MessagingCenter.Subscribe<SigninViewModel, string>(this, "Login Alert", (sender, username) =>
             {
                 DisplayAlert("", username, "Ok");
 
