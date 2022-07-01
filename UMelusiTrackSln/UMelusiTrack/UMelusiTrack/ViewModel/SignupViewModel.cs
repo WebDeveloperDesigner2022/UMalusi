@@ -5,6 +5,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using UMelusiTrack.Models;
 using UMelusiTrack.Services;
 using Xamarin.Forms;
 
@@ -19,7 +20,7 @@ namespace UMelusiTrack.ViewModel
         public string password;        
         public string confirmPassword;
         public bool agreement;
-
+        Regex names = new Regex("[^a-zA-Z]");
 
         public string Name
         {
@@ -85,29 +86,43 @@ namespace UMelusiTrack.ViewModel
         }
         public async void OnSubmitAsync()
         {
-            Regex names = new Regex("[^a-zA-Z]");
-            if (string.IsNullOrEmpty(Username)
-                && string.IsNullOrEmpty(Password) && string.IsNullOrEmpty(ConfirmPassword)
-                && string.IsNullOrEmpty(Name) && string.IsNullOrEmpty(Surname) && !Agreement)
+            
+            if (IsValidated())
             {
-                MessagingCenter.Send(this, "Signup Alert", "Please fill-up the form");
-            }
+                SaveSignUp();
 
-            else
-            {
-                if(!names.IsMatch(Name) && !names.IsMatch(Surname))
-                {
-                    await App.Current.MainPage.Navigation.PushAsync(new SignPage());
-                }
-                    
-
-                else
-                    MessagingCenter.Send(this, "Signup Alert", "Name and surname must be letters only");
-
-            }
-
-
+                await App.Current.MainPage.Navigation.PushAsync(new SignPage());
+            }           
         }
 
+        public bool IsValidated()
+        {
+            if (string.IsNullOrEmpty(Username)
+               && string.IsNullOrEmpty(Password) && string.IsNullOrEmpty(ConfirmPassword)
+               && string.IsNullOrEmpty(Name) && string.IsNullOrEmpty(Surname) && !Agreement)
+            {
+                MessagingCenter.Send(this, "Signup Alert", "Please fill-up the form");
+                return false;
+            }
+            else
+            {
+                if (!names.IsMatch(Name) && !names.IsMatch(Surname))
+                {
+                    return true;
+                }
+                MessagingCenter.Send(this, "Signup Alert", "Name and surname must be letters only");
+
+            }
+            return false;
+        }
+
+        public async void SaveSignUp()
+        {
+            UmelusiDB database = await UmelusiDB.Instance;
+
+            var data = new SigningDataModel() { Done = this.Agreement, Name = this.Name, Password = this.Password, Surname = this.Surname, Username = this.Username };
+
+            await database.SaveItemAsync(data);
+        }
     }    
 }
