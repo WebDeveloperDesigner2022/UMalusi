@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:local="clr-namespace:UMelusiTrack"
+             Title="FlyoutMenu"
+              x:Class="UMelusiTrack.FlyoutMenuPage" >
+
+    <StackLayout>
+        <ListView x:Name="listview" x:FieldModifier="public">
+            <ListView.ItemsSource>
+                <x:Array Type="{x:Type local:FlyoutItemPage}">
+                    <local:FlyoutItemPage Title="Home" TargetPage="{x:Type local:HomePage}"/>
+                    <local:FlyoutItemPage Title="About Us" TargetPage="{x:Type local:AboutUs}"/>
+                    <local:FlyoutItemPage Title="FAQ" TargetPage="{x:Type local:FAQ}"/>
+                    <local:FlyoutItemPage Title="Logout" TargetPage="{x:Type local:Logout}"/>
+                </x:Array>
+            </ListView.ItemsSource>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="33"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="1" Text="{Binding Title}"/>
+
+                        </Grid>
+
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>
