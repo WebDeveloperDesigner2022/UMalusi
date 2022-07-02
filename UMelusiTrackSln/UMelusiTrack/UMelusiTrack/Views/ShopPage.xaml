@@ -11,9 +11,9 @@
                 <Label Text="Complete the order form below and click on the SEND ORDER button at the buttom of the form, For queries conntact us on +(064) 984-311 or E-Mail us at umalusitrackers@yahoo.com" TextColor="Black"/>
             </StackLayout>
 
-        </Frame>        
+        </Frame>
 
-        <ScrollView VerticalOptions="FillAndExpand" 
+        <ScrollView VerticalOptions="FillAndExpand"
                         HeightRequest="1">
             <StackLayout>
                 <Label Text="First Name : " />
@@ -22,16 +22,16 @@
                 <Entry Text="{Binding Surname}" />
                 <Label Text="Quantity :" />
                 <Entry Text="{Binding Quantity}" />
-                <Label Text="Reference Number :" />  
-                <Entry Text="{Binding Reference}" />
+                <Label Text="Reference Number :" />
+                <Entry Text="{Binding Refence_number}" />
                 <Label Text="Delivery options :" />
-                <Entry Text="{Binding DelOptions}"/>
+                <Entry Text="{Binding Delivery_options}"/>
                 <Label Text="Delivery Addrress :"/>
-                <Entry Text="{Binding Address}"/>
+                <Entry Text="{Binding Delivery_address}"/>
                 <Label Text="Contact Number :" />
-                <Entry Text="{Binding ContNumber}"/>
+                <Entry Text="{Binding Contact_number}"/>
                 <Label Text="Email"/>
-                <Entry Text="{Binding Email}"/>
+                <Entry Text="{Binding Email_address}"/>
 
                 <Label Text="IMPORTANT:" FontSize="Subtitle"  TextColor="Black" FontAttributes="Italic"/>
                 <Label Text="Please ensure that the correct bank account and customer code reference number is used when depositing." TextColor="Black" FontAttributes="Italic" FontSize="Default"/>
@@ -56,8 +56,8 @@
         </ScrollView>
         <StackLayout Margin="80,10,50,10">
             <StackLayout Orientation="Horizontal">
-                <Button Text="Cancel" Clicked="cancelBtn" />
-                <Button Text="Order" Clicked="saveBtn"/>
+                <Button Text="Cancel" Clicked="CancelBtn" />
+                <Button Text="Order" Command="{Binding SignupSubmitCommand}"/>
             </StackLayout>
         </StackLayout>
     </StackLayout>

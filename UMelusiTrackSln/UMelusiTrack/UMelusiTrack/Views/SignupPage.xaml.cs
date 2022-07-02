@@ -14,18 +14,16 @@ namespace UMelusiTrack
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SignupPage : ContentPage
     {
+        
+        public SignupViewModel signupVM = new SignupViewModel();
         public SignupPage()
         {
-            InitializeComponent();
-            BindingContext = new SigningDataModel();
-        }
-
-        private async void Signup_Clicked(object sender, EventArgs e)
-        {
-            var data = (SigningDataModel)BindingContext;
-            UmelusiDB database = await UmelusiDB.Instance;
-            await database.SaveItemAsync(data);
-            await Navigation.PopAsync();
+            InitializeComponent(); 
+          
+            MessagingCenter.Subscribe<SignupViewModel, string>(this, "Signup Alert", (sender, username)=>{
+                DisplayAlert("", username, "ok");
+            });
+            this.BindingContext = signupVM;
         }
     }
 }

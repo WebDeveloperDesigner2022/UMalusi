@@ -34,7 +34,7 @@ namespace UMelusiTrack
 
         private async void LocateButton(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new locate());
+            await Navigation.PushAsync(new MapPage());
         }
 
         private void MenuButton(object sender, EventArgs e)

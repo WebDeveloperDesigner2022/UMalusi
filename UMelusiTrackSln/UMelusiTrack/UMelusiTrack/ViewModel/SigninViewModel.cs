@@ -8,7 +8,7 @@ using Xamarin.Forms;
 
 namespace UMelusiTrack.ViewModel 
 {
-    public class UserViewModel : INotifyPropertyChanged
+    public class SigninViewModel : INotifyPropertyChanged
     {
 
 
@@ -38,7 +38,7 @@ namespace UMelusiTrack.ViewModel
 
         public ICommand SubmitCommand { get; set; }
 
-        public UserViewModel()
+        public SigninViewModel()
         {
             SubmitCommand = new Command(OnSubmit);
         }

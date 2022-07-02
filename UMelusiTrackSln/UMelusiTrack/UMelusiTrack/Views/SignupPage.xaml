@@ -18,33 +18,42 @@
                    Margin="0,0,0,20"/>
 
              <Label Text="Name" HorizontalOptions="CenterAndExpand"/>
-            <Entry Text="{Binding Name}"
+            <Entry x:Name="firstname" Text="{Binding Name}"
                    Placeholder="Name"
                    HorizontalOptions="CenterAndExpand"
                    HorizontalTextAlignment="Center"
                    WidthRequest="200"/>
             <Label Text="Surname" HorizontalOptions="CenterAndExpand"/>
-            <Entry Text="{Binding Surname}" HorizontalOptions="CenterAndExpand"
+            <Entry x:Name="lastname" Text="{Binding Surname}" HorizontalOptions="CenterAndExpand"
                    Placeholder="Surname"
                    HorizontalTextAlignment="Center"
                    WidthRequest="200"/>
             <Label Text="Username" HorizontalOptions="CenterAndExpand"/>
-            <Entry Text="{Binding Username}" HorizontalOptions="CenterAndExpand"
+            <Entry x:Name="username" Text="{Binding Username}" HorizontalOptions="CenterAndExpand"
                    Placeholder="Username"
                    HorizontalTextAlignment="Center"
                    WidthRequest="200"/>
             <Label Text="Password" HorizontalOptions="CenterAndExpand"/>
-            <Entry Text="{Binding Password}" HorizontalOptions="CenterAndExpand"
+            <Entry x:Name="password" Text="{Binding Password}" HorizontalOptions="CenterAndExpand"
                    Placeholder="Password" IsPassword="True"
                    HorizontalTextAlignment="Center"
-                   WidthRequest="200">
-               
-            </Entry>
+                   WidthRequest="200"/>
+            <Label Text="Confirm password" HorizontalOptions="CenterAndExpand"/>
+
+            <Entry x:Name="confpassword" Text="{Binding Password}" HorizontalOptions="CenterAndExpand"
+                   Placeholder="Password" IsPassword="True"
+                   HorizontalTextAlignment="Center"
+                   WidthRequest="200"/>
+
+
 
             <Label Text="Yes, I agree to the Umalusi terms and conditions"
                    HorizontalOptions="CenterAndExpand"
                    TextColor="Blue" />
-            <Switch  HorizontalOptions="CenterAndExpand" IsToggled="{Binding Path=Done}"  />
+            
+            <Switch x:Name="agree"
+                    HorizontalOptions="CenterAndExpand"
+                    IsToggled="{Binding Path=Done}"  />
 
                 <!--
            -->
@@ -52,10 +61,13 @@
                 HorizontalOptions="CenterAndExpand"
                 BorderColor="LightCyan"
                 BorderWidth="5" CornerRadius="10"
-                Text="Sign Up" x:Name="Signup" Clicked="Signup_Clicked"
+                Text="Sign Up" x:Name="Signup"
+                Command="{Binding SignupSubmitCommand}"
                 BackgroundColor="DarkCyan"/>
             
 
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
+
+<!--Clicked="Signup_Clicked"-->

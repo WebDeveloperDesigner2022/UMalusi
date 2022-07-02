@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UMelusiTrack.ViewModel;
 using Xamarin.Forms;
 
 namespace UMelusiTrack
@@ -12,17 +13,17 @@ namespace UMelusiTrack
     {
         public ShopPage()
         {
+            var vm = new OrderingVM();
             InitializeComponent();
+            MessagingCenter.Subscribe<OrderingVM, string>(this, "Ordering Alert", (sender, username) => {
+                DisplayAlert("", username, "ok");
+            });
+            this.BindingContext = vm;
         }
 
-        private async void cancelBtn(object sender, EventArgs e)
+        private void CancelBtn(object sender, EventArgs e)
         {
-            await Navigation.PopAsync();
-        }
-
-        private void saveBtn(object sender, EventArgs e)
-        {
-
+            Navigation.PopAsync();
         }
     }
 }
