@@ -20,22 +20,22 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="AboutUs.xaml">
+    <EmbeddedResource Update="Views\AboutUs.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="FAQ.xaml">
+    <EmbeddedResource Update="Views\FAQ.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="FlyoutMenuPage.xaml">
+    <EmbeddedResource Update="Views\FlyoutMenuPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Logout.xaml">
+    <EmbeddedResource Update="Views\Logout.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="MainPage2.xaml">
+    <EmbeddedResource Update="Views\MainPage2.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="HomePage.xaml">
+    <EmbeddedResource Update="Views\HomePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\MapPage.xaml">
