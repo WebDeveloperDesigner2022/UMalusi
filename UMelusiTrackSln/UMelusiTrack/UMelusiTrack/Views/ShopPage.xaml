@@ -51,13 +51,20 @@
                         <Label Text="Payment Reference         Customer Code"></Label>
 
                     </StackLayout>
+                    <StackLayout>
+                        <Label Margin="0,0,0,10" Text="Email notification" FontAttributes="Bold" FontSize="Large" TextColor="#CA6F1E" HorizontalTextAlignment="Center" ></Label>
+                        <Entry x:Name="txtTo" Placeholder="umalusitrackers@yahoo.com"></Entry>
+                        <Entry x:Name="txtSubject" Placeholder="Order notification"></Entry>
+                        <Editor x:Name="txtBody" HeightRequest="50" Text="Umalusi trackers" ></Editor>
+                        <Button x:Name="btnSend" Text="Send" Clicked="BtnSend_Clicked" />
+                    </StackLayout>
                 </StackLayout>
             </StackLayout>
         </ScrollView>
         <StackLayout Margin="80,10,50,10">
             <StackLayout Orientation="Horizontal">
                 <Button Text="Cancel" Clicked="CancelBtn" />
-                <Button Text="Order" Command="{Binding SignupSubmitCommand}"/>
+                <Button Text="Order" Command="{Binding SignupSubmitCommand}" Clicked="orderBtn"/>
             </StackLayout>
         </StackLayout>
     </StackLayout>
