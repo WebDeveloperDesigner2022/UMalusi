@@ -18,7 +18,7 @@
             <StackLayout>
                 <Label Text="First Name : " />
                 <Entry Text="{Binding Name}" />
-                <Label Text="Last Name :" />
+                <Label Text="Last Name :" /> 
                 <Entry Text="{Binding Surname}" />
                 <Label Text="Quantity :" />
                 <Entry Text="{Binding Quantity}" />
