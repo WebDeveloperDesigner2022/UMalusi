@@ -4,9 +4,27 @@
              x:Class="UMelusiTrack.FAQ">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="faq"
+            <Label Text="Instructions"
                 VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+                HorizontalOptions="CenterAndExpand" FontSize="30"/>
+            <Label Text="1.	Farmers should acquire necessary equipment through Umalusi. This includes the physical trackers, the collar and an ear tag."
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" FontSize="17" />
+            <Label Text="2.	Farmers need to identify the livestock which they wish to track and monitor."
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" FontSize="17" />
+            <Label Text="3.	Farmers need to select the most comfortable area around the neck of the cow."
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" FontSize="17" />
+            <Label Text="4.	Tie belt firmly but comfortably around neck of livestock and activate the tracker."
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" FontSize="17"/>
+            <Label Text="5.	Synchronize each to collar-tracker to the app immediately and register the cow with its tag number and species via Umalusi application."
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" FontSize="17"/>
+            <Label Text="6.	Farmers should set up farm boundaries/geo-fence boundaries and areas which they wish to monitor via the Umalusi app."
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" FontSize="17" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
