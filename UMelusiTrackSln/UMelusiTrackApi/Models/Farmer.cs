@@ -13,7 +13,7 @@ namespace UMelusiTrackApi.Models
         public int FarmerId { get; set; }
         public string Names { get; set; }
         public string Surname { get; set; }
-        public string Useraname { get; set; }
+        public string Username { get; set; }
         public string Password { get; set; }
         
         [ForeignKey("Authentication")]

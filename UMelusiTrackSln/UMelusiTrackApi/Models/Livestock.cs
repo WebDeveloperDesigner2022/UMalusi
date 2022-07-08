@@ -29,5 +29,11 @@ namespace UMelusiTrackApi.Models
 
         public Tracker? Tracker { get; set; }
 
+
+        [ForeignKey("LivestockType")]
+        public int LivestockTypeId { get; set; }
+
+        public LivestockType? LivestockType { get; set; }
+
     }
 }
