@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UMelusiTrack.iOS", "UMelusi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UMelusiTrack", "UMelusiTrack\UMelusiTrack\UMelusiTrack.csproj", "{1E793F39-D252-47B4-8086-5CAE5206180E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UMelusiTrackApi", "UMelusiTrackApi\UMelusiTrackApi.csproj", "{C510BE0F-5476-489E-A986-4B9A593EFD3A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UMelusiTrackApi", "UMelusiTrackApi\UMelusiTrackApi.csproj", "{C510BE0F-5476-489E-A986-4B9A593EFD3A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

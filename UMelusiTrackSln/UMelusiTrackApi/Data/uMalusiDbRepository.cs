@@ -6,7 +6,9 @@ namespace UMelusiTrackApi.Data
 {
     public class uMalusiDbRepository : IuMalusiDbRepository
     {
-        private uMalusiContext _uMalusiContext;
+        private uMalusiContext _uMalusiContext;     
+
+
         public uMalusiDbRepository(uMalusiContext uMalusiContext)
         {
             _uMalusiContext = uMalusiContext;
@@ -92,7 +94,6 @@ namespace UMelusiTrackApi.Data
 
         #endregion
 
-
         #region Livestock
 
         public Livestock CreateLivestockAccount(Livestock livestock)
@@ -140,7 +141,6 @@ namespace UMelusiTrackApi.Data
         }
 
         #endregion
-
 
         #region Tracker
 
