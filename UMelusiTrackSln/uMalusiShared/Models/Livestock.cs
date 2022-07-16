@@ -14,7 +14,7 @@ namespace UMelusiTrackApi.Models
         public string Name { get; set; }
         public string DOB { get; set; }
         public string Color { get; set; }
-        public byte Image { get; set; }
+        public byte[] Image { get; set; }
 
 
 

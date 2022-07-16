@@ -18,9 +18,7 @@ namespace UMelusiTrack
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MapPage : ContentPage
     {
-        private object txtLatitude;
-        private object txtLongitude;
-
+       
         public MapPage()
         {
             InitializeComponent();
@@ -60,54 +58,6 @@ namespace UMelusiTrack
                 // Unable to get location
             }
         }
-      
-        /*private void geofence(object sender, EventArgs e)
-        {
-            
-           try
-            {
-                var newPoint = new Geopoint(new BasicGeoposition()
-                {
-                    Latitude = double.Parse(LatitudeText.Text),
-                    Longitude = double.Parse(LongitudeText.Text)
-                });
-                var geofence = new Geofence(NameText.Text, new Geocircle(newPoint.Position, double.Parse(RadiusText.Text)),
-                    MonitoredGeofenceStates.Entered | MonitoredGeofenceStates.Exited,
-                    false, TimeSpan.FromSeconds(10));
-                GeofenceMonitor.Current.Geofences.Add(geofence);
-            }
-            catch (Exception ex)
-            {
-                new MessageDialog("Exception thrown: " + ex.Message).ShowAsync();
-            }
-        }*/
-       /* private void NewGeofence(string id, double latitude, double longitude, double radius)
-        {
-           
-            var position = new BasicGeoposition
-            {
-                Latitude = latitude,
-                Longitude = longitude
-            };
-
-            
-            var geocircle = new Geocircle(position, radius);
-
-       
-            const MonitoredGeofenceStates mask = MonitoredGeofenceStates.Entered;
-
-          
-            var dwellTime = TimeSpan.FromSeconds(5);
-
-         
-            var geofence = new Geofence(id, geocircle, mask, false, dwellTime);
-
-            if (!GeofenceMonitor.Current.Geofences.Contains(geofence))
-                GeofenceMonitor.Current.Geofences.Add(geofence);
-        }*/
-
-
-
 
     }
 }

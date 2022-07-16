@@ -5,7 +5,6 @@
 
     <StackLayout>
         
-        <Button Text = "Geofence" Clicked="geofence"/>
         <maps:Map IsShowingUser="true" x:Name="map"/>
 
     </StackLayout>

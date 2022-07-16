@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
@@ -80,7 +81,7 @@ namespace UMelusiTrackApi.Migrations
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     DOB = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Color = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Image = table.Column<byte>(type: "tinyint", nullable: false),
+                    Image = table.Column<byte[]>(type: "varbinary(max)", nullable: false),
                     FarmerId = table.Column<int>(type: "int", nullable: false),
                     TrackerId = table.Column<int>(type: "int", nullable: false),
                     LivestockTypeId = table.Column<int>(type: "int", nullable: false)

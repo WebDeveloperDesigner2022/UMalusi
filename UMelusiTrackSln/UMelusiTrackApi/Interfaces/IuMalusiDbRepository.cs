@@ -22,6 +22,5 @@ namespace UMelusiTrackApi.Interfaces
         bool PerformAuthenticationCheck(string username, string password);
 
 
-
     }
 }
