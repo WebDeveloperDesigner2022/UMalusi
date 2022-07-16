@@ -66,7 +66,7 @@ namespace UMelusiTrack.ViewModel
 
                 if(login == true)
                 {
-                    await App.Current.MainPage.Navigation.PushAsync(new MainPage2());
+                    await App.Current.MainPage.Navigation.PushAsync(new MainPage());
                 }
                 //
                 else
