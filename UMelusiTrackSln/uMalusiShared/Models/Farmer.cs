@@ -17,12 +17,15 @@ namespace UMelusiTrackApi.Models
         public string Username { get; set; }
         public string Password { get; set; }
         
+        public string AzureMapId { get; set; }
+        
         [ForeignKey("Authentication")]
         public int AuthenticationId { get; set; }
 
         public Authentication? Authentication { get; set; }
 
         public ICollection<Livestock>? Livestocks { get; set; }
+
 
 
 

@@ -59,6 +59,7 @@ namespace UMelusiTrackApi.Migrations
                     Surname = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Username = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    AzureMapId = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     AuthenticationId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -78,7 +79,7 @@ namespace UMelusiTrackApi.Migrations
                 {
                     LivestockId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    LivestockName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     DOB = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Color = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Image = table.Column<byte[]>(type: "varbinary(max)", nullable: false),
@@ -134,6 +135,29 @@ namespace UMelusiTrackApi.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "LivestockPosition",
+                columns: table => new
+                {
+                    LivestockPositionId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    LivestockName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Latitude = table.Column<double>(type: "float", nullable: false),
+                    Longitude = table.Column<double>(type: "float", nullable: false),
+                    DateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    LivestockId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_LivestockPosition", x => x.LivestockPositionId);
+                    table.ForeignKey(
+                        name: "FK_LivestockPosition_Livestock_LivestockId",
+                        column: x => x.LivestockId,
+                        principalTable: "Livestock",
+                        principalColumn: "LivestockId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_Farmer_AuthenticationId",
                 table: "Farmer",
@@ -155,6 +179,11 @@ namespace UMelusiTrackApi.Migrations
                 column: "TrackerId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_LivestockPosition_LivestockId",
+                table: "LivestockPosition",
+                column: "LivestockId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Order_FarmerId",
                 table: "Order",
                 column: "FarmerId");
@@ -163,19 +192,22 @@ namespace UMelusiTrackApi.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Livestock");
+                name: "LivestockPosition");
 
             migrationBuilder.DropTable(
                 name: "Order");
+
+            migrationBuilder.DropTable(
+                name: "Livestock");
+
+            migrationBuilder.DropTable(
+                name: "Farmer");
 
             migrationBuilder.DropTable(
                 name: "LivestockType");
 
             migrationBuilder.DropTable(
                 name: "Tracker");
-
-            migrationBuilder.DropTable(
-                name: "Farmer");
 
             migrationBuilder.DropTable(
                 name: "Authentication");

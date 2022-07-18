@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace UMelusiTrackApi.Models
@@ -11,7 +12,7 @@ namespace UMelusiTrackApi.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 
         public int LivestockId { get; set; }
-        public string Name { get; set; }
+        public string LivestockName { get; set; }
         public string DOB { get; set; }
         public string Color { get; set; }
         public byte[] Image { get; set; }
@@ -34,6 +35,8 @@ namespace UMelusiTrackApi.Models
         public int LivestockTypeId { get; set; }
 
         public LivestockType? LivestockType { get; set; }
+
+        public ICollection<LivestockPosition>? LivestockPosition { get; set; }
 
     }
 }

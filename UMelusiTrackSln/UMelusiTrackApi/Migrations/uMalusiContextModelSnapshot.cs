@@ -54,6 +54,10 @@ namespace UMelusiTrackApi.Migrations
                     b.Property<int>("AuthenticationId")
                         .HasColumnType("int");
 
+                    b.Property<string>("AzureMapId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Names")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -100,12 +104,12 @@ namespace UMelusiTrackApi.Migrations
                         .IsRequired()
                         .HasColumnType("varbinary(max)");
 
-                    b.Property<int>("LivestockTypeId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Name")
+                    b.Property<string>("LivestockName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("LivestockTypeId")
+                        .HasColumnType("int");
 
                     b.Property<int>("TrackerId")
                         .HasColumnType("int");
@@ -119,6 +123,37 @@ namespace UMelusiTrackApi.Migrations
                     b.HasIndex("TrackerId");
 
                     b.ToTable("Livestock");
+                });
+
+            modelBuilder.Entity("UMelusiTrackApi.Models.LivestockPosition", b =>
+                {
+                    b.Property<int>("LivestockPositionId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("LivestockPositionId"), 1L, 1);
+
+                    b.Property<DateTime>("DateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<double>("Latitude")
+                        .HasColumnType("float");
+
+                    b.Property<int>("LivestockId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("LivestockName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("Longitude")
+                        .HasColumnType("float");
+
+                    b.HasKey("LivestockPositionId");
+
+                    b.HasIndex("LivestockId");
+
+                    b.ToTable("LivestockPosition");
                 });
 
             modelBuilder.Entity("UMelusiTrackApi.Models.LivestockType", b =>
@@ -235,6 +270,17 @@ namespace UMelusiTrackApi.Migrations
                     b.Navigation("Tracker");
                 });
 
+            modelBuilder.Entity("UMelusiTrackApi.Models.LivestockPosition", b =>
+                {
+                    b.HasOne("UMelusiTrackApi.Models.Livestock", "Livestock")
+                        .WithMany("LivestockPosition")
+                        .HasForeignKey("LivestockId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Livestock");
+                });
+
             modelBuilder.Entity("UMelusiTrackApi.Models.Order", b =>
                 {
                     b.HasOne("UMelusiTrackApi.Models.Farmer", "Farmer")
@@ -249,6 +295,11 @@ namespace UMelusiTrackApi.Migrations
             modelBuilder.Entity("UMelusiTrackApi.Models.Farmer", b =>
                 {
                     b.Navigation("Livestocks");
+                });
+
+            modelBuilder.Entity("UMelusiTrackApi.Models.Livestock", b =>
+                {
+                    b.Navigation("LivestockPosition");
                 });
 #pragma warning restore 612, 618
         }
