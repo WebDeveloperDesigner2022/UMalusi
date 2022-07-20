@@ -18,7 +18,7 @@ namespace UMelusiTrack.Services
             return instance;
         });
 
-        public UmelusiDB()
+        private UmelusiDB()
         {
             Database = new SQLiteAsyncConnection(Constants.DatabasePath, Constants.Flags);
 

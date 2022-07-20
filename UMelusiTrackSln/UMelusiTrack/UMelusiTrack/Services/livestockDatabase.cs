@@ -54,7 +54,7 @@ namespace UMelusiTrack.Services
         public Task<int> DeleteItemAsync(livestock item)
         {
             return Database.DeleteAsync(item);
-        }
+        }  
     }
 }
 

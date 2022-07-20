@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.Devices.Geolocation;
+using Windows.Devices.Geolocation.Geofencing;
+using Windows.UI.Popups;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Navigation;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Maps;
@@ -13,10 +18,13 @@ namespace UMelusiTrack
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MapPage : ContentPage
     {
+       
         public MapPage()
         {
             InitializeComponent();
             DisplayCurrentLocation();
+            //this.NavigationCacheMode = NavigationCacheMode.Required;
+
         }
         public async void DisplayCurrentLocation()
         {
@@ -50,6 +58,7 @@ namespace UMelusiTrack
                 // Unable to get location
             }
         }
+
     }
 }
     

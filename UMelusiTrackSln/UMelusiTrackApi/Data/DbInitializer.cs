@@ -39,6 +39,7 @@ namespace UMelusiTrackApi.Data
                 farmer.Surname = "Asiphe";
                 farmer.Username = "Sino";
                 farmer.Password = "pass123";
+                farmer.AzureMapId = "125";
 
                 var tracker = new Tracker();
                 tracker.Description = "tk002";
@@ -46,16 +47,22 @@ namespace UMelusiTrackApi.Data
 
   
 
-
-
-
                 var livestock = new Livestock();
-                livestock.Name = "Cow1";
+                livestock.LivestockName = "Cow1";
                 livestock.DOB = "12/11/2019";
                 livestock.LivestockTypeId = 1;
                 livestock.Color = "Black&White";
-                livestock.Tracker = tracker; 
-                //livestock.Image = """";
+                livestock.Tracker = tracker;
+                livestock.Image = new byte[] { };
+
+                 var livestockPosition = new LivestockPosition();
+                 livestockPosition.LivestockName = "Cow1";
+                 livestockPosition.Latitude = -2.25;
+                 livestockPosition.Longitude = 3.254;
+                 livestockPosition.DateTime = DateTime.Now;
+
+                livestock.LivestockPosition = new List<LivestockPosition>();
+                livestock.LivestockPosition.Add(livestockPosition);
 
                 var userAccount = new Authentication();
                 userAccount.Username = "Sino";
@@ -71,6 +78,7 @@ namespace UMelusiTrackApi.Data
                 farmer.Authentication = userAccount;
 
 
+                _context.LivestockPositions.Add(livestockPosition);
                 _context.Farmers.Add(farmer);
                 _context.Farmers.Add(farmer);
                 _context.Authentications.Add(userAccount);

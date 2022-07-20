@@ -19,8 +19,11 @@ namespace UMelusiTrackApi.Interfaces
         Farmer GetFarmerByUsername(string username, bool fullFetch = true);
         Farmer GetFarmerById(int id, bool fullFetch = true);
 
-        bool PerformAuthenticationCheck(string username, string password);
+        LivestockPosition GetLivestockPositionById(int livestockPositionid);
+        IList<LivestockPosition> GetLivestockPositionsByLivestockId(int livestockPositionId);
+        IList<LivestockPosition> GetLivestockPositionsByLivestockIdAndDateTime(int livestockId, DateTime dateTime);
 
+        bool PerformAuthenticationCheck(string username, string password);
 
 
     }

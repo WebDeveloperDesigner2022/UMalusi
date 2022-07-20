@@ -6,7 +6,8 @@ namespace UMelusiTrackApi.Data
 {
     public class uMalusiDbRepository : IuMalusiDbRepository
     {
-        private uMalusiContext _uMalusiContext;
+        private uMalusiContext _uMalusiContext;     
+
         public uMalusiDbRepository(uMalusiContext uMalusiContext)
         {
             _uMalusiContext = uMalusiContext;
@@ -92,7 +93,6 @@ namespace UMelusiTrackApi.Data
 
         #endregion
 
-
         #region Livestock
 
         public Livestock CreateLivestockAccount(Livestock livestock)
@@ -141,9 +141,33 @@ namespace UMelusiTrackApi.Data
 
         #endregion
 
-
         #region Tracker
 
+
+        #endregion
+
+        #region LivestockPosition
+            
+        public IList<LivestockPosition> GetLivestockPositionsByLivestockId(int livestockId)
+        {
+            var livestockPositions = _uMalusiContext.LivestockPositions.Where(x => x.LivestockId == livestockId).ToList();
+            return livestockPositions;
+
+        }
+
+        public LivestockPosition GetLivestockPositionById(int livestockPositionId)
+        {
+            var livestockPosition = _uMalusiContext.LivestockPositions.Where(x => x.LivestockPositionId == livestockPositionId).FirstOrDefault();
+            return livestockPosition;
+
+        }
+
+        public IList<LivestockPosition> GetLivestockPositionsByLivestockIdAndDateTime(int livestockId, DateTime dateTime)
+        {
+            var livestockPositions = _uMalusiContext.LivestockPositions.Where(x => (x.LivestockId == livestockId) && (x.DateTime >= dateTime)).ToList();
+            return livestockPositions;
+
+        }
 
         #endregion
 
