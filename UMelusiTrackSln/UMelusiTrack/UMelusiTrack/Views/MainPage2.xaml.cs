@@ -15,7 +15,7 @@ namespace UMelusiTrack
         public MainPage2()
         {
             InitializeComponent();
-            flyout.listview.ItemSelected += OnSelectedItem;
+            flyout.listView.ItemSelected += OnSelectedItem;
         }
         void OnSelectedItem(object sender, SelectedItemChangedEventArgs e)
         {
@@ -23,7 +23,7 @@ namespace UMelusiTrack
             if (item != null)
             {
                 Detail = new NavigationPage((Page)Activator.CreateInstance(item.TargetPage));
-                flyout.listview.SelectedItem = null;
+                flyout.listView.SelectedItem = null;
                 IsPresented = false;
             }
         }
