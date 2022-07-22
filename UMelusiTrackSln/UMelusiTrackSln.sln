@@ -10,8 +10,11 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UMelusiTrack", "UMelusiTrack\UMelusiTrack\UMelusiTrack.csproj", "{1E793F39-D252-47B4-8086-5CAE5206180E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UMelusiTrackApi", "UMelusiTrackApi\UMelusiTrackApi.csproj", "{C510BE0F-5476-489E-A986-4B9A593EFD3A}"
+<<<<<<< HEAD
 EndProject
 Project("{11A8DD76-328B-46DF-9F39-F559912D0360}") = "UMelusiIOT", "UMelusiIOT\UMelusiIOT.nfproj", "{621224B9-7664-4034-B475-99EEB88FE95C}"
+=======
+>>>>>>> f2244d33499d15b8a112029edc90284d2a5b9fa6
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

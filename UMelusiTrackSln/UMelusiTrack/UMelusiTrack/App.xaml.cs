@@ -10,7 +10,7 @@ namespace UMelusiTrack
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new SignPage());
+            MainPage = new NavigationPage(new MainPage2());
             
         }
 
