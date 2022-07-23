@@ -11,7 +11,6 @@ namespace UMelusiTrack.ViewModel
     public class SigninViewModel : INotifyPropertyChanged
     {
 
-
         public event PropertyChangedEventHandler PropertyChanged;
         public string username;
        // UmelusiDB umelusiDB;

@@ -4,6 +4,7 @@ using System.Threading;
 using System.IO.Ports;
 using nanoFramework.Hardware.Esp32;
 using System.Text;
+using UMelusiIOT.Services;
 
 namespace UMelusiIOT
 {
@@ -115,13 +116,17 @@ namespace UMelusiIOT
                 string temp = Encoding.UTF8.GetString(buffer, 0, bytesRead);
                 Debug.WriteLine("String: >>" + temp + "<< " + "2");
                 string[] textSplit = temp.Split(',');
-                if (textSplit[0] == "$GNRMC")
+                if (textSplit[0] == "GNGGA")
                 {
                     Debug.WriteLine("The string is " +temp );
 
-                    string latitude = "";
-                    string longitude = "";
-                    Debug.WriteLine($"Latitude = {latitude = textSplit[1]} /n Longitude {longitude = textSplit[2]}");
+
+                    string latitude = textSplit[3];
+                    string longitude = textSplit[5];
+
+                    Debug.WriteLine($"Latitude = {textSplit[1]}, latitude direction {textSplit[2]}  Longitude = {textSplit[3]}, longitude direction {textSplit[4]}" + " Testing lat & lon");//
+
+                  //  HttpClient client = new HttpClient();
                 }
             }
         }

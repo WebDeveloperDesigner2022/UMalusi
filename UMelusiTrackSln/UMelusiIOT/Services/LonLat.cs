@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text;
 
-namespace UMelusiIOT
+namespace UMelusiIOT.Services
 {
     public class LonLat
     {
@@ -15,14 +15,14 @@ namespace UMelusiIOT
         private string _E_W; //E/W
         private bool _Usefull_Flag; //If the position information is valid flag bit
 
-       
+
         public string Latitude
         {
             get { return _latitude; }
             set { _latitude = value; }
         }
 
-       
+
 
         public string Longitude
         {
