@@ -123,6 +123,15 @@ namespace UMelusiTrack.ViewModel
             var data = new SigningDataModel() { Done = this.Agreement, Name = this.Name, Password = this.Password, Surname = this.Surname, Username = this.Username };
 
             await database.SaveItemAsync(data);
+
+            // ONLY EXAMPLE
+
+           // var positionService = new LivestockPositionService();
+           // positionService.LivestockPosition()
+
+
+
+
         }
     }    
 }

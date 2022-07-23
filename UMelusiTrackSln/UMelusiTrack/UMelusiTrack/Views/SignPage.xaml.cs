@@ -10,7 +10,7 @@ using Xamarin.Forms.Xaml;
 
 namespace UMelusiTrack
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
+   [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SignPage : ContentPage
     {
         public SigninViewModel userModel;

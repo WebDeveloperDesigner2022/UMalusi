@@ -15,7 +15,7 @@ namespace UMelusiTrack
     public partial class SignupPage : ContentPage
     {
         
-        public SignupViewModel signupVM = new SignupViewModel();
+        //public SignupViewModel signupVM = new SignupViewModel();
         public SignupPage()
         {
             InitializeComponent(); 
@@ -23,7 +23,7 @@ namespace UMelusiTrack
             MessagingCenter.Subscribe<SignupViewModel, string>(this, "Signup Alert", (sender, username)=>{
                 DisplayAlert("", username, "ok");
             });
-            this.BindingContext = signupVM;
+          //  this.BindingContext = signupVM;
         }
     }
 }
