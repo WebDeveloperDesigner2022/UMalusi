@@ -40,6 +40,8 @@ namespace UMelusiIOT
                 {
                     String temp = Encoding.UTF8.GetString(buffer, 0, bytesRead);
                     Debug.WriteLine("String: >>" + temp + "<< ");
+
+
                 }
             }
 
