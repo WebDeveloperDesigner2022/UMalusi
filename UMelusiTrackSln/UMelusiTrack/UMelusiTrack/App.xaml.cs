@@ -10,8 +10,14 @@ namespace UMelusiTrack
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new SignPage());
+            MainPage = new NavigationPage(new SignPage())
+            {//6FBF7B
+                //Color mintGreen =  Color.FromHex("");
+                BackgroundColor = Color.FromHex("#6FBF7B"), BarBackgroundColor = Color.White,
+            };
             
+              
+           
         }
 
         protected override void OnStart()
