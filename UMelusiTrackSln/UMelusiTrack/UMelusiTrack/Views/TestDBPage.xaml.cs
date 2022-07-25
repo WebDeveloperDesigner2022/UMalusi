@@ -10,7 +10,7 @@ using Xamarin.Forms.Xaml;
 
 namespace UMelusiTrack
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
+  [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class TestDBPage : ContentPage
     {
         public List<SigningDataModel> Details { get; set; }

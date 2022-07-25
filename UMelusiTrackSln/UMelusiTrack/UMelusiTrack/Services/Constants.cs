@@ -1,12 +1,15 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Runtime.CompilerServices;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace UMelusiTrack.Services
 {
     public static class Constants
     {
         public const string DatabaseFilename = "details.db3";
-
         public const SQLite.SQLiteOpenFlags Flags =
             // open the database in read/write mode
             SQLite.SQLiteOpenFlags.ReadWrite |
@@ -14,7 +17,6 @@ namespace UMelusiTrack.Services
             SQLite.SQLiteOpenFlags.Create |
             // enable multi-threaded database access
             SQLite.SQLiteOpenFlags.SharedCache;
-
         public static string DatabasePath
         {
             get

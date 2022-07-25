@@ -14,9 +14,10 @@
                         Android="20,100,20,0">
                     </OnPlatform>
                 </StackLayout.Padding>
-
-                <Label Text="Umalusi_Where tech meets nature" FontSize="Large" HorizontalOptions="CenterAndExpand" />
-                <Label Text="Sign in" FontSize="Title" TextColor="DarkCyan"
+                
+                <Image Source="logo3.jpg" BackgroundColor="Transparent" HeightRequest="200" />
+                
+                <Label Text="Sign in" FontSize="Title" TextColor="Black"
                        HorizontalOptions="CenterAndExpand"
                        Margin="0,50,0,20"/>
 
