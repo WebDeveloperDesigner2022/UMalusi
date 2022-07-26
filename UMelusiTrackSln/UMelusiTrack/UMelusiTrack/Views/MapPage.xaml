@@ -3,9 +3,43 @@
              xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
              x:Class="UMelusiTrack.MapPage">
 
-    <StackLayout>
-        
+    <StackLayout >
+        <Frame>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Text="&#128100;" Grid.Column="0" Grid.Row="0" FontSize="Large"/>
+                <Label Text="&#x2753;" Grid.Column="1" Grid.Row="0"  FontSize="Large" HorizontalOptions="CenterAndExpand"/>
+                <Label Text=" &#x26a0;" Grid.Row="0" Grid.Column="2"  FontSize="Large"/>
+
+            </Grid>
+        </Frame>
+
         <maps:Map IsShowingUser="true" x:Name="map"/>
+        <Frame>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Text="&#128100;" Grid.Column="0" Grid.Row="0" FontSize="Large"/>
+                <Label Text="&#x2753;" Grid.Column="1" Grid.Row="0"  FontSize="Large" HorizontalOptions="CenterAndExpand"/>
+                <Label Text=" &#x26a0;" Grid.Row="0" Grid.Column="2"  FontSize="Large"/>
+
+            </Grid>
+        </Frame>
 
     </StackLayout>
   
