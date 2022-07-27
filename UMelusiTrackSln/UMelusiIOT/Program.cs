@@ -6,6 +6,8 @@ using nanoFramework.Hardware.Esp32;
 using System.Text;
 using UMelusiIOT.Services;
 
+using System.Net.Http;
+
 namespace UMelusiIOT
 {
     public class Program
@@ -116,15 +118,24 @@ namespace UMelusiIOT
                 string temp = Encoding.UTF8.GetString(buffer, 0, bytesRead);
                 Debug.WriteLine("String: >>" + temp + "<< " + "2");
                 string[] textSplit = temp.Split(',');
-                if (textSplit[0] == "GNGGA")
+                if (textSplit[0] == "$GNGGA")
                 {
                     Debug.WriteLine("The string is " +temp );
 
 
                     string latitude = textSplit[3];
-                    string longitude = textSplit[5];
+                    string longitude = textSplit[4];
 
-                    Debug.WriteLine($"Latitude = {textSplit[1]}, latitude direction {textSplit[2]}  Longitude = {textSplit[3]}, longitude direction {textSplit[4]}" + " Testing lat & lon");//
+                    if (latitude != "" && longitude != "")
+                    {
+                        HttpClient client = new HttpClient();
+
+                    }
+                    else
+                    {
+                        Debug.WriteLine("No values found!");
+                    }
+                    //
 
                   //  HttpClient client = new HttpClient();
                 }
