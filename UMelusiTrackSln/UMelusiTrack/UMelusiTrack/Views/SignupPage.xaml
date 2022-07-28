@@ -1,6 +1,6 @@
 ﻿  <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="UMelusiTrack.SignupPage" Title="Sign Up">
+             x:Class="UMelusiTrack.SignupPage" Title="Sign Up" BackgroundColor="#56BF66 ">
     <ContentPage.Content>
         <StackLayout>
             <StackLayout.Padding>
@@ -10,6 +10,7 @@
                         Android="20,80,20,0">
                 </OnPlatform>
             </StackLayout.Padding>
+            <Image Source="c:\repos\umelusitracksln\umelusitrack\umelusitrack.android\resources\drawable\logo1.jpeg"/>
             <Label Text="Umalusi_Where tech meets nature" FontSize="Large" HorizontalOptions="CenterAndExpand" />
             
             
@@ -55,8 +56,7 @@
                     HorizontalOptions="CenterAndExpand"
                     IsToggled="{Binding Path=Done}"  />
 
-                <!--
-           -->
+               
             <Button
                 HorizontalOptions="CenterAndExpand"
                 BorderColor="LightCyan"
@@ -70,4 +70,3 @@
     </ContentPage.Content>
 </ContentPage>
 
-<!--Clicked="Signup_Clicked"-->
