@@ -1,3 +1,4 @@
+'use strick'
 const express = require('express');
 const exphbs = require('express-handlebars');
 const bodyParser = require('body-parser');
@@ -11,6 +12,12 @@ app.use(session({
     resave: false,
     saveUninitialized: true,
   }));
+
+  const UmalusiRT = require('./routes/Umalusi');
+  const UmalusiService = require('./services/UmalusiService');
+  
+  const umalusiService = UmalusiService();
+  const umalusiRoute = UmalusiRT(umalusiService);
   
   app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
   app.set('view engine', 'handlebars');
@@ -22,4 +29,18 @@ app.use(session({
   app.use(bodyParser.json());
   app.use(express.static('public'));
 
-  app.get('/', waiterRoute.defaultRoute);
+  //pages
+  app.get('/', umalusiRoute.defaultRoute);
+  app.get('/about-us', umalusiRoute.aboutUs);
+  app.get('/contact-us', umalusiRoute.contacts);
+
+  //functions with pages
+  app.post('/leaver-message', umalusiRoute.messages);
+
+
+  const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+  // eslint-disable-next-line no-console
+  console.log(`App started at port:${PORT}`);
+});
