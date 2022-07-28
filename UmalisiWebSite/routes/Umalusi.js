@@ -24,7 +24,7 @@ module.exports = function (umalusiService) {
             subject: _subject,
             message: _messaeg
         })
-        res.redirect('index')
+        res.render('Contacts')
     }
 
     return{

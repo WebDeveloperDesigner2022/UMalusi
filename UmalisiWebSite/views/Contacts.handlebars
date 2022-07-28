@@ -6,7 +6,7 @@
                 
                 <li><a href="/" class="btn" >Home</a> </li>
                 <li><a href="/about-us" class="btn" > About Us </a> </li>
-                <li><a href="/contact" class="btn" >Contact</a> </li>
+                <li><a href="/contact-us" class="btn" >Contact</a> </li>
                
                
             </ul>
@@ -23,12 +23,12 @@
     </div>
     <div  style="width: 50%; margin-right:15px" class=" mt-4 bg-light opacity-75" >
        <h1 class="text-center">Contact us</h1>
-        <forim style="margin-left:15%" action="/leaver-message" method="post">
-            <input style="width:80%" type="text" name="name" placeholder="Name" required ><br><br>
-            <input style="width:80%" type="text" name="email" placeholder="Email Address" required ><br><br>
+        <form style="margin-left:15%" action="/leaver-message" method="post">
+            <input style="width:80%" type="text" name="name" placeholder="Name" required pattern="^[A-Za-z]+$" title="Please enter letters only"><br><br>
+            <input style="width:80%" type="text" name="email" placeholder="Email Address" required pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="email follow thsi example mpera12@mpe.ac.za or john2@gmail.com"><br><br>
             <input style="width:80%" type="text" name="subject" placeholder="Subject" required><br><br>
             <input style="width:80%" type="text" name="message" placeholder="Message" required><br><br>
-            <input type="submit" class="btn">
+            <input type="submit" class="btn bg-black">
         </form>
     </div>
 </div>
