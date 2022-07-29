@@ -62,4 +62,8 @@
     </EmbeddedResource>
   </ItemGroup>
 
+  <ItemGroup>
+    <SourceGeneratorInput Remove="Services\Interfaces\IHttpNativeHandler.cs" />
+  </ItemGroup>
+
 </Project>

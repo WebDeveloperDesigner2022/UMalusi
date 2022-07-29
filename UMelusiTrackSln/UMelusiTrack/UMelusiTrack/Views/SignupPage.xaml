@@ -56,8 +56,7 @@
                     HorizontalOptions="CenterAndExpand"
                     IsToggled="{Binding Path=Done}"  />
 
-                <!--
-           -->
+               
             <Button
                 HorizontalOptions="CenterAndExpand"
                 BorderColor="White"
@@ -71,4 +70,3 @@
     </ContentPage.Content>
 </ContentPage>
 
-<!--Clicked="Signup_Clicked"-->

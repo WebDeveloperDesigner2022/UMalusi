@@ -11,11 +11,10 @@ namespace UMelusiTrack.ViewModel
 {
     public class SigninViewModel : INotifyPropertyChanged
     {
-
-
+        private IAuthentication _authenticationService;
         public event PropertyChangedEventHandler PropertyChanged;
         public string username;
-       // UmelusiDB umelusiDB;
+      
         public string Username
         {
             get { return username; }
@@ -60,8 +59,7 @@ namespace UMelusiTrack.ViewModel
             }
             else 
             {
-                //   umelusiDB = new UmelusiDB();
-                var db = await UmelusiDB.Instance;
+               /* var db = await UmelusiDB.Instance;
 
                 var login = await db.Login(Username, Password);
 

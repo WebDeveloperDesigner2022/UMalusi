@@ -20,13 +20,16 @@
 
 
 
+                
+                    <StackLayout Grid.Column="0" Grid.Row="0" Padding="60" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                        <ImageButton Source="Manage.png" WidthRequest="90" HeightRequest="100" Clicked="ManageButton" BackgroundColor="Transparent" BorderColor="Black"/>
+                        <Label Text="Manage Data" TextColor="Black"  FontSize="20"/>
 
-                <StackLayout Grid.Column="0" Grid.Row="0" Padding="60" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-                    <ImageButton Source="Manage.png" WidthRequest="90" HeightRequest="100" Clicked="ManageButton" BackgroundColor="Transparent" BorderColor="Black"/>
-                    <Label Text="Manage Data" TextColor="Black"  FontSize="20"/>
+                    </StackLayout>
+                
+                
 
-                </StackLayout>
-
+                
                 <StackLayout Grid.Column="1" Grid.Row="0" Padding="60"   HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
                     <ImageButton Source="Locate.png" WidthRequest="90" HeightRequest="100"  Clicked="LocateButton" BackgroundColor="Transparent" />
                     <Label Text="Locate" TextColor="Black"  FontSize="20"/>

@@ -17,7 +17,7 @@ namespace UMelusiTrack.Views
             InitializeComponent();
         }
 
-        protected async override  void OnAppearing()
+        protected async override void OnAppearing()
         {
             base.OnAppearing();
 
@@ -53,11 +53,10 @@ namespace UMelusiTrack.Views
         {
             Navigation.PushAsync(new MainPage());
         }
-
-        /*private void ImageButton_Clicked(object sender, EventArgs e)
+        /*
+        private void ImageButton_Clicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new OrderingDetails());
-        }*/
+        }  }*/
     }
-
 }

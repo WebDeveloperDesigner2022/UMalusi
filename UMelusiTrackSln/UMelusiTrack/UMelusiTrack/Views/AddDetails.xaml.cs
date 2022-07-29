@@ -12,7 +12,7 @@ using Xamarin.Forms.Xaml;
 
 namespace UMelusiTrack.Views
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
+   [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AddDetails : ContentPage
     {
         public AddDetails()
@@ -62,5 +62,5 @@ namespace UMelusiTrack.Views
         }
     }
 
-
+    
 }
