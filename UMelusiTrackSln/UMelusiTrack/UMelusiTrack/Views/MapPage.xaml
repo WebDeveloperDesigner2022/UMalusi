@@ -21,7 +21,6 @@
 
             </Grid>
         </Frame>
-
         <maps:Map IsShowingUser="true" x:Name="map"/>
         <Frame>
             <Grid>

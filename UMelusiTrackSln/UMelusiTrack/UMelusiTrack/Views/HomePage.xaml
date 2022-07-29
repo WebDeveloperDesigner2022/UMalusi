@@ -23,7 +23,7 @@
                 
                     <StackLayout Grid.Column="0" Grid.Row="0" Padding="60" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
                         <ImageButton Source="Manage.png" WidthRequest="90" HeightRequest="100" Clicked="ManageButton" BackgroundColor="Transparent" BorderColor="Black"/>
-                        <Label Text="Manage Data" TextColor="Black"  FontSize="20"/>
+                        <Label Text="My Herd" TextColor="Black"  FontSize="20"/>
 
                     </StackLayout>
                 
@@ -44,7 +44,7 @@
 
                 <StackLayout  Grid.Column="1"  Padding="40" HorizontalOptions="EndAndExpand" VerticalOptions="EndAndExpand">
                     <ImageButton Source="shop.png" WidthRequest="150" HeightRequest="100" Clicked="shopButton" BackgroundColor="Transparent"/>
-                    <Label Text="        Order" TextColor="Black"  FontSize="20"/>
+                    <Label Text="Order" TextColor="Black"  FontSize="20"/>
 
                 </StackLayout>
 
