@@ -200,6 +200,9 @@ namespace UMelusiTrackApi.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
                     b.Property<string>("ReferenceNo")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");

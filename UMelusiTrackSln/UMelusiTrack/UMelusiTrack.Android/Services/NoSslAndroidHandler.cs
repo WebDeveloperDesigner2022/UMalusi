@@ -1,0 +1,25 @@
+﻿using Android.App;
+using Android.Content;
+using Android.OS;
+using Android.Runtime;
+using Android.Views;
+using Android.Widget;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net.Http;
+using System.Text;
+using UMelusiTrack.Services.Interfaces;
+using Xamarin.Forms;
+
+[assembly: Dependency(typeof(UMelusiTrack.Droid.Services.NoSslAndroidHandler))]
+namespace UMelusiTrack.Droid.Services
+{
+    public class NoSslAndroidHandler : IHttpNativeHandler
+    {
+        public HttpClientHandler GetHttpClientHandler()
+        {
+            return new IgnoreSSLClientHandler();
+        }
+    }
+}

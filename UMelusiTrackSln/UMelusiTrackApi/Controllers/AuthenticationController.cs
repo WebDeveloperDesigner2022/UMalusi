@@ -18,6 +18,7 @@ namespace UMelusiTrackApi.Controllers
         [HttpPost]
         public IActionResult Post([FromBody] AuthRequest auth)
         {
+
             try
             {
                 var result = _uMalusiDbRepository.PerformAuthenticationCheck(auth.Username, auth.Password);

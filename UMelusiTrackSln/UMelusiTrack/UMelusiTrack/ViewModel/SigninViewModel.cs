@@ -59,11 +59,13 @@ namespace UMelusiTrack.ViewModel
             }
             else 
             {
-               /* var db = await UmelusiDB.Instance;
+                // var db = await UmelusiDB.Instance;
 
-                var login = await db.Login(Username, Password);
-               
-                //var user = await _authenticationService.Authenticate(Username.Value, Password.Value);
+                // var login = await db.Login(Username, Password);
+
+                AuthenticationService _authenticationService = new AuthenticationService();
+
+                var user = await _authenticationService.Authenticate(Username, Password);
 
                 //var login = await db.Login(Username, Password);
 
@@ -76,7 +78,7 @@ namespace UMelusiTrack.ViewModel
                   {
                       MessagingCenter.Send(this, "Login Alert", "Wrong username or password");
                   }
-               */
+               
             }
 
         }

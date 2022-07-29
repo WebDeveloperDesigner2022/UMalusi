@@ -5,7 +5,9 @@ using System.Diagnostics;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using UMelusiTrack.Services.Interfaces;
 using UMelusiTrackApi.Models;
+using Xamarin.Forms;
 
 namespace UMelusiTrack.Services
 {
@@ -20,7 +22,8 @@ namespace UMelusiTrack.Services
 
         public TrackerService()
         {
-            _httpClient = new HttpClient();
+            IHttpNativeHandler service = DependencyService.Get<IHttpNativeHandler>();
+            _httpClient = new HttpClient(service.GetHttpClientHandler());
         }
         public async Task<Tracker> Tracker(string description)
         {
