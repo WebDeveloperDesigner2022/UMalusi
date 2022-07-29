@@ -12,7 +12,7 @@ using UMelusiTrackApi.Data;
 namespace UMelusiTrackApi.Migrations
 {
     [DbContext(typeof(uMalusiContext))]
-    [Migration("20220718130011_migrationv1")]
+    [Migration("20220726080922_migrationv1")]
     partial class migrationv1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -201,6 +201,9 @@ namespace UMelusiTrackApi.Migrations
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
 
                     b.Property<string>("ReferenceNo")
                         .IsRequired()

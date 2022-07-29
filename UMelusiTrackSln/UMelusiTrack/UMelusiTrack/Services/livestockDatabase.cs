@@ -21,7 +21,10 @@ namespace UMelusiTrack.Services
 
         public livestockDatabase()
         {
-            Database = new SQLiteAsyncConnection(Constants.DatabasePath, Constants.Flags);
+           // Database = new SQLiteAsyncConnection(Constants.DatabasePath, Constants.Flags);
+           /* IHttpNativeHandler service = DependencyService.Get<IHttpNativeHandler>();
+            _httpClient = new HttpClient(service.GetHttpClientHandler());
+           */
         }
 
         public Task<List<livestock>> GetItemsAsync()

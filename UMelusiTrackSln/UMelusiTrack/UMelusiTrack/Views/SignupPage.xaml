@@ -19,7 +19,7 @@
                    Margin="0,0,0,20"/>
 
              <Label Text="Name" HorizontalOptions="CenterAndExpand"/>
-            <Entry x:Name="firstname" Text="{Binding Name}"
+            <Entry x:Name="firstname" Text="{Binding Names}"
                    Placeholder="Name"
                    HorizontalOptions="CenterAndExpand"
                    HorizontalTextAlignment="Center"
@@ -43,6 +43,11 @@
 
             <Entry x:Name="confpassword" Text="{Binding Password}" HorizontalOptions="CenterAndExpand"
                    Placeholder="Password" IsPassword="True"
+                   HorizontalTextAlignment="Center"
+                   WidthRequest="200"/>
+            <Label Text="AzureMapId" HorizontalOptions="CenterAndExpand"/>
+            <Entry x:Name="azureMapId" Text="{Binding AzureMapId}" HorizontalOptions="CenterAndExpand"
+                   Placeholder="AzureMapId"
                    HorizontalTextAlignment="Center"
                    WidthRequest="200"/>
 
