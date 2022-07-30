@@ -124,7 +124,7 @@ namespace UMelusiTrackApi.Data
 
         public bool PerformAuthenticationCheck(string userName, string password)
         {
-            var user = _uMalusiContext.Authentications.Where(u => u.Username == userName && u.Password == password).FirstOrDefault();
+            var user = _uMalusiContext.Farmers.Where(u => u.Username == userName && u.Password == password).FirstOrDefault();
 
             if (user != null)
             {
@@ -136,9 +136,25 @@ namespace UMelusiTrackApi.Data
 
         public Livestock CreateNewLivestock(Livestock livestock)
         {
-            throw new NotImplementedException();
+            _uMalusiContext.Livestocks.Add(livestock);
+            _uMalusiContext.SaveChanges();
+
+            return livestock;
+
+        }
+        public IList<Livestock> GetBankLivestocksByFarmerId(int farmerId)
+        {
+            var livestocks = _uMalusiContext.Livestocks.Where(x => x.FarmerId == farmerId).ToList();
+            return livestocks;
+
         }
 
+        public Livestock GetLivestockSById(int livestockId)
+        {
+            var livestock = _uMalusiContext.Livestocks.Where(x => x.LivestockId == livestockId).FirstOrDefault();
+            return livestock;
+
+        }
         #endregion
 
         #region Tracker
@@ -147,7 +163,7 @@ namespace UMelusiTrackApi.Data
         #endregion
 
         #region LivestockPosition
-            
+
         public IList<LivestockPosition> GetLivestockPositionsByLivestockId(int livestockId)
         {
             var livestockPositions = _uMalusiContext.LivestockPositions.Where(x => x.LivestockId == livestockId).ToList();

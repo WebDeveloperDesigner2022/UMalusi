@@ -88,7 +88,7 @@ namespace UMelusiTrack.ViewModel
             get { return azureMapId; }
             set
             {
-                azureMapId = value;
+                 azureMapId = value;
                 PropertyChanged(this, new PropertyChangedEventArgs("AzureMapId"));
             }
         }
@@ -113,7 +113,7 @@ namespace UMelusiTrack.ViewModel
             
             if (IsValidated())
             {
-                SaveSignUp();
+                await SaveSignUp();
 
                 await App.Current.MainPage.Navigation.PushAsync(new MainPage2());
             }           
@@ -140,7 +140,7 @@ namespace UMelusiTrack.ViewModel
             return false;
         }
 
-        public async void SaveSignUp()
+        public async Task SaveSignUp()
         {
             try
             {

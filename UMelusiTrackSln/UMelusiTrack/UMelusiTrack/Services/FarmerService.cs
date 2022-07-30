@@ -32,7 +32,7 @@ namespace UMelusiTrack.Services
 
             try
             {
-                var request = new Farmer() { Names = names, Surname = surname, Username = username, Password = password, AzureMapId = azureMapId, AuthenticationId = authenticationId };
+                var request = new Farmer() { Names = names, Surname = surname, Username = username, Password = password, AzureMapId = azureMapId };
 
                 var requestJson = JsonConvert.SerializeObject(request);
                 var content = new StringContent(requestJson, Encoding.UTF8, "application/json");

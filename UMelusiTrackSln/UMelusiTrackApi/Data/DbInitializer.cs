@@ -75,13 +75,13 @@ namespace UMelusiTrackApi.Data
                 farmer.Livestocks = new List<Livestock>();
                 farmer.Livestocks.Add(livestock);
 
-                farmer.Authentication = userAccount;
+            //    farmer.Authentication = userAccount;
 
 
                 _context.LivestockPositions.Add(livestockPosition);
                 _context.Farmers.Add(farmer);
                 _context.Farmers.Add(farmer);
-                _context.Authentications.Add(userAccount);
+              //  _context.Authentications.Add(userAccount);
                 _context.SaveChanges();
             }
         }

@@ -22,27 +22,6 @@ namespace UMelusiTrackApi.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("UMelusiTrackApi.Models.Authentication", b =>
-                {
-                    b.Property<int>("AuthenticationId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AuthenticationId"), 1L, 1);
-
-                    b.Property<string>("Password")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Username")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("AuthenticationId");
-
-                    b.ToTable("Authentication");
-                });
-
             modelBuilder.Entity("UMelusiTrackApi.Models.Farmer", b =>
                 {
                     b.Property<int>("FarmerId")
@@ -50,9 +29,6 @@ namespace UMelusiTrackApi.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("FarmerId"), 1L, 1);
-
-                    b.Property<int>("AuthenticationId")
-                        .HasColumnType("int");
 
                     b.Property<string>("AzureMapId")
                         .IsRequired()
@@ -75,8 +51,6 @@ namespace UMelusiTrackApi.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("FarmerId");
-
-                    b.HasIndex("AuthenticationId");
 
                     b.ToTable("Farmer");
                 });
@@ -233,17 +207,6 @@ namespace UMelusiTrackApi.Migrations
                     b.HasKey("TrackerId");
 
                     b.ToTable("Tracker");
-                });
-
-            modelBuilder.Entity("UMelusiTrackApi.Models.Farmer", b =>
-                {
-                    b.HasOne("UMelusiTrackApi.Models.Authentication", "Authentication")
-                        .WithMany()
-                        .HasForeignKey("AuthenticationId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Authentication");
                 });
 
             modelBuilder.Entity("UMelusiTrackApi.Models.Livestock", b =>
