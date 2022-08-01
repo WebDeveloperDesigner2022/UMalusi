@@ -7,7 +7,8 @@
         FarmerCreationFailed,
         AuthenticationFailed,
         LivestockNotValid,
-        LivestockCreationFailed
+        LivestockCreationFailed,
+        LivestockPositionCreationFailed
 
     }
 }

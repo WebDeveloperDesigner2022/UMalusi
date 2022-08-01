@@ -23,6 +23,9 @@ namespace UMelusiTrackApi.Interfaces
         IList<LivestockPosition> GetLivestockPositionsByLivestockId(int livestockPositionId);
         IList<LivestockPosition> GetLivestockPositionsByLivestockIdAndDateTime(int livestockId, DateTime dateTime);
 
+        LivestockPosition InsertLiveStockPosition(LivestockPosition livestockPosition);
+
+
         bool PerformAuthenticationCheck(string username, string password);
 
     //    Farmer GetFarmerByAuthenticationId(int farmerId, bool fullFetch = true);
