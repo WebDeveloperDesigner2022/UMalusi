@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UMelusiTrack.Services;
+using UMelusiTrack.ViewModel;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -12,17 +13,26 @@ namespace UMelusiTrack.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Manage : ContentPage
     {
+        public LivestockViewModel registerLivestockVM = new LivestockViewModel();
         public Manage()
         {
             InitializeComponent();
+            registerLivestockVM = new LivestockViewModel();
+
+            MessagingCenter.Subscribe<LivestockViewModel, string>(this, "Register Livestock Alert", (sender, livestockname) => {
+                DisplayAlert("", livestockname, "ok");
+            });
+            this.BindingContext = registerLivestockVM;
         }
 
         protected async override void OnAppearing()
         {
             base.OnAppearing();
+           // listView.ItemsSource = await App.ILivestock.GetTasksAsync();
 
-            livestockDatabase database = await livestockDatabase.Instance;
-            listView.ItemsSource = await database.GetItemsAsync();
+            /* livestockDatabase database = await livestockDatabase.Instance;
+             listView.ItemsSource = await database.GetItemsAsync();*/
+
         }
 
         async void OnItemAdded(object sender, EventArgs e)
@@ -51,12 +61,8 @@ namespace UMelusiTrack.Views
 
         private void arrowbtn(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new MainPage());
+            Navigation.PushAsync(new MainPage2());
         }
-        /*
-        private void ImageButton_Clicked(object sender, EventArgs e)
-        {
-            Navigation.PushAsync(new OrderingDetails());
-        }  }*/
+       
     }
 }

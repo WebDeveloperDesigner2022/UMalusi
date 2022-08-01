@@ -13,20 +13,6 @@
             <x:Arguments>
                 <local:HomePage>
                     <StackLayout>
-                        <Frame>
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="*"/>
-                                </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto"/>
-                                    <ColumnDefinition Width="2*"/>
-                                    <ColumnDefinition Width="Auto"/>
-                                </Grid.ColumnDefinitions>
-
-                               
-                            </Grid>
-                        </Frame>
                         <maps:Map IsShowingUser="true" x:Name="map"/>
                         <Frame>
                             <Grid>

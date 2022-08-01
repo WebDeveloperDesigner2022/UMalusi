@@ -22,8 +22,6 @@ namespace UMelusiTrack
             MessagingCenter.Subscribe<SigninViewModel, string>(this, "Login Alert", (sender, username) =>
             {
                 DisplayAlert("", username, "Ok");
-
-                 //Navigation.PushAsync(new MainPage());
             });
             this.BindingContext = userModel;
 

@@ -18,19 +18,31 @@ namespace UMelusiTrackApi.Controllers
         [HttpPost]
         public IActionResult Post([FromBody] AuthRequest auth)
         {
+            var authResponse = new AuthResponse();
 
             try
             {
                 var result = _uMalusiDbRepository.PerformAuthenticationCheck(auth.Username, auth.Password);
-                return Ok(result);
+                if (result)
+                {
+                    var farmer = _uMalusiDbRepository.GetAuthentication(auth.Username, auth.Password);
+
+                    if (farmer != null)
+                    {
+                        authResponse.Authenticated = true;
+                        authResponse.AuthenticatedFarmer = farmer;
+                    }
+                }
+                return Ok(authResponse);
             }
+
             catch (Exception ex)
             {
                 return BadRequest(SystemErrorCodes.AuthenticationFailed.ToString());
             }
 
 
-        }
-
+            }
+      
     }
 }

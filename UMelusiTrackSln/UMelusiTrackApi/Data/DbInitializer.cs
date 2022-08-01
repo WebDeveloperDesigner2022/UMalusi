@@ -80,7 +80,7 @@ namespace UMelusiTrackApi.Data
 
                 _context.LivestockPositions.Add(livestockPosition);
                 _context.Farmers.Add(farmer);
-                _context.Farmers.Add(farmer);
+       //         _context.Farmers.Add(farmer);
               //  _context.Authentications.Add(userAccount);
                 _context.SaveChanges();
             }
