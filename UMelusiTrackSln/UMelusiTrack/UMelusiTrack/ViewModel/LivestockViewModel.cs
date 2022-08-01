@@ -121,9 +121,11 @@ namespace UMelusiTrack.ViewModel
             {
                 LivestockService _livestockService = new LivestockService();
 
-                var livestock = await _livestockService.RegisterLivestock(LivestockName = this.LivestockName, DOB = this.DOB,
+                var farmer = InMemoryDataCache.AuthenticatedFarmer;
+
+                var livestock = await _livestockService.RegisterLivestock(farmer, LivestockName = this.LivestockName, DOB = this.DOB,
                     
-                    Color = this.Color, Image = this.Image, FarmerId = this.FarmerId, TrackerId = this.TrackerId, LivestockTypeId = this.LivestockTypeId);
+                    Color = this.Color, Image = this.Image, FarmerId = this.FarmerId, LivestockTypeId = this.LivestockTypeId);
                 // Names = this.Names, Password = this.Password, Surname = this.Surname, Username = this.Username, AzureMapId = this.AzureMapId, AuthenticationId = this.AuthenticationId                
 
                 if (livestock != null)

@@ -25,6 +25,11 @@ namespace UMelusiTrackApi.Controllers
                 {
                     return BadRequest(SystemErrorCodes.LivestockNotValid.ToString());
                 }
+
+                var farmer = _uMalusiDbRepository.GetFarmerById(livestock.FarmerId);
+                livestock.Farmer = farmer;
+
+
                 _uMalusiDbRepository.CreateNewLivestock(livestock);
             }
             catch (Exception ex)

@@ -52,7 +52,7 @@ namespace UMelusiTrackApi.Data
                 livestock.DOB = "12/11/2019";
                 livestock.LivestockTypeId = 1;
                 livestock.Color = "Black&White";
-                livestock.Tracker = tracker;
+               // livestock.Tracker = tracker;
                 livestock.Image = new byte[] { };
 
                  var livestockPosition = new LivestockPosition();

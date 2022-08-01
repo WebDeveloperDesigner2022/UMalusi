@@ -12,8 +12,8 @@ using UMelusiTrackApi.Data;
 namespace UMelusiTrackApi.Migrations
 {
     [DbContext(typeof(uMalusiContext))]
-    [Migration("20220730103105_migration1")]
-    partial class migration1
+    [Migration("20220801115626_migrationv1")]
+    partial class migrationv1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -87,16 +87,11 @@ namespace UMelusiTrackApi.Migrations
                     b.Property<int>("LivestockTypeId")
                         .HasColumnType("int");
 
-                    b.Property<int>("TrackerId")
-                        .HasColumnType("int");
-
                     b.HasKey("LivestockId");
 
                     b.HasIndex("FarmerId");
 
                     b.HasIndex("LivestockTypeId");
-
-                    b.HasIndex("TrackerId");
 
                     b.ToTable("Livestock");
                 });
@@ -225,17 +220,9 @@ namespace UMelusiTrackApi.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("UMelusiTrackApi.Models.Tracker", "Tracker")
-                        .WithMany()
-                        .HasForeignKey("TrackerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("Farmer");
 
                     b.Navigation("LivestockType");
-
-                    b.Navigation("Tracker");
                 });
 
             modelBuilder.Entity("UMelusiTrackApi.Models.LivestockPosition", b =>

@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace UMelusiTrackApi.Migrations
 {
-    public partial class migration1 : Migration
+    public partial class migrationv1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -89,7 +89,6 @@ namespace UMelusiTrackApi.Migrations
                     Color = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Image = table.Column<byte[]>(type: "varbinary(max)", nullable: false),
                     FarmerId = table.Column<int>(type: "int", nullable: false),
-                    TrackerId = table.Column<int>(type: "int", nullable: false),
                     LivestockTypeId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -106,12 +105,6 @@ namespace UMelusiTrackApi.Migrations
                         column: x => x.LivestockTypeId,
                         principalTable: "LivestockType",
                         principalColumn: "LivestockTypeId",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Livestock_Tracker_TrackerId",
-                        column: x => x.TrackerId,
-                        principalTable: "Tracker",
-                        principalColumn: "TrackerId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -149,11 +142,6 @@ namespace UMelusiTrackApi.Migrations
                 column: "LivestockTypeId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Livestock_TrackerId",
-                table: "Livestock",
-                column: "TrackerId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_LivestockPosition_LivestockId",
                 table: "LivestockPosition",
                 column: "LivestockId");
@@ -173,6 +161,9 @@ namespace UMelusiTrackApi.Migrations
                 name: "Order");
 
             migrationBuilder.DropTable(
+                name: "Tracker");
+
+            migrationBuilder.DropTable(
                 name: "Livestock");
 
             migrationBuilder.DropTable(
@@ -180,9 +171,6 @@ namespace UMelusiTrackApi.Migrations
 
             migrationBuilder.DropTable(
                 name: "LivestockType");
-
-            migrationBuilder.DropTable(
-                name: "Tracker");
         }
     }
 }

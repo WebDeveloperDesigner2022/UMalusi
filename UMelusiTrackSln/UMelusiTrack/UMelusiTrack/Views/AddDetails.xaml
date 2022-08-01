@@ -13,8 +13,8 @@
             <Entry Text="{Binding Color}" />
             <ImageButton Source="Upload.png" Clicked="browse" />
             <Image BindingContext ="{Binding Image}" />
-            <Label Text="Tracker Number" />
-            <Entry Text="{Binding TrackerId}" />
+            <!--<Label Text="Tracker Number" />
+            <Entry Text="{Binding TrackerId}" />-->
             <Label Text="LivestockType " />
             <Entry Text="{Binding LivestockTypeId}" />
      
