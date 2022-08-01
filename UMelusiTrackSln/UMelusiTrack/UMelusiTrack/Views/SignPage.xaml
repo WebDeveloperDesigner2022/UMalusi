@@ -1,6 +1,6 @@
 ﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="UMelusiTrack.SignPage" Title="Login" >
+             x:Class="UMelusiTrack.SignPage" Title="Umalusi" >
     <ContentPage.Content>
         <StackLayout Spacing="20">
           
@@ -59,7 +59,7 @@
                     Text="Login"
                     FontSize="12"
                     HorizontalOptions="CenterAndExpand"
-                    BackgroundColor="#3498db"
+                    BackgroundColor="White"
                     WidthRequest="200"
                     CornerRadius="10"
                     Command="{Binding SubmitCommand}"/>
@@ -73,8 +73,8 @@
                     Clicked="Signup_Clicked" />
                 <Button Text="-->" 
                         Clicked="TestBtn" 
-                        BackgroundColor="Snow"
-                        BorderColor="Snow"
+                        BackgroundColor="White"
+                        BorderColor="White"
                         />
 
             </StackLayout>

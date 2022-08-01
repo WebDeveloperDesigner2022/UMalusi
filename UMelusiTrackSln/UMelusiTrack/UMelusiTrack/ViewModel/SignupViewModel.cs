@@ -7,28 +7,32 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using UMelusiTrack.Models;
 using UMelusiTrack.Services;
+using UMelusiTrack.Services.Interfaces;
 using Xamarin.Forms;
 
 namespace UMelusiTrack.ViewModel
 {
     public class SignupViewModel : INotifyPropertyChanged
     {
+        private IFarmer _farmerService;
         public event PropertyChangedEventHandler PropertyChanged;
         public string name;
         public string surname;
         public string username;
-        public string password;        
+        public string password;
+        public string azureMapId;
+        public int authenticationId;
         public string confirmPassword;
         public bool agreement;
         Regex names = new Regex("[^a-zA-Z]");
 
-        public string Name
+        public string Names 
         {
             get { return name; }
             set
             {
                 name = value;
-                PropertyChanged(this, new PropertyChangedEventArgs("Name"));
+                PropertyChanged(this, new PropertyChangedEventArgs("Names"));
             }
         }
 
@@ -79,6 +83,26 @@ namespace UMelusiTrack.ViewModel
             }
         }
 
+        public string AzureMapId
+        {
+            get { return azureMapId; }
+            set
+            {
+                 azureMapId = value;
+                PropertyChanged(this, new PropertyChangedEventArgs("AzureMapId"));
+            }
+        }
+
+        public int AuthenticationId
+        {
+            get { return authenticationId; }
+            set
+            {
+                authenticationId = value;
+                PropertyChanged(this, new PropertyChangedEventArgs("AuthenticationId"));
+            }
+        }
+
         public ICommand SignupSubmitCommand { get; set; }
         public SignupViewModel()
         {
@@ -89,9 +113,9 @@ namespace UMelusiTrack.ViewModel
             
             if (IsValidated())
             {
-                SaveSignUp();
+                await SaveSignUp();
 
-                await App.Current.MainPage.Navigation.PushAsync(new SignPage());
+                await App.Current.MainPage.Navigation.PushAsync(new MainPage2());
             }           
         }
 
@@ -99,14 +123,14 @@ namespace UMelusiTrack.ViewModel
         {
             if (string.IsNullOrEmpty(Username)
                && string.IsNullOrEmpty(Password) && string.IsNullOrEmpty(ConfirmPassword)
-               && string.IsNullOrEmpty(Name) && string.IsNullOrEmpty(Surname) && !Agreement)
+               && string.IsNullOrEmpty(Names) && string.IsNullOrEmpty(Surname) && !Agreement)
             {
                 MessagingCenter.Send(this, "Signup Alert", "Please fill-up the form");
                 return false;
             }
             else
             {
-                if (!names.IsMatch(Name) && !names.IsMatch(Surname))
+                if (!names.IsMatch(Names) && !names.IsMatch(Surname))
                 {
                     return true;
                 }
@@ -116,22 +140,49 @@ namespace UMelusiTrack.ViewModel
             return false;
         }
 
-        public async void SaveSignUp()
+        public async Task SaveSignUp()
         {
-            UmelusiDB database = await UmelusiDB.Instance;
+            try
+            {
+                FarmerService _farmerService = new FarmerService();
 
-            var data = new SigningDataModel() { Done = this.Agreement, Name = this.Name, Password = this.Password, Surname = this.Surname, Username = this.Username };
+                var user = await _farmerService.Farmer( Names = this.Names, Password = this.Password, Surname = this.Surname, Username = this.Username, AzureMapId = this.AzureMapId, AuthenticationId = this.AuthenticationId);
+                // Names = this.Names, Password = this.Password, Surname = this.Surname, Username = this.Username, AzureMapId = this.AzureMapId, AuthenticationId = this.AuthenticationId                
 
-            await database.SaveItemAsync(data);
+                if (user != null)
+                {
+                    await App.Current.MainPage.Navigation.PushAsync(new MainPage2());
+                } 
+
+                else
+                {
+                    MessagingCenter.Send(this, "SignUp Alert", "Fill in all detils");
+                }
+            }
+            catch { }
+
+
+
+            //UmelusiDB database = await UmelusiDB.Instance;
+
+            //var data = new SigningDataModel() { Done = this.Agreement, Name = this.Name, Password = this.Password, Surname = this.Surname, Username = this.Username, AzureMapId = this.AzureMapId, AuthenticationId = this.AuthenticationId };
+
+            // await _farmerService.SaveItemAsync(user);
 
             // ONLY EXAMPLE
 
-           // var positionService = new LivestockPositionService();
-           // positionService.LivestockPosition()
+            // var positionService = new LivestockPositionService();
+            // positionService.LivestockPosition()
 
 
 
 
         }
-    }    
+
+    } 
+    
+   /* public class CustomerName {
+        private string _value;
+        public string Value { get { return _value; } set { _value = value; } }
+    }*/
 }

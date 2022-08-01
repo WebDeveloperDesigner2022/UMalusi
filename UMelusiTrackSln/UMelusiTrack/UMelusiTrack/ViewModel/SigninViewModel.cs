@@ -4,7 +4,7 @@ using System.ComponentModel;
 using System.Text;
 using System.Windows.Input;
 using UMelusiTrack.Services;
-using UMelusiTrack.Services.Interfaces;
+using UMelusiTrack.Views;
 using Xamarin.Forms;
 
 namespace UMelusiTrack.ViewModel 
@@ -59,19 +59,26 @@ namespace UMelusiTrack.ViewModel
             }
             else 
             {
-               /* var db = await UmelusiDB.Instance;
+                // var db = await UmelusiDB.Instance;
 
-                var login = await db.Login(Username, Password);
+                // var login = await db.Login(Username, Password);
 
-                if(login == true)
-                {
-                    await App.Current.MainPage.Navigation.PushAsync(new MainPage2());
-                }
-                //
-                else
-                {
-                    MessagingCenter.Send(this, "Login Alert", "Wrong username or password");
-                }*/
+                AuthenticationService _authenticationService = new AuthenticationService();
+
+                var user = await _authenticationService.Authenticate(Username, Password);
+
+                //var login = await db.Login(Username, Password);
+
+                if (user == true)
+                  {
+                      await App.Current.MainPage.Navigation.PushAsync(new MainPage2());
+                  }
+                  
+                  else
+                  {
+                      MessagingCenter.Send(this, "Login Alert", "Wrong username or password");
+                  }
+               
             }
 
         }

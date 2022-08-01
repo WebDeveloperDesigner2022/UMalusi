@@ -32,7 +32,7 @@ namespace UMelusiTrackApi.Controllers
                 }
                 _uMalusiDbRepository.CreateNewFarmer(farmer);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 return BadRequest(SystemErrorCodes.FarmerCreationFailed.ToString());
             }
