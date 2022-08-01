@@ -169,6 +169,14 @@ namespace UMelusiTrackApi.Data
 
         }
 
+        public LivestockPosition InsertLiveStockPosition(LivestockPosition livestockPosition)
+        {
+            _uMalusiContext.LivestockPositions.Add(livestockPosition);
+            _uMalusiContext.SaveChanges();
+
+            return livestockPosition;
+        }
+
         #endregion
 
     }

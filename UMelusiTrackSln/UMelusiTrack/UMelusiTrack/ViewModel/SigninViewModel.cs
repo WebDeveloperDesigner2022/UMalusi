@@ -71,7 +71,7 @@ namespace UMelusiTrack.ViewModel
                 else
                 {
                     MessagingCenter.Send(this, "Login Alert", "Wrong username or password");
-                }
+                }*/
             }
 
         }
