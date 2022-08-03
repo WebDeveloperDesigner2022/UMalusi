@@ -149,21 +149,20 @@ namespace UMelusiTrack.ViewModel
 
         public async void SaveOrderAsync()
         {
-
+            try { 
             OrderService _orderService = new OrderService();
-            var data = await _orderService.Order(Name, Surname, Quantity, ReferenceNo, DeliveryAddress, ContactNo, Email, FarmerId);
-           /* {
-                Name = this.Name,
-                Surname = this.Surname,
-                Quantity = this.Quantity,
-                ReferenceNo = this.ReferenceNo,
-                DeliveryAddress = this.DeliveryAddress,
-                ContactNo = this.ContactNo,
-                Email = this.Email,
-                FarmerId = this.FarmerId
-            };
-            await _orderService.SaveItemAsync(data);*/
+            var data = await _orderService.Order(Name = this.Name, Surname = this.Surname, Quantity = this.Quantity, ReferenceNo = this.ReferenceNo, DeliveryAddress = this.DeliveryAddress, ContactNo = this.ContactNo, Email = this.Email, FarmerId = this.FarmerId);
+            if (data != null)
+            {
+                await App.Current.MainPage.Navigation.PushAsync(new MainPage2());
+            }
 
+            else
+            {
+                MessagingCenter.Send(this, "Buy Alert", "Fill in all detils");
+            }
+        }
+            catch { }
         }
     }
 }

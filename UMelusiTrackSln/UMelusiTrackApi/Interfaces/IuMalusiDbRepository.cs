@@ -28,6 +28,8 @@ namespace UMelusiTrackApi.Interfaces
 
         bool PerformAuthenticationCheck(string username, string password);
 
+    //    Farmer GetFarmerByAuthenticationId(int farmerId, bool fullFetch = true);
+        public Farmer GetAuthentication(string username, string password);
 
     }
 }

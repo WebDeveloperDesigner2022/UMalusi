@@ -155,6 +155,12 @@ namespace UMelusiTrackApi.Data
             return livestock;
 
         }
+        public Farmer GetAuthentication(string username, string password)
+        {
+            var user = _uMalusiContext.Farmers.Where(u => u.Username == username && u.Password == password).FirstOrDefault();
+            return user;
+
+        }
         #endregion
 
         #region Tracker

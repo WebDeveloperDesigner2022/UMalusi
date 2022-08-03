@@ -85,16 +85,11 @@ namespace UMelusiTrackApi.Migrations
                     b.Property<int>("LivestockTypeId")
                         .HasColumnType("int");
 
-                    b.Property<int>("TrackerId")
-                        .HasColumnType("int");
-
                     b.HasKey("LivestockId");
 
                     b.HasIndex("FarmerId");
 
                     b.HasIndex("LivestockTypeId");
-
-                    b.HasIndex("TrackerId");
 
                     b.ToTable("Livestock");
                 });
@@ -223,17 +218,9 @@ namespace UMelusiTrackApi.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("UMelusiTrackApi.Models.Tracker", "Tracker")
-                        .WithMany()
-                        .HasForeignKey("TrackerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("Farmer");
 
                     b.Navigation("LivestockType");
-
-                    b.Navigation("Tracker");
                 });
 
             modelBuilder.Entity("UMelusiTrackApi.Models.LivestockPosition", b =>

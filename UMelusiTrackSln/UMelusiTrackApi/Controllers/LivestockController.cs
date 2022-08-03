@@ -25,9 +25,14 @@ namespace UMelusiTrackApi.Controllers
                 {
                     return BadRequest(SystemErrorCodes.LivestockNotValid.ToString());
                 }
+
+                var farmer = _uMalusiDbRepository.GetFarmerById(livestock.FarmerId);
+                livestock.Farmer = farmer;
+
+
                 _uMalusiDbRepository.CreateNewLivestock(livestock);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 return BadRequest(SystemErrorCodes.LivestockCreationFailed.ToString());
             }
@@ -40,5 +45,27 @@ namespace UMelusiTrackApi.Controllers
         {
             return _uMalusiDbRepository.GetLivestocksByFarmerId(farmerId);
         }
+        #region snippetDelete
+
+      /*  [HttpDelete("{id}")]
+        public IActionResult Delete(string id)
+        {
+            try
+            {
+                var item = _uMalusiDbRepository.Find(id);
+                if (item == null)
+                {
+                    return NotFound(ErrorCode.RecordNotFound.ToString());
+                }
+                _uMalusiDbRepository.Delete(id);
+            }
+            catch (Exception)
+            {
+                return BadRequest(ErrorCode.CouldNotDeleteItem.ToString());
+            }
+            return NoContent();
+        }*/
+        #endregion
+      
     }
 }
