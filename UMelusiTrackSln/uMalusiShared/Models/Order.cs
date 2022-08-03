@@ -20,6 +20,7 @@ namespace UMelusiTrackApi.Models
         public string ContactNo { get; set; }
         public string Email { get; set; }
 
+
         [ForeignKey("Farmer")]
         public int FarmerId { get; set; }
 

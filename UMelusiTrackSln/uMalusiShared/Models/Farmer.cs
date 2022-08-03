@@ -25,6 +25,7 @@ namespace UMelusiTrackApi.Models
         public Authentication? Authentication { get; set; }
     */
         public ICollection<Livestock>? Livestocks { get; set; }
+        public ICollection<Order>? Orders { get; set; }
 
 
 

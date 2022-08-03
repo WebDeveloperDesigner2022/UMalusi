@@ -12,7 +12,7 @@ using UMelusiTrackApi.Data;
 namespace UMelusiTrackApi.Migrations
 {
     [DbContext(typeof(uMalusiContext))]
-    [Migration("20220801115626_migrationv1")]
+    [Migration("20220803105644_migrationv1")]
     partial class migrationv1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -239,7 +239,7 @@ namespace UMelusiTrackApi.Migrations
             modelBuilder.Entity("UMelusiTrackApi.Models.Order", b =>
                 {
                     b.HasOne("UMelusiTrackApi.Models.Farmer", "Farmer")
-                        .WithMany()
+                        .WithMany("Orders")
                         .HasForeignKey("FarmerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -250,6 +250,8 @@ namespace UMelusiTrackApi.Migrations
             modelBuilder.Entity("UMelusiTrackApi.Models.Farmer", b =>
                 {
                     b.Navigation("Livestocks");
+
+                    b.Navigation("Orders");
                 });
 
             modelBuilder.Entity("UMelusiTrackApi.Models.Livestock", b =>

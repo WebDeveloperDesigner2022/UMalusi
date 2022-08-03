@@ -47,7 +47,7 @@ namespace UMelusiTrackApi.Controllers
         }
         #region snippetDelete
 
-      /*  [HttpDelete("{id}")]
+       /* [HttpDelete("{id}")]
         public IActionResult Delete(string id)
         {
             try

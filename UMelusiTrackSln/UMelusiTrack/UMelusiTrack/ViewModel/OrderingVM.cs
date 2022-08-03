@@ -103,12 +103,13 @@ namespace UMelusiTrack.ViewModel
             SignupSubmitCommand = new Command(OnSubmitAsync);
         }
 
-        public void OnSubmitAsync()
+        public async void OnSubmitAsync()
         {
 
-            if (IsValidated())
+          //  if (IsValidated())
             {
-                SaveOrderAsync();
+                await SaveOrderAsync();
+                await App.Current.MainPage.Navigation.PushAsync(new MainPage2());
 
             }
         }
@@ -122,7 +123,7 @@ namespace UMelusiTrack.ViewModel
                && string.IsNullOrEmpty(DeliveryAddress) 
                && string.IsNullOrEmpty(ContactNo)
                && string.IsNullOrEmpty(Email)
-               && Quantity == 0)
+               && Quantity != 0)
             {
                 MessagingCenter.Send(this, "Ordering Alert", "Please fill-up the form");
                 return false;
@@ -135,7 +136,7 @@ namespace UMelusiTrack.ViewModel
                || string.IsNullOrEmpty(DeliveryAddress)
                || string.IsNullOrEmpty(ContactNo)
                || string.IsNullOrEmpty(Email)
-               || Quantity == 0)
+               || Quantity != 0)
             {
                 MessagingCenter.Send(this, "Ordering Alert", "Please fill-up every details");
                 return false;
@@ -147,11 +148,12 @@ namespace UMelusiTrack.ViewModel
             }
         }
 
-        public async void SaveOrderAsync()
+        public async Task SaveOrderAsync()
         {
             try { 
             OrderService _orderService = new OrderService();
             var data = await _orderService.Order(Name = this.Name, Surname = this.Surname, Quantity = this.Quantity, ReferenceNo = this.ReferenceNo, DeliveryAddress = this.DeliveryAddress, ContactNo = this.ContactNo, Email = this.Email, FarmerId = this.FarmerId);
+           
             if (data != null)
             {
                 await App.Current.MainPage.Navigation.PushAsync(new MainPage2());
