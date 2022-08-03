@@ -1,9 +1,9 @@
 ﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="UMelusiTrack.Views.Manage" NavigationPage.HasNavigationBar="False">
+             x:Class="UMelusiTrack.Views.Manage" NavigationPage.HasNavigationBar="False" BackgroundColor="White">
     <ContentPage.Content>
         <StackLayout>
-            <Frame BackgroundColor="green" Margin="0" CornerRadius="0" BorderColor="Black" HeightRequest="120" >
+            <Frame BackgroundColor="#6FBF7B" Margin="0" CornerRadius="0" BorderColor="Black" HeightRequest="120" >
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*"/>
@@ -51,7 +51,7 @@
                     </ListView.ItemTemplate>
                 </ListView>
             </ScrollView>
-            <Button Text="Registered new Livestock" TextColor="black" BackgroundColor="green" FontSize="20" Clicked="register"  BorderWidth="2"
+            <Button Text="Registered new Livestock" TextColor="black" BackgroundColor="#6FBF7B" FontSize="15" Clicked="register"  BorderWidth="2"
         BorderColor="white" CornerRadius="20"/>
         </StackLayout>
     </ContentPage.Content>
