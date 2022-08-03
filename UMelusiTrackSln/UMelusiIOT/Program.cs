@@ -5,14 +5,16 @@ using System.IO.Ports;
 using nanoFramework.Hardware.Esp32;
 using System.Text;
 using UMelusiIOT.Services;
-
+using System.Net;
+//using System.Collections.Specialized;
 using System.Net.Http;
+using UMelusiTrackApi.Models;
 
 namespace UMelusiIOT
 {
     public class Program
     {
-       public LonLat lnlt = new LonLat();
+      
         static SerialPort _serialDevice;
 
         public static void SendCommand()
@@ -128,9 +130,44 @@ namespace UMelusiIOT
 
                     if (latitude != "" && longitude != "")
                     {
-                        HttpClient client = new HttpClient();
+                        string livestockName = cow101;
+                        int livestockid = 1;
+                        /*
+                        LivestockPosition livestockPosition = new LivestockPosition();
+                        //var web = new 
+                        livestockPosition = new LivestockPosition();
+                        livestockPosition.Latitude = livestockMovement.Latitude;
+                        livestockPosition.Longitude = livestockMovement.Longitude;
+                        livestockPosition.DateTime = DateTime.Now;
+                        livestockPosition.LivestockName = livestockMovement.LivestockName;
+                        livestockPosition.LivestockId = livestockMovement.LivestockId;
+                        livestockPosition.Livestock = livestock;
+                        */
 
+                        var uri = new Uri(AppConfigurationService.Instance.uMalusiServerUrl + "api/LivestockPosition");
 
+                        try
+                        {
+                            var request = new LivestockMovement() { LivestockName = livestockName, Latitude = latitude, Longitude = longitude, DateTime = DateTime.Now, LivestockId = livestockid };
+
+                            var requestJson = JsonConvert.SerializeObject(request);
+                            var content = new StringContent(requestJson, Encoding.UTF8, "application/json");
+
+                            var response = await _httpClient.PostAsync(uri, content);
+
+                            if (response.IsSuccessStatusCode)
+                            {
+                                var contentResponse = await response.Content.ReadAsStringAsync();
+
+                                var valueResponse = JsonConvert.DeserializeObject<LivestockPosition>(contentResponse);
+
+                                return valueResponse;
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            Debug.WriteLine(@"\tERROR {0}", ex.Message);
+                        }
 
                     }
                     else
