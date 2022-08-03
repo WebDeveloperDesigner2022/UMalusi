@@ -5,14 +5,16 @@ using System.IO.Ports;
 using nanoFramework.Hardware.Esp32;
 using System.Text;
 using UMelusiIOT.Services;
-
+using System.Net;
+//using System.Collections.Specialized;
 using System.Net.Http;
+using UMelusiTrackApi.Models;
 
 namespace UMelusiIOT
 {
     public class Program
     {
-       public LonLat lnlt = new LonLat();
+      
         static SerialPort _serialDevice;
 
         public static void SendCommand()
@@ -128,9 +130,17 @@ namespace UMelusiIOT
 
                     if (latitude != "" && longitude != "")
                     {
-                        HttpClient client = new HttpClient();
-
-
+                       /* 
+                        * LivestockPosition livestockPosition = null;
+                        //var web = new 
+                        livestockPosition = new LivestockPosition();
+                        livestockPosition.Latitude = livestockMovement.Latitude;
+                        livestockPosition.Longitude = livestockMovement.Longitude;
+                        livestockPosition.DateTime = DateTime.Now;
+                        livestockPosition.LivestockName = livestockMovement.LivestockName;
+                        livestockPosition.LivestockId = livestockMovement.LivestockId;
+                        livestockPosition.Livestock = livestock;
+                       */
 
                     }
                     else

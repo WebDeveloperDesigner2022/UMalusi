@@ -14,8 +14,8 @@
                         Android="20,100,20,0">
                     </OnPlatform>
                 </StackLayout.Padding>
-                
-                <Image Source="logo3.jpg" BackgroundColor="Transparent" HeightRequest="200" />
+
+                <Image Source="logo3_modified.png" BackgroundColor="Transparent" HeightRequest="200" />
                 
                 <Label Text="Sign in" FontSize="Title" TextColor="Black"
                        HorizontalOptions="CenterAndExpand"

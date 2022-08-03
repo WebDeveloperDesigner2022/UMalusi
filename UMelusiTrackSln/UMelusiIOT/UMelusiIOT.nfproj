@@ -20,7 +20,6 @@
   <ItemGroup>
     <Compile Include="AssemblyInfo1.cs" />
     <Compile Include="Services\NetworkingHelpers.cs" />
-    <Compile Include="Services\LonLat.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -71,6 +70,9 @@
   <ItemGroup>
     <None Include="app.manifest" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\uMalusiShared\uMalusiShared.csproj" />
   </ItemGroup>
   <Import Project="$(NanoFrameworkProjectSystemPath)NFProjectSystem.CSharp.targets" Condition="Exists('$(NanoFrameworkProjectSystemPath)NFProjectSystem.CSharp.targets')" />
   <ProjectExtensions>
