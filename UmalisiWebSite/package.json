@@ -53,6 +53,9 @@
     "lint:fix": "eslint --fix --ext .js,.jsx .",
     "extends": "eslint:recommended"
   },
+  "engines": {
+    "node": "16.x"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
