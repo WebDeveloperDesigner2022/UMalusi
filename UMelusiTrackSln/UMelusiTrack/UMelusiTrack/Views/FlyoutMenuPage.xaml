@@ -8,9 +8,10 @@
         <ListView x:Name="listView" x:FieldModifier="public">
             <ListView.ItemsSource>
                 <x:Array Type="{x:Type local:FlyoutItemPage}">
-                    <local:FlyoutItemPage Title="Home" IconSource="icons.png" TargetPage="{x:Type local:HomePage}" />
+                    <local:FlyoutItemPage Title="Profile" IconSource="icons.png" TargetPage="{x:Type local:HomePage}" />
                     <local:FlyoutItemPage Title="About UMelusi" IconSource="faq.png" TargetPage="{x:Type local:AboutUs}" />
                     <local:FlyoutItemPage Title="Instructions" IconSource="info.png" TargetPage="{x:Type local:FAQ}" />
+                    
                 </x:Array>
             </ListView.ItemsSource>
             <ListView.ItemTemplate>
