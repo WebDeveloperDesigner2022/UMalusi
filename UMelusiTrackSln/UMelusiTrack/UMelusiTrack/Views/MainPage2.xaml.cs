@@ -43,6 +43,7 @@ namespace UMelusiTrack
                     MapSpan mapSpan = MapSpan.FromCenterAndRadius(p, Distance.FromKilometers(.444));
                     map.MoveToRegion(mapSpan);
                     Console.WriteLine($"Latitude: {location.Latitude}, Longitude: {location.Longitude}, Altitude: {location.Altitude}");
+                    map.MapElements.Add(circle);
                 }
             }
             catch (FeatureNotSupportedException fnsEx)
@@ -62,6 +63,14 @@ namespace UMelusiTrack
                 // Unable to get location
             }
         }
+        Circle circle = new Circle
+        {
+            Center = new Position(-33.933189, 18.626520),
+            Radius = new Distance(2500),
+            StrokeColor = Color.FromHex("#88FF0000"),
+            StrokeWidth = 8,
+            FillColor = Color.FromHex("#88FFC0CB")
+        };
 
         private void ManageButton(object sender, EventArgs e)
         {
