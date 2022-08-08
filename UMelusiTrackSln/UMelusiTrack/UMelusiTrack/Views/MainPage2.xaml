@@ -41,8 +41,7 @@
 
                             </Grid>
                         </Frame>
-                        
-
+                       
                     </StackLayout>
 
                 </local:HomePage>
