@@ -45,10 +45,27 @@ namespace UMelusiTrackApi.Controllers
 
                     _uMalusiDbRepository.InsertLiveStockPosition(livestockPosition);
 
+                    var farmer = _uMalusiDbRepository.GetFarmerById(livestock.FarmerId);
+
+
+
+                    //farmer.AzureMapId
+
+                    //farmer.fcaafa82-018e-4285-acd0-53ec883db229(this was my client Id from azure maps account)
+
                     // TODO   Check GeoFence
+
+                    // call IsLivestockWithinFence HERE
+                    //var isInFence = await IsLivestockWithinFence(cow, UDID, SUBSCRIPTION_KEY);
+                    //public async Task<bool> IsLivestockWithinFence(Livestock livestock, string udid,  string subscriptionKey)
 
                     // TODO  if outside GeoFence then send Push Notification
 
+                    //  SendTemplateNotificationsAsync
+
+                    //  farmer.Username
+
+                    //                 await hub.SendTemplateNotificationAsync(templateParameters, farmer.UserName);
 
                 }
                 else

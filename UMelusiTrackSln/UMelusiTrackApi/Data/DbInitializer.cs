@@ -75,6 +75,8 @@ namespace UMelusiTrackApi.Data
                 farmer.Livestocks = new List<Livestock>();
                 farmer.Livestocks.Add(livestock);
 
+                farmer.AzureMapId = "YOUR UDID";
+
             //    farmer.Authentication = userAccount;
 
 
