@@ -168,6 +168,18 @@ namespace UMelusiTrackApi.Data
 
         #endregion
 
+        #region Order
+        public Order CreateNewOrder(Order order)
+        {
+            _uMalusiContext.Orders.Add(order);
+            _uMalusiContext.SaveChanges();
+
+            return order;
+        }
+
+        #endregion
+
+
         #region LivestockPosition
 
         public IList<LivestockPosition> GetLivestockPositionsByLivestockId(int livestockId)

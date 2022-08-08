@@ -29,10 +29,11 @@ namespace UMelusiTrack.Views
         protected async override void OnAppearing()
         {
             base.OnAppearing();
-            //listView.ItemsSource = await App.Livestock.GetTasksAsync();
+           //Items = new List<TodoItem>();
+          // listView.ItemsSource = await RefreshDataAsync();
 
-              /* livestockDatabase database = await livestockDatabase.Instance;
-               listView.ItemsSource = await database.GetItemsAsync();*/
+            /* livestockDatabase database = await livestockDatabase.Instance;
+             listView.ItemsSource = await database.GetItemsAsync();*/
 
           }
 

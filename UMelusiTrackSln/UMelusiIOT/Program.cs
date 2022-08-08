@@ -130,8 +130,10 @@ namespace UMelusiIOT
 
                     if (latitude != "" && longitude != "")
                     {
-                       /* 
-                        * LivestockPosition livestockPosition = null;
+                        string livestockName = cow101;
+                        int livestockid = 1;
+                        /*
+                        LivestockPosition livestockPosition = new LivestockPosition();
                         //var web = new 
                         livestockPosition = new LivestockPosition();
                         livestockPosition.Latitude = livestockMovement.Latitude;
@@ -140,7 +142,32 @@ namespace UMelusiIOT
                         livestockPosition.LivestockName = livestockMovement.LivestockName;
                         livestockPosition.LivestockId = livestockMovement.LivestockId;
                         livestockPosition.Livestock = livestock;
-                       */
+                        */
+
+                        var uri = new Uri(AppConfigurationService.Instance.uMalusiServerUrl + "api/LivestockPosition");
+
+                        try
+                        {
+                            var request = new LivestockMovement() { LivestockName = livestockName, Latitude = latitude, Longitude = longitude, DateTime = DateTime.Now, LivestockId = livestockid };
+
+                            var requestJson = JsonConvert.SerializeObject(request);
+                            var content = new StringContent(requestJson, Encoding.UTF8, "application/json");
+
+                            var response = await _httpClient.PostAsync(uri, content);
+
+                            if (response.IsSuccessStatusCode)
+                            {
+                                var contentResponse = await response.Content.ReadAsStringAsync();
+
+                                var valueResponse = JsonConvert.DeserializeObject<LivestockPosition>(contentResponse);
+
+                                return valueResponse;
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            Debug.WriteLine(@"\tERROR {0}", ex.Message);
+                        }
 
                     }
                     else

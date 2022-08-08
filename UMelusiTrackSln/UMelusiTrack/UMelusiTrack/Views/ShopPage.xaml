@@ -23,24 +23,18 @@
                 <Label Text="Quantity :" />
                 <Entry Text="{Binding Quantity}" />
                 <Label Text="Reference Number :" />
-                <Entry Text="{Binding Refence_number}" />
+                <Entry Text="{Binding RefenceNo}" />
                 <Label Text="Delivery options :" />
-                <Entry Text="{Binding Delivery_options}"/>
-                <Label Text="Delivery Addrress :"/>
-                <Entry Text="{Binding Delivery_address}"/>
+                <Entry Text="{Binding DeliveryAddress}"/>
                 <Label Text="Contact Number :" />
-                <Entry Text="{Binding Contact_number}"/>
+                <Entry Text="{Binding ContactNo}"/>
                 <Label Text="Email"/>
-                <Entry Text="{Binding Email_address}"/>
+                <Entry Text="{Binding Email}"/>
 
                 <Label Text="IMPORTANT:" FontSize="Subtitle"  TextColor="Black" FontAttributes="Italic"/>
                 <Label Text="Please ensure that the correct bank account and customer code reference number is used when depositing." TextColor="Black" FontAttributes="Italic" FontSize="Default"/>
 
-                <StackLayout>
-
-
-                </StackLayout>
-                <StackLayout>
+               <!-- <StackLayout>
                     <Label Text="BANKING DETAILS" FontAttributes="Bold"></Label>
                     <StackLayout>
                         <Label Text="BANK                      ABSA"></Label>
@@ -58,7 +52,7 @@
                         <Editor x:Name="txtBody" HeightRequest="50" Text="Umalusi trackers" ></Editor>
                         <Button x:Name="btnSend" Text="Send" Clicked="BtnSend_Clicked" />
                     </StackLayout>
-                </StackLayout>
+                </StackLayout>-->
             </StackLayout>
         </ScrollView>
         <StackLayout Margin="80,10,50,10">

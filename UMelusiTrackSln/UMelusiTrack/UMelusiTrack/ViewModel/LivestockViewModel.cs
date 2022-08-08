@@ -1,19 +1,24 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using UMelusiTrack.Services;
 using UMelusiTrack.Services.Interfaces;
 using UMelusiTrack.Views;
+using UMelusiTrackApi.Models;
 using Xamarin.Forms;
 
 namespace UMelusiTrack.ViewModel
 {
     public class LivestockViewModel : INotifyPropertyChanged
     {
-       // private ILivestock _livestockService;
+        public List<Livestock> Livestocks { get; set; }
+        
+        // private ILivestock _livestockService;
         public event PropertyChangedEventHandler PropertyChanged;
         public string livestockName;
         public string dob;
@@ -113,6 +118,19 @@ namespace UMelusiTrack.ViewModel
 
                 await App.Current.MainPage.Navigation.PushAsync(new Manage());
             }
+        }
+
+        public async Task<List<Livestock>> RefreshDataAsync()
+        {
+            
+            LivestockService _livestockService = new LivestockService();
+
+            var farmer = InMemoryDataCache.AuthenticatedFarmer;
+            var livestock = await _livestockService.RegisterLivestock(farmer, LivestockName, DOB,
+             Color, Image, FarmerId, LivestockTypeId);
+                      
+           
+            return Livestocks;
         }
 
         public async Task RegisterLivestock()
