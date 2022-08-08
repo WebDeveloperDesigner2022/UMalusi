@@ -6,21 +6,23 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using UMelusiTrack.Models;
 using UMelusiTrack.Services;
+using UMelusiTrack.Services.Interfaces;
 using Xamarin.Forms;
 
 namespace UMelusiTrack.ViewModel
 {
     public class OrderingVM : INotifyPropertyChanged
     {
+        private IOrder _orderService;
         public event PropertyChangedEventHandler PropertyChanged;
         public string name;
         public string surname;
         public int quantity;
-        public string refence_number;
-        public string delivery_options;
-        public string delivery_address;
-        public string contact_number;
-        public string email_address;
+        public string refenceNo;
+        public string deliveryAddress;
+        public string contactNo;
+        public string email;
+        public int farmerId;
 
         public string Name 
         {
@@ -49,49 +51,49 @@ namespace UMelusiTrack.ViewModel
                 PropertyChanged(this, new PropertyChangedEventArgs("quantity"));
             }
         }
-        public string Refence_number 
+        public string ReferenceNo 
         {
-            get { return refence_number; }
+            get { return refenceNo; }
             set
             {
-                refence_number = value;
+                refenceNo = value;
                 PropertyChanged(this, new PropertyChangedEventArgs("Refence_number"));
             }
         }
-        public string Delivery_options
+        public string DeliveryAddress 
         {
-            get { return delivery_options; }
+            get { return deliveryAddress; }
             set
             {
-                delivery_options = value;
-                PropertyChanged(this, new PropertyChangedEventArgs("Delivery_options"));
-            }
-        }
-        public string Delivery_address 
-        {
-            get { return delivery_address; }
-            set
-            {
-                delivery_address = value;
+                deliveryAddress = value;
                 PropertyChanged(this, new PropertyChangedEventArgs("Delivery_address"));
             }
         }
-        public string Contact_number 
+        public string ContactNo 
         {
-            get { return contact_number; }
+            get { return contactNo; }
             set
             {
-                contact_number = value;
+                contactNo = value;
                 PropertyChanged(this, new PropertyChangedEventArgs("Contact_number"));
             }
         }
-        public string Email_address 
+        public string Email 
         {
-            get { return email_address; }
+            get { return email; }
             set
             {
-                email_address = value;
+                email = value;
                 PropertyChanged(this, new PropertyChangedEventArgs("Email_address"));
+            }
+        }
+        public int FarmerId
+        {
+            get { return farmerId; }
+            set
+            {
+                farmerId = value;
+                PropertyChanged(this, new PropertyChangedEventArgs("FarmerId"));
             }
         }
 
@@ -101,12 +103,13 @@ namespace UMelusiTrack.ViewModel
             SignupSubmitCommand = new Command(OnSubmitAsync);
         }
 
-        public void OnSubmitAsync()
+        public async void OnSubmitAsync()
         {
 
-            if (IsValidated())
+          //  if (IsValidated())
             {
-                SaveOrderAsync();
+                await SaveOrderAsync();
+                await App.Current.MainPage.Navigation.PushAsync(new MainPage2());
 
             }
         }
@@ -114,13 +117,13 @@ namespace UMelusiTrack.ViewModel
         public bool IsValidated()
         {
             if (string.IsNullOrEmpty(Name)
-               && string.IsNullOrEmpty(Surname) 
-               && string.IsNullOrEmpty(Refence_number)
-               && string.IsNullOrEmpty(Delivery_options) 
-               && string.IsNullOrEmpty(Delivery_address) 
-               && string.IsNullOrEmpty(Contact_number)
-               && string.IsNullOrEmpty(Email_address)
-               && Quantity == 0)
+               && string.IsNullOrEmpty(Surname)
+               //&& int.IsNullOrEmpty(Quantity)
+               && string.IsNullOrEmpty(ReferenceNo)
+               && string.IsNullOrEmpty(DeliveryAddress) 
+               && string.IsNullOrEmpty(ContactNo)
+               && string.IsNullOrEmpty(Email)
+               && Quantity != 0)
             {
                 MessagingCenter.Send(this, "Ordering Alert", "Please fill-up the form");
                 return false;
@@ -128,12 +131,12 @@ namespace UMelusiTrack.ViewModel
 
             else if (string.IsNullOrEmpty(Name)
                || string.IsNullOrEmpty(Surname)
-               || string.IsNullOrEmpty(Refence_number)
-               || string.IsNullOrEmpty(Delivery_options)
-               || string.IsNullOrEmpty(Delivery_address)
-               || string.IsNullOrEmpty(Contact_number)
-               || string.IsNullOrEmpty(Email_address)
-               || Quantity == 0)
+               //|| int.IsNullOrWhiteSpace(Quantity)
+               || string.IsNullOrEmpty(ReferenceNo)
+               || string.IsNullOrEmpty(DeliveryAddress)
+               || string.IsNullOrEmpty(ContactNo)
+               || string.IsNullOrEmpty(Email)
+               || Quantity != 0)
             {
                 MessagingCenter.Send(this, "Ordering Alert", "Please fill-up every details");
                 return false;
@@ -145,21 +148,23 @@ namespace UMelusiTrack.ViewModel
             }
         }
 
-        public async void SaveOrderAsync()
+        public async Task SaveOrderAsync()
         {
-            OrderingDb db = new OrderingDb();
-            var data = new OrderingModels()
+            try { 
+            OrderService _orderService = new OrderService();
+            var data = await _orderService.Order(Name = this.Name, Surname = this.Surname, Quantity = this.Quantity, ReferenceNo = this.ReferenceNo, DeliveryAddress = this.DeliveryAddress, ContactNo = this.ContactNo, Email = this.Email, FarmerId = this.FarmerId);
+           
+            if (data != null)
             {
-                Name = this.Name,
-                Surname = this.Surname,
-                Quantity = this.Quantity,
-                Refence_number = this.Refence_number,
-                Delivery_options = this.Delivery_options,
-                Delivery_address = this.Delivery_address,
-                Contact_number = this.Contact_number,
-                Email_address = this.Email_address
-            };
-            await db.SaveItemAsync(data);
+                await App.Current.MainPage.Navigation.PushAsync(new MainPage2());
+            }
+
+            else
+            {
+                MessagingCenter.Send(this, "Buy Alert", "Fill in all detils");
+            }
+        }
+            catch { }
         }
     }
 }

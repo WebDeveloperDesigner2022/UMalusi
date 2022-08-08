@@ -66,4 +66,8 @@
     <SourceGeneratorInput Remove="Services\Interfaces\IHttpNativeHandler.cs" />
   </ItemGroup>
 
+  <ItemGroup>
+    <SourceGeneratorInput Remove="Services\FarmerService.cs" />
+  </ItemGroup>
+
 </Project>

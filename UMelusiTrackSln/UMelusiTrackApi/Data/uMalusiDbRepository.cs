@@ -124,7 +124,7 @@ namespace UMelusiTrackApi.Data
 
         public bool PerformAuthenticationCheck(string userName, string password)
         {
-            var user = _uMalusiContext.Authentications.Where(u => u.Username == userName && u.Password == password).FirstOrDefault();
+            var user = _uMalusiContext.Farmers.Where(u => u.Username == userName && u.Password == password).FirstOrDefault();
 
             if (user != null)
             {
@@ -136,9 +136,31 @@ namespace UMelusiTrackApi.Data
 
         public Livestock CreateNewLivestock(Livestock livestock)
         {
-            throw new NotImplementedException();
+            _uMalusiContext.Livestocks.Add(livestock);
+            _uMalusiContext.SaveChanges();
+
+            return livestock;
+
+        }
+        public IList<Livestock> GetBankLivestocksByFarmerId(int farmerId)
+        {
+            var livestocks = _uMalusiContext.Livestocks.Where(x => x.FarmerId == farmerId).ToList();
+            return livestocks;
+
         }
 
+        public Livestock GetLivestockSById(int livestockId)
+        {
+            var livestock = _uMalusiContext.Livestocks.Where(x => x.LivestockId == livestockId).FirstOrDefault();
+            return livestock;
+
+        }
+        public Farmer GetAuthentication(string username, string password)
+        {
+            var user = _uMalusiContext.Farmers.Where(u => u.Username == username && u.Password == password).FirstOrDefault();
+            return user;
+
+        }
         #endregion
 
         #region Tracker
@@ -146,8 +168,20 @@ namespace UMelusiTrackApi.Data
 
         #endregion
 
+        #region Order
+        public Order CreateNewOrder(Order order)
+        {
+            _uMalusiContext.Orders.Add(order);
+            _uMalusiContext.SaveChanges();
+
+            return order;
+        }
+
+        #endregion
+
+
         #region LivestockPosition
-            
+
         public IList<LivestockPosition> GetLivestockPositionsByLivestockId(int livestockId)
         {
             var livestockPositions = _uMalusiContext.LivestockPositions.Where(x => x.LivestockId == livestockId).ToList();
@@ -167,6 +201,14 @@ namespace UMelusiTrackApi.Data
             var livestockPositions = _uMalusiContext.LivestockPositions.Where(x => (x.LivestockId == livestockId) && (x.DateTime >= dateTime)).ToList();
             return livestockPositions;
 
+        }
+
+        public LivestockPosition InsertLiveStockPosition(LivestockPosition livestockPosition)
+        {
+            _uMalusiContext.LivestockPositions.Add(livestockPosition);
+            _uMalusiContext.SaveChanges();
+
+            return livestockPosition;
         }
 
         #endregion

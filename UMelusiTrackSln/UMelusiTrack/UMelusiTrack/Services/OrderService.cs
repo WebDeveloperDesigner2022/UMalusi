@@ -5,7 +5,9 @@ using System.Diagnostics;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using UMelusiTrack.Services.Interfaces;
 using UMelusiTrackApi.Models;
+using Xamarin.Forms;
 
 namespace UMelusiTrack.Services
 {
@@ -20,15 +22,16 @@ namespace UMelusiTrack.Services
 
         public OrderService()
         {
-            _httpClient = new HttpClient();
+            IHttpNativeHandler service = DependencyService.Get<IHttpNativeHandler>();
+            _httpClient = new HttpClient(service.GetHttpClientHandler());
         }
-        public async Task<Order> Order(string name, string surname, string referenceNo, string deliveryAddress, string contactNo, string email)
+        public async Task<Order> Order(string name, string surname, int quantity, string referenceNo, string deliveryAddress, string contactNo, string email, int farmerId)
         {
             var uri = new Uri(AppConfigurationService.Instance.uMalusiServerUrl + "api/Order");
 
             try
             {
-                var request = new Order() { Name = name, Surname = surname, ReferenceNo = referenceNo, DeliveryAddress = deliveryAddress, ContactNo = contactNo, Email = email };
+                var request = new Order() { Name = name, Surname = surname, Quantity = quantity, ReferenceNo = referenceNo, DeliveryAddress = deliveryAddress, ContactNo = contactNo, Email = email, FarmerId = farmerId };
 
                 var requestJson = JsonConvert.SerializeObject(request);
                 var content = new StringContent(requestJson, Encoding.UTF8, "application/json");

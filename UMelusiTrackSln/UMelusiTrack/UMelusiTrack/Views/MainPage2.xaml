@@ -2,19 +2,48 @@
 <FlyoutPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
             x:Class="UMelusiTrack.MainPage2"
-            xmlns:local="clr-namespace:UMelusiTrack"
+            xmlns:local="clr-namespace:UMelusiTrack" xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
             NavigationPage.HasNavigationBar="False">
 
     <FlyoutPage.Flyout>
         <local:FlyoutMenuPage x:Name="flyout"/>
     </FlyoutPage.Flyout>
-
-
     <FlyoutPage.Detail>
         <NavigationPage>
             <x:Arguments>
                 <local:HomePage>
+                    <StackLayout>
+                        <maps:Map IsShowingUser="true" x:Name="map"/>
+                        <Frame>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <StackLayout Grid.Column="0" Grid.Row="0"  HorizontalOptions="Start"  VerticalOptions="CenterAndExpand">
+                                    <ImageButton Source="Manage.png" WidthRequest="50" HeightRequest="50" Clicked="ManageButton" BackgroundColor="Transparent" BorderColor="Black"/>
+                                    <Label Text="My Herd" TextColor="Black"  FontSize="15"/>
+                                </StackLayout>
+                                
+                                <StackLayout Grid.Column="1"  HorizontalOptions="Center" VerticalOptions="EndAndExpand">
+                                    <ImageButton Source="Alert.png" WidthRequest="50" HeightRequest="50" Clicked="AlertButton" BackgroundColor="Transparent"/>
+                                    <Label Text=" Alerts" TextColor="Black"  FontSize="15"/>
+                                </StackLayout>
 
+                                <StackLayout  Grid.Column="2"  HorizontalOptions="End"  VerticalOptions="EndAndExpand">
+                                    <ImageButton Source="shop.png" WidthRequest="50" HeightRequest="50" Clicked="shopButton" BackgroundColor="Transparent"/>
+                                    <Label Text="Buy Device" TextColor="Black"  FontSize="15"/>
+                                </StackLayout>
+
+                            </Grid>
+                        </Frame>
+                        
+
+                    </StackLayout>
 
                 </local:HomePage>
             </x:Arguments>

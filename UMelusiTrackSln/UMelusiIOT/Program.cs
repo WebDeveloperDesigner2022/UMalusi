@@ -5,12 +5,16 @@ using System.IO.Ports;
 using nanoFramework.Hardware.Esp32;
 using System.Text;
 using UMelusiIOT.Services;
+using System.Net;
+//using System.Collections.Specialized;
+using System.Net.Http;
+using UMelusiTrackApi.Models;
 
 namespace UMelusiIOT
 {
     public class Program
     {
-       public LonLat lnlt = new LonLat();
+      
         static SerialPort _serialDevice;
 
         public static void SendCommand()
@@ -116,15 +120,61 @@ namespace UMelusiIOT
                 string temp = Encoding.UTF8.GetString(buffer, 0, bytesRead);
                 Debug.WriteLine("String: >>" + temp + "<< " + "2");
                 string[] textSplit = temp.Split(',');
-                if (textSplit[0] == "GNGGA")
+                if (textSplit[0] == "$GNGGA")
                 {
                     Debug.WriteLine("The string is " +temp );
 
 
                     string latitude = textSplit[3];
-                    string longitude = textSplit[5];
+                    string longitude = textSplit[4];
 
-                    Debug.WriteLine($"Latitude = {textSplit[1]}, latitude direction {textSplit[2]}  Longitude = {textSplit[3]}, longitude direction {textSplit[4]}" + " Testing lat & lon");//
+                    if (latitude != "" && longitude != "")
+                    {
+                        string livestockName = cow101;
+                        int livestockid = 1;
+                        /*
+                        LivestockPosition livestockPosition = new LivestockPosition();
+                        //var web = new 
+                        livestockPosition = new LivestockPosition();
+                        livestockPosition.Latitude = livestockMovement.Latitude;
+                        livestockPosition.Longitude = livestockMovement.Longitude;
+                        livestockPosition.DateTime = DateTime.Now;
+                        livestockPosition.LivestockName = livestockMovement.LivestockName;
+                        livestockPosition.LivestockId = livestockMovement.LivestockId;
+                        livestockPosition.Livestock = livestock;
+                        */
+
+                        var uri = new Uri(AppConfigurationService.Instance.uMalusiServerUrl + "api/LivestockPosition");
+
+                        try
+                        {
+                            var request = new LivestockMovement() { LivestockName = livestockName, Latitude = latitude, Longitude = longitude, DateTime = DateTime.Now, LivestockId = livestockid };
+
+                            var requestJson = JsonConvert.SerializeObject(request);
+                            var content = new StringContent(requestJson, Encoding.UTF8, "application/json");
+
+                            var response = await _httpClient.PostAsync(uri, content);
+
+                            if (response.IsSuccessStatusCode)
+                            {
+                                var contentResponse = await response.Content.ReadAsStringAsync();
+
+                                var valueResponse = JsonConvert.DeserializeObject<LivestockPosition>(contentResponse);
+
+                                return valueResponse;
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            Debug.WriteLine(@"\tERROR {0}", ex.Message);
+                        }
+
+                    }
+                    else
+                    {
+                        Debug.WriteLine("No values found!");
+                    }
+                    //
 
                   //  HttpClient client = new HttpClient();
                 }

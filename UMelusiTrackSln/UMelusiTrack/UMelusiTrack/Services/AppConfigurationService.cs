@@ -12,7 +12,7 @@
         public AppConfigurationService()
         {
 #if LOCALSERVER
-            uMalusiServerUrl = "https://10.0.2.2:5001/";
+            uMalusiServerUrl = "https://10.0.2.2:7052/";
 #else
             uMalusiServerUrl = "https://localhost:7052";
 #endif

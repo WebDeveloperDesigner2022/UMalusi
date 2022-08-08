@@ -4,14 +4,14 @@ using System.ComponentModel;
 using System.Text;
 using System.Windows.Input;
 using UMelusiTrack.Services;
-using UMelusiTrack.Services.Interfaces;
+using UMelusiTrack.Views;
 using Xamarin.Forms;
 
 namespace UMelusiTrack.ViewModel 
 {
     public class SigninViewModel : INotifyPropertyChanged
     {
-        private IAuthentication _authenticationService;
+       /// private IAuthentication _authenticationService;
         public event PropertyChangedEventHandler PropertyChanged;
         public string username;
       
@@ -59,9 +59,16 @@ namespace UMelusiTrack.ViewModel
             }
             else 
             {
-               /* var db = await UmelusiDB.Instance;
+               
+                AuthenticationService _authenticationService = new AuthenticationService();
 
-                var login = await db.Login(Username, Password);
+                var response = await _authenticationService.Authenticate(Username, Password);
+
+                if (response != null)
+                {
+
+                    InMemoryDataCache.AuthenticatedFarmer = response.AuthenticatedFarmer;
+                    //var login = await db.Login(Username, Password);
 
                 if(login == true)
                 {
@@ -71,7 +78,7 @@ namespace UMelusiTrack.ViewModel
                 else
                 {
                     MessagingCenter.Send(this, "Login Alert", "Wrong username or password");
-                }*/
+                }
             }
 
         }

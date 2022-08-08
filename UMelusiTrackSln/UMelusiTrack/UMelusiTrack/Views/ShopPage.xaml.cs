@@ -29,7 +29,7 @@ namespace UMelusiTrack
 
         private void orderBtn(object sender, EventArgs e)
         {
-            try
+           /* try
             {
 
                 MailMessage mail = new MailMessage();
@@ -53,7 +53,7 @@ namespace UMelusiTrack
             {
                 DisplayAlert("Faild", ex.Message, "OK");
             }
-
+           */
         }
 
         private void BtnSend_Clicked(object sender, EventArgs e)

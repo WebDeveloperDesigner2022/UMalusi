@@ -5,7 +5,9 @@ using System.Diagnostics;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using UMelusiTrack.Services.Interfaces;
 using UMelusiTrackApi.Models;
+using Xamarin.Forms;
 
 namespace UMelusiTrack.Services
 {
@@ -20,10 +22,11 @@ namespace UMelusiTrack.Services
 
         public AuthenticationService()
         {
-            _httpClient = new HttpClient();
+            IHttpNativeHandler service = DependencyService.Get<IHttpNativeHandler>();
+            _httpClient = new HttpClient(service.GetHttpClientHandler());
         }
 
-        public async Task<bool> Authenticate(string username, string password)
+        public async Task<AuthResponse> Authenticate(string username, string password)
         {
             var uri = new Uri(AppConfigurationService.Instance.uMalusiServerUrl + "api/Authentication");
 
@@ -40,7 +43,7 @@ namespace UMelusiTrack.Services
                 {
                     var contentResponse = await response.Content.ReadAsStringAsync();
 
-                    var valueResponse = JsonConvert.DeserializeObject<bool>(contentResponse);
+                    var valueResponse = JsonConvert.DeserializeObject<AuthResponse>(contentResponse);
 
                     return valueResponse;
                 }
@@ -50,7 +53,7 @@ namespace UMelusiTrack.Services
                 Debug.WriteLine(@"\tERROR {0}", ex.Message);
             }
 
-            return false;
+            return new AuthResponse();
         }
 
     }

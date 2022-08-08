@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UMelusiTrack.Services;
+using UMelusiTrack.ViewModel;
+using UMelusiTrackApi.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -12,24 +14,35 @@ namespace UMelusiTrack.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Manage : ContentPage
     {
-        public Manage()
-        {
-            InitializeComponent();
-        }
+          public LivestockViewModel registerLivestockVM = new LivestockViewModel();
+          public Manage()
+          {
+              InitializeComponent();
+              registerLivestockVM = new LivestockViewModel();
 
+              MessagingCenter.Subscribe<LivestockViewModel, string>(this, "Register Livestock Alert", (sender, livestockname) => {
+                  DisplayAlert("", livestockname, "ok");
+              });
+              this.BindingContext = registerLivestockVM;
+          }
+        
         protected async override void OnAppearing()
         {
             base.OnAppearing();
+           // Items = new List<TodoItem>();
+          //  listView.ItemsSource = await RefreshDataAsync();
 
-            livestockDatabase database = await livestockDatabase.Instance;
-            listView.ItemsSource = await database.GetItemsAsync();
-        }
+            /* livestockDatabase database = await livestockDatabase.Instance;
+             listView.ItemsSource = await database.GetItemsAsync();*/
+
+          }
+
 
         async void OnItemAdded(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new Manage
             {
-                BindingContext = new livestock()
+                BindingContext = new Livestock()
             });
         }
 
@@ -39,7 +52,7 @@ namespace UMelusiTrack.Views
             {
                 await Navigation.PushAsync(new Manage
                 {
-                    BindingContext = e.SelectedItem as livestock
+                    BindingContext = e.SelectedItem as Livestock
                 });
             }
         }
@@ -51,12 +64,8 @@ namespace UMelusiTrack.Views
 
         private void arrowbtn(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new MainPage());
+            Navigation.PushAsync(new MainPage2());
         }
-        /*
-        private void ImageButton_Clicked(object sender, EventArgs e)
-        {
-            Navigation.PushAsync(new OrderingDetails());
-        }  }*/
+       
     }
 }

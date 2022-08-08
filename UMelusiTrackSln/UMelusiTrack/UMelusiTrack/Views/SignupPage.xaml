@@ -15,11 +15,11 @@
             
             
             <Label Text="Create a new account" FontSize="Title" 
-                   TextColor="DarkCyan" HorizontalOptions="CenterAndExpand"
+                   TextColor="White" HorizontalOptions="CenterAndExpand"
                    Margin="0,0,0,20"/>
 
              <Label Text="Name" HorizontalOptions="CenterAndExpand"/>
-            <Entry x:Name="firstname" Text="{Binding Name}"
+            <Entry x:Name="firstname" Text="{Binding Names}"
                    Placeholder="Name"
                    HorizontalOptions="CenterAndExpand"
                    HorizontalTextAlignment="Center"
@@ -45,12 +45,17 @@
                    Placeholder="Password" IsPassword="True"
                    HorizontalTextAlignment="Center"
                    WidthRequest="200"/>
+            <Label Text="AzureMapId" HorizontalOptions="CenterAndExpand"/>
+            <Entry x:Name="azureMapId" Text="{Binding AzureMapId}" HorizontalOptions="CenterAndExpand"
+                   Placeholder="AzureMapId"
+                   HorizontalTextAlignment="Center"
+                   WidthRequest="200"/>
 
 
 
             <Label Text="Yes, I agree to the Umalusi terms and conditions"
                    HorizontalOptions="CenterAndExpand"
-                   TextColor="Blue" />
+                   TextColor="Black" />
             
             <Switch x:Name="agree"
                     HorizontalOptions="CenterAndExpand"
@@ -59,11 +64,11 @@
                
             <Button
                 HorizontalOptions="CenterAndExpand"
-                BorderColor="LightCyan"
+                BorderColor="White"
                 BorderWidth="5" CornerRadius="10"
                 Text="Sign Up" x:Name="Signup"
                 Command="{Binding SignupSubmitCommand}"
-                BackgroundColor="DarkCyan"/>
+                BackgroundColor="White"/>
             
 
         </StackLayout>
