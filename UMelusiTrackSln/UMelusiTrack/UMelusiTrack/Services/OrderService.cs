@@ -25,13 +25,16 @@ namespace UMelusiTrack.Services
             IHttpNativeHandler service = DependencyService.Get<IHttpNativeHandler>();
             _httpClient = new HttpClient(service.GetHttpClientHandler());
         }
-        public async Task<Order> Order(string name, string surname, int quantity, string referenceNo, string deliveryAddress, string contactNo, string email, int farmerId)
+        public async Task<Order> Order(Farmer farmer, string name, string surname, int farmerid, int quantity, string referenceNo, string deliveryAddress, string contactNo, string email)
         {
             var uri = new Uri(AppConfigurationService.Instance.uMalusiServerUrl + "api/Order");
 
             try
             {
-                var request = new Order() { Name = name, Surname = surname, Quantity = quantity, ReferenceNo = referenceNo, DeliveryAddress = deliveryAddress, ContactNo = contactNo, Email = email, FarmerId = farmerId };
+                var request = new Order() { Name = name, Surname = surname, Quantity = quantity, ReferenceNo = referenceNo, DeliveryAddress = deliveryAddress, ContactNo = contactNo, Email = email, FarmerId = farmerid };
+
+                request.Farmer = farmer;
+                request.FarmerId = farmer.FarmerId;
 
                 var requestJson = JsonConvert.SerializeObject(request);
                 var content = new StringContent(requestJson, Encoding.UTF8, "application/json");

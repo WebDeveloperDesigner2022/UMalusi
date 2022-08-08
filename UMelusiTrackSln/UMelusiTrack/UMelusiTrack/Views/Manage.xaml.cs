@@ -29,6 +29,14 @@ namespace UMelusiTrack.Views
         protected async override void OnAppearing()
         {
             base.OnAppearing();
+
+            var vm = (LivestockViewModel)BindingContext;
+
+            if (vm != null)
+            {
+                await vm.RefreshDataAsync();
+            }
+
            //Items = new List<TodoItem>();
           // listView.ItemsSource = await RefreshDataAsync();
 

@@ -118,7 +118,6 @@ namespace UMelusiTrack.ViewModel
         {
             if (string.IsNullOrEmpty(Name)
                && string.IsNullOrEmpty(Surname)
-               //&& int.IsNullOrEmpty(Quantity)
                && string.IsNullOrEmpty(ReferenceNo)
                && string.IsNullOrEmpty(DeliveryAddress) 
                && string.IsNullOrEmpty(ContactNo)
@@ -131,7 +130,6 @@ namespace UMelusiTrack.ViewModel
 
             else if (string.IsNullOrEmpty(Name)
                || string.IsNullOrEmpty(Surname)
-               //|| int.IsNullOrWhiteSpace(Quantity)
                || string.IsNullOrEmpty(ReferenceNo)
                || string.IsNullOrEmpty(DeliveryAddress)
                || string.IsNullOrEmpty(ContactNo)
@@ -150,9 +148,10 @@ namespace UMelusiTrack.ViewModel
 
         public async Task SaveOrderAsync()
         {
-            try { 
+           try { 
             OrderService _orderService = new OrderService();
-            var data = await _orderService.Order(Name = this.Name, Surname = this.Surname, Quantity = this.Quantity, ReferenceNo = this.ReferenceNo, DeliveryAddress = this.DeliveryAddress, ContactNo = this.ContactNo, Email = this.Email, FarmerId = this.FarmerId);
+            var farmer = InMemoryDataCache.AuthenticatedFarmer;
+            var data = await _orderService.Order(farmer, Name = this.Name, Surname = this.Surname, FarmerId = this.FarmerId, Quantity = this.Quantity, ReferenceNo = this.ReferenceNo, DeliveryAddress = this.DeliveryAddress, ContactNo = this.ContactNo, Email = this.Email);
            
             if (data != null)
             {

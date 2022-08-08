@@ -61,5 +61,30 @@ namespace UMelusiTrack.Services
 
         }
 
+        public async Task<List<Livestock>> GetLivestockByFarmerId(int farmerId )
+        {
+            //  api/Livestock/byfarmerid?farmerId=2
+
+            var uri = new Uri(AppConfigurationService.Instance.uMalusiServerUrl + "api/Livestock/byfarmerid?farmerId=" + farmerId);
+
+            try
+            {
+         
+                var response = await _httpClient.GetStringAsync(uri);
+
+                    var livestock = JsonConvert.DeserializeObject<List<Livestock>>(response);
+
+                    return livestock;
+                
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(@"\tERROR {0}", ex.Message);
+            }
+
+            return new List<Livestock>();
+
+        }
+
     }
 }

@@ -26,7 +26,7 @@
             </Frame>
 
             <ScrollView>
-                <ListView x:Name="listView"
+                <ListView x:Name="listView" ItemsSource="{Binding Livestocks}"
               Margin="20"
               ItemSelected="OnListItemSelected">
                     <ListView.ItemTemplate>
