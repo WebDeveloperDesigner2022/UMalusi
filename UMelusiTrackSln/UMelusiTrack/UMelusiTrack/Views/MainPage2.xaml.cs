@@ -14,11 +14,13 @@ namespace UMelusiTrack
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MainPage2 : FlyoutPage
     {
+        //Map map = new Map();
         public MainPage2()
         {
             InitializeComponent();
             flyout.listView.ItemSelected += OnSelectedItem;
             DisplayCurrentLocation();
+            
         }
 
     private async void MyHerdButton(object sender, EventArgs e)
@@ -58,8 +60,10 @@ namespace UMelusiTrack
                     MapSpan mapSpan = MapSpan.FromCenterAndRadius(p, Distance.FromKilometers(.444));
                     map.MoveToRegion(mapSpan);
                     Console.WriteLine($"Latitude: {location.Latitude}, Longitude: {location.Longitude}, Altitude: {location.Altitude}");
+                    map.MapElements.Add(circle);
                 }
             }
+           
             catch (FeatureNotSupportedException fnsEx)
             {
                 // Handle not supported on device exception
@@ -77,6 +81,14 @@ namespace UMelusiTrack
                 // Unable to get location
             }
         }
+        Circle circle = new Circle
+        {
+            Center = new Position(-33.933189, 18.626520),
+            Radius = new Distance(2500),
+            StrokeColor = Color.FromHex("#88FF0000"),
+            StrokeWidth = 8,
+            FillColor = Color.FromHex("#88FFC0CB")
+        };
 
        
 

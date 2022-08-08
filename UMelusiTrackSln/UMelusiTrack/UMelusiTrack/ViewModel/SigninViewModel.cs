@@ -12,7 +12,7 @@ namespace UMelusiTrack.ViewModel
 {
     public class SigninViewModel : INotifyPropertyChanged
     {
-        private IAuthentication _authenticationService;
+       /// private IAuthentication _authenticationService;
         public event PropertyChangedEventHandler PropertyChanged;
         public string username;
       
@@ -60,26 +60,28 @@ namespace UMelusiTrack.ViewModel
             }
             else 
             {
-                // var db = await UmelusiDB.Instance;
-
-                // var login = await db.Login(Username, Password);
-
+               
                 AuthenticationService _authenticationService = new AuthenticationService();
 
-                var user = await _authenticationService.Authenticate(Username, Password);
+                var response = await _authenticationService.Authenticate(Username, Password);
 
-                //var login = await db.Login(Username, Password);
+                if (response != null)
+                {
 
-                if (user == true)
-                  {
-                      await App.Current.MainPage.Navigation.PushAsync(new MainPage2());
-                  }
-                  
-                  else
-                  {
-                      MessagingCenter.Send(this, "Login Alert", "Wrong username or password");
-                  }
-               
+                    InMemoryDataCache.AuthenticatedFarmer = response.AuthenticatedFarmer;
+                    //var login = await db.Login(Username, Password);
+
+                    if (response.Authenticated == true)
+                    {
+                        await App.Current.MainPage.Navigation.PushAsync(new MainPage2());
+                    }
+
+                    else
+                    {
+                        MessagingCenter.Send(this, "Login Alert", "Wrong username or password");
+                    }
+                }
+
             }
 
         }

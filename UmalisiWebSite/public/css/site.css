@@ -1,6 +1,8 @@
 body {
-    background-image: url(../images/browncow.png);
-    background-repeat:no-repeat;
+    /* background-image: url(../images/browncow.png); */
+    /* background-repeat:no-repeat; */
+    background-color: #DCE6EF;
+    width: auto;
 }
 /* .header{
     justify-content: space-between;

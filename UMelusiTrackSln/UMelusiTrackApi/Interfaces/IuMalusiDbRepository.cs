@@ -8,6 +8,7 @@ namespace UMelusiTrackApi.Interfaces
         Livestock CreateNewLivestock(Livestock livestock);
         Farmer CreateNewFarmer(Farmer farmer);
 
+        Order CreateNewOrder(Order order);
         bool DoesFarmerExistByUsername(string username);
         bool DoesFarmerExistById(int id);
 
@@ -27,7 +28,10 @@ namespace UMelusiTrackApi.Interfaces
 
 
         bool PerformAuthenticationCheck(string username, string password);
+       // Order CreateNewOrder(Order order);
 
+        //    Farmer GetFarmerByAuthenticationId(int farmerId, bool fullFetch = true);
+        public Farmer GetAuthentication(string username, string password);
 
     }
 }

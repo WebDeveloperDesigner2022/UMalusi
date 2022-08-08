@@ -4,32 +4,31 @@
     <ContentPage.Content>
         <StackLayout Margin="25"
             VerticalOptions="StartAndExpand"  >
-            <Label Text="Livestock id" />
-            <Entry Text="{Binding Livestockid}" />
+            <Label Text="Livestock Name" />
+            <Entry Text="{Binding LivestockName}" />
 
-            <Label Text="TrackerId" />
-            <Entry Text="{Binding Trackerid}" />
-            <Label Text="Gender " />
-            <Entry Text="{Binding Gender}" />
+            <Label Text="Date of Birth(year/month/day)" />
+            <Entry Text="{Binding DOB}" />
             <Label Text="Color" />
             <Entry Text="{Binding Color}" />
-            <Label Text="Upload Image" />
-            <Entry Text="{Binding Picture}" />
-            <Label Text="Birth Date" />
-            <DatePicker MinimumDate="01/11/2018"
-            MaximumDate="01/11/2050"
-            Date="{Binding Dateofbirth}" />
-
+            <ImageButton Source="Upload.png" Clicked="browse" />
+            <Image BindingContext ="{Binding Image}" />
+            <!--<Label Text="Tracker Number" />
+            <Entry Text="{Binding TrackerId}" />-->
+            <Label Text="LivestockType " />
+            <Entry Text="{Binding LivestockTypeId}" />
+     
             <!--<Switch IsToggled="{Binding Done}" />-->
 
             <Button Margin="5"  Text="Save"
-                Clicked="OnSaveClicked" CornerRadius="20" BackgroundColor="green" />
+                  x:Name="Save"
+                Command="{Binding RegisterLivestockSubmitCommand}" CornerRadius="20" BackgroundColor="green" />
 
             <Button Margin="5"  Text="Remove"
-                Clicked="OnDeleteClicked" CornerRadius="20" BackgroundColor="green" />
+                 CornerRadius="20" BackgroundColor="green" />
 
             <Button Margin="5"  Text="Cancel"
-                Clicked="OnCancelClicked" CornerRadius="20" BackgroundColor="green" />
+                 CornerRadius="20" BackgroundColor="green" />
 
         </StackLayout>
     </ContentPage.Content>

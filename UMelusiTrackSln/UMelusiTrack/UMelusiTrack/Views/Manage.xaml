@@ -35,10 +35,8 @@
                                 <StackLayout Margin="20,0,0,0"
                                  Orientation="Horizontal"
                                  HorizontalOptions="FillAndExpand">
-                                    <Label Text="{Binding Picture}"
-                               VerticalTextAlignment="Center"
-                               HorizontalOptions="StartAndExpand" />
-                                    <Label Text="{Binding Trackerid}"
+                                    <Image BindingContext ="{Binding Image}" />
+                                    <Label Text="{Binding LivestockName}"
                                VerticalTextAlignment="Center"
                                HorizontalOptions="Center" />
                                     <Label Text="{Binding Color}"

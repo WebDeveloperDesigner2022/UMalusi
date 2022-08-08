@@ -38,7 +38,40 @@ namespace UMelusiTrackApi.Controllers
             }
             return Ok(farmer);
         }
+/*        [HttpPost]
+        public IActionResult Post([FromBody] AuthRequest auth)
+        {
+            var authResponse = new AuthResponse();
 
+            try
+            {
+                var result = _uMalusiDbRepository.PerformAuthenticationCheck(auth.Username, auth.Password);
+                if (result)
+                {
+                    var authentication = _uMalusiDbRepository.GetAuthentication(auth.Username, auth.Password);
+
+                    if (authentication != null)
+                    {
+                        var farmer = _uMalusiDbRepository.GetFarmerByAuthenticationId(authentication.AuthenticationId);
+
+                        if (farmer != null)
+                        {
+                            authResponse.Authenticated = true;
+                            authResponse.AuthenticatedFarmer = farmer;
+                        }
+                    }
+                }
+                return Ok(authResponse);
+            }
+
+            catch (Exception ex)
+            {
+                return BadRequest(SystemErrorCodes.AuthenticationFailed.ToString());
+            }
+
+
+        }
+*/
         [HttpGet]
         public IEnumerable<Farmer> Get()
         {

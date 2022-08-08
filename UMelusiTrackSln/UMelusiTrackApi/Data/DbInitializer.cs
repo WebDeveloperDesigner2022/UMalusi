@@ -52,7 +52,7 @@ namespace UMelusiTrackApi.Data
                 livestock.DOB = "12/11/2019";
                 livestock.LivestockTypeId = 1;
                 livestock.Color = "Black&White";
-                livestock.Tracker = tracker;
+               // livestock.Tracker = tracker;
                 livestock.Image = new byte[] { };
 
                  var livestockPosition = new LivestockPosition();
@@ -75,13 +75,22 @@ namespace UMelusiTrackApi.Data
                 farmer.Livestocks = new List<Livestock>();
                 farmer.Livestocks.Add(livestock);
 
-            //    farmer.Authentication = userAccount;
+                //    farmer.Authentication = userAccount;
 
+                /*var buy = new Order();
+                buy.Name = "Sino";
+                buy.Surname = "Plaatjie";
+                buy.Quantity = 10;
+                buy.ReferenceNo = "868s5ds6d";
+                buy.DeliveryAddress = "14 Avenue MountFrere";
+                buy.ContactNo = "0736842505";
+                buy.Email = "Sino@gmail.com";
+                //farmer.Orders.Add(buy);
+                _context.Orders.Add(buy);*/
 
                 _context.LivestockPositions.Add(livestockPosition);
                 _context.Farmers.Add(farmer);
-                _context.Farmers.Add(farmer);
-              //  _context.Authentications.Add(userAccount);
+              
                 _context.SaveChanges();
             }
         }

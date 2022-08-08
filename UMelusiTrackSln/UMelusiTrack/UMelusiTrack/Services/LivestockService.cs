@@ -26,13 +26,17 @@ namespace UMelusiTrack.Services
             _httpClient = new HttpClient(service.GetHttpClientHandler());
         }
 
-        public async Task<Livestock> RegisterLivestock(string livestockName, string dob, string color, byte[] image, int farmerid, int trackerid, int livestockTypeid)
+        public async Task<Livestock> RegisterLivestock(Farmer farmer,  string livestockName, string dob, string color, byte[] image, int farmerid, int livestockTypeid)
         {
             var uri = new Uri(AppConfigurationService.Instance.uMalusiServerUrl + "api/Livestock");
 
             try
             {
-                var request = new Livestock() { LivestockName = livestockName, DOB = dob, Color = color, Image = image, FarmerId = farmerid, TrackerId = trackerid, LivestockTypeId = livestockTypeid  };
+                var request = new Livestock() { LivestockName = livestockName, DOB = dob, Color = color, Image = image, FarmerId = farmerid, LivestockTypeId = livestockTypeid  };
+
+                request.Farmer = farmer;
+                request.FarmerId = farmer.FarmerId;
+                
 
                 var requestJson = JsonConvert.SerializeObject(request);
                 var content = new StringContent(requestJson, Encoding.UTF8, "application/json");
