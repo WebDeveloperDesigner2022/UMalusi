@@ -45,8 +45,7 @@ namespace UMelusiTrack
                     MapSpan mapSpan = MapSpan.FromCenterAndRadius(p, Distance.FromKilometers(.444));
                     map.MoveToRegion(mapSpan);
                     Console.WriteLine($"Latitude: {location.Latitude}, Longitude: {location.Longitude}, Altitude: {location.Altitude}");
-                    map.Pins.Add(pin);
-
+                    map.MapElements.Add(circle);
                 }
             }
            
@@ -67,21 +66,15 @@ namespace UMelusiTrack
                 // Unable to get location
             }
         }
-        /* public async void DisplayLivestockPosition()
-         {
-
-         }
-        */
-        Pin pin = new Pin
+        Circle circle = new Circle
         {
-            Label = "Cow11",
-            Address = "The city with a boardwalk",
-            Type = PinType.Place,
-            Position = new Position(36.9628066, -122.0194722)
+            Center = new Position(-33.933189, 18.626520),
+            Radius = new Distance(2500),
+            StrokeColor = Color.FromHex("#88FF0000"),
+            StrokeWidth = 8,
+            FillColor = Color.FromHex("#88FFC0CB")
         };
-        
-        
-        
+
         private void ManageButton(object sender, EventArgs e)
         {
 
