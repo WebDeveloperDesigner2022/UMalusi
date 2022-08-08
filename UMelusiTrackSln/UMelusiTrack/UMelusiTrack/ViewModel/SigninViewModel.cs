@@ -70,14 +70,15 @@ namespace UMelusiTrack.ViewModel
                     InMemoryDataCache.AuthenticatedFarmer = response.AuthenticatedFarmer;
                     //var login = await db.Login(Username, Password);
 
-                if(login == true)
-                {
-                    await App.Current.MainPage.Navigation.PushAsync(new MainPage2());
-                }
-                //
-                else
-                {
-                    MessagingCenter.Send(this, "Login Alert", "Wrong username or password");
+                    if (response.Authenticated == true)
+                    {
+                        await App.Current.MainPage.Navigation.PushAsync(new MainPage2());
+                    }
+                    //
+                    else
+                    {
+                        MessagingCenter.Send(this, "Login Alert", "Wrong username or password");
+                    }
                 }
             }
 
