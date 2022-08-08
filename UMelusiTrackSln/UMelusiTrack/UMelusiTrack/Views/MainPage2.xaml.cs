@@ -22,6 +22,21 @@ namespace UMelusiTrack
             DisplayCurrentLocation();
             
         }
+
+    private async void MyHerdButton(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Manage());
+        }
+
+        private async void BuyButton(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new BuyPage());
+        }
+
+        private async void AlertButton(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Alerts());
+        }
         void OnSelectedItem(object sender, SelectedItemChangedEventArgs e)
         {
             var item = e.SelectedItem as FlyoutItemPage;
@@ -75,19 +90,23 @@ namespace UMelusiTrack
             FillColor = Color.FromHex("#88FFC0CB")
         };
 
-        private void ManageButton(object sender, EventArgs e)
-        {
+       
 
-        }
+        //  private void ManageButton(object sender, EventArgs e)
+        //  {
 
-        private void AlertButton(object sender, EventArgs e)
-        {
+        //  }
 
-        }
+        //   private void AlertButton(object sender, EventArgs e)
+        //  {
 
-        private void shopButton(object sender, EventArgs e)
-        {
+        //  }
 
-        }
+        //   private void shopButton(object sender, EventArgs e)
+        //   {
+
+        //   }
     }
+
+   
 }

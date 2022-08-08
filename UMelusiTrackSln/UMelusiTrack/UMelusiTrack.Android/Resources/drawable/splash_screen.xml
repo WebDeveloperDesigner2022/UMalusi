@@ -4,7 +4,7 @@
   </item>
   <item>
     <bitmap
-        android:src="@drawable/splash_logo"
+        android:src="@drawable/logo2"
         android:tileMode="disabled"
         android:gravity="fill|fill_horizontal"/>
   </item>
