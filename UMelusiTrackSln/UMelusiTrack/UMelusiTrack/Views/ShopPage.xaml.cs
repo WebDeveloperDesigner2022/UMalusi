@@ -10,9 +10,9 @@ using Xamarin.Forms;
 
 namespace UMelusiTrack
 {
-    public partial class ShopPage : ContentPage
+    public partial class BuyPage : ContentPage
     {
-        public ShopPage()
+        public BuyPage()
         {
             var vm = new OrderingVM();
             InitializeComponent();

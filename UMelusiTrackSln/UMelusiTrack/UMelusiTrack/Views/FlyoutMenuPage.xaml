@@ -3,7 +3,7 @@
              xmlns:local="clr-namespace:UMelusiTrack"
              x:Class="UMelusiTrack.FlyoutMenuPage"
              Padding="0,40,0,0"
-             Title="UMelusi">
+             Title="UMelusi" BackgroundColor="#6FBF7B">
     <StackLayout>
         <ListView x:Name="listView" x:FieldModifier="public">
             <ListView.ItemsSource>
@@ -22,7 +22,7 @@
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
                             <Image Source="{Binding IconSource}" />
-                            <Label Grid.Column="1" Text="{Binding Title}" />
+                            <Label Grid.Column="1" Text="{Binding Title}"/>
                         </Grid>
                     </ViewCell>
                 </DataTemplate>
