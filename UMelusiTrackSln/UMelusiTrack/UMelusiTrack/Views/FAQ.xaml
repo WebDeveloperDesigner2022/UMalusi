@@ -9,16 +9,22 @@
                 <Image Source="Picsart.jpg" HeightRequest="90" Aspect="AspectFill">
                     
                 </Image>
-            </Frame> 
-                <Label Text="" TextColor="#36454f" HorizontalTextAlignment="Center" FontAttributes="Bold" FontSize="40" Margin="20">
-
+            </Frame>
+            <Label Text="Basic overview" TextColor="#36454f" HorizontalTextAlignment="Center" FontAttributes="Bold" FontSize="40" Margin="20">
             </Label>
-            <ScrollView VerticalOptions="FillAndExpand"
-                        HeightRequest="1">
-                
-                     
-              
-            </ScrollView>
+            <Label Text="Users should aquire the necessary equipment through uMalusi,
+                   this includes the physical tracking device.Identify the livestock you wish to track and monitor,place collar around neck of animal
+                   Synchronize each to collar-tracker to the app immediately and register the cow with its tag number and species via Umalusi application.
+
+Users should set up farm boundaries/geo-fence boundaries and areas which they wish to monitor via the uMalusi app.
+                   
+                                                                 "
+                    HorizontalTextAlignment="Start" VerticalTextAlignment="Start"
+  VerticalOptions="Start" 
+                HorizontalOptions="CenterAndExpand" />
+
+
+
 
 
         </StackLayout>

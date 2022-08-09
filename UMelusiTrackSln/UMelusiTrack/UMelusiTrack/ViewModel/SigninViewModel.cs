@@ -75,13 +75,12 @@ namespace UMelusiTrack.ViewModel
                     {
                         await App.Current.MainPage.Navigation.PushAsync(new MainPage2());
                     }
-
+                    //
                     else
                     {
                         MessagingCenter.Send(this, "Login Alert", "Wrong username or password");
                     }
                 }
-
             }
 
         }
