@@ -54,12 +54,15 @@ namespace UMelusiTrack.Views
                 }
             }
         }
+        async void OnCancelClicked(object sender, EventArgs e)
+        {
+            await Navigation.PopAsync();
+        }
 
-
-        /*       async void OnSaveClicked(object sender, EventArgs e)
+       /* async void OnSaveClicked(object sender, EventArgs e)
                {
                    var livestocks = (Livestock)BindingContext;
-                 //  await App.ILivestock.SaveTaskAsync(livestocks, isNewLivestock);
+                   await App.ILivestock.SaveTaskAsync(livestocks, isNewLivestock);
                    await Navigation.PopAsync();
 
                }
@@ -73,10 +76,7 @@ namespace UMelusiTrack.Views
 
                }
 
-               async void OnCancelClicked(object sender, EventArgs e)
-               {
-                   await Navigation.PopAsync();
-               }
+               
 
                private async void browse(object sender, EventArgs e)
                {

@@ -21,8 +21,6 @@ namespace UMelusiTrack
             InitializeComponent();
             flyout.listView.ItemSelected += OnSelectedItem;
             DisplayCurrentLocation();
-            //            CreateFence();
-
             var vm = new MapGeoJsonViewModel(Navigation);
 
             BindingContext = vm;
@@ -96,9 +94,9 @@ namespace UMelusiTrack
 
                 var polygon = new Polygon();
 
-                polygon.FillColor = Color.Red;
-                polygon.StrokeColor = Color.Black;
-                polygon.StrokeWidth = 2;
+                polygon.FillColor = Color.Transparent;
+                polygon.StrokeColor = Color.Red;
+                polygon.StrokeWidth = 3;
 
                 if (vm.MapGeoFence != null)
                 {
@@ -121,22 +119,6 @@ namespace UMelusiTrack
 
         }
 
-
-
-        //  private void ManageButton(object sender, EventArgs e)
-        //  {
-
-        //  }
-
-        //   private void AlertButton(object sender, EventArgs e)
-        //  {
-
-        //  }
-
-        //   private void shopButton(object sender, EventArgs e)
-        //   {
-
-        //   }
     }
 
    

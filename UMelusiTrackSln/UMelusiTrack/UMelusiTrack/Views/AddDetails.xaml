@@ -11,18 +11,16 @@
             <Entry Text="{Binding DOB}" />
             <Label Text="Color" />
             <Entry Text="{Binding Color}" />
+            <Label Text="Upload Image" />
             <ImageButton Source="Upload.png" Clicked="browse" />
-            <Image BindingContext ="{Binding Image}" />
-            <!--<Label Text="Tracker Number" />
-            <Entry Text="{Binding TrackerId}" />-->
+            <Image BindingContext ="{Binding Image}"/>
+            
             <Label Text="LivestockType " />
             <Entry Text="{Binding LivestockTypeId}" />
-     
-            <!--<Switch IsToggled="{Binding Done}" />-->
 
             <Button Margin="5"  Text="Save"
                   x:Name="Save"
-                Command="{Binding RegisterLivestockSubmitCommand}" CornerRadius="20" BackgroundColor="green" />
+                Command="{Binding OnSubmitAsync}" CornerRadius="20" BackgroundColor="green" />
 
             <Button Margin="5"  Text="Remove"
                  CornerRadius="20" BackgroundColor="green" />

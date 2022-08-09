@@ -56,13 +56,12 @@ namespace UMelusiTrack.Views
 
         async void OnListItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            if (e.SelectedItem != null)
-            {
-                await Navigation.PushAsync(new Manage
-                {
+           
+             await Navigation.PushAsync(new AddDetails
+             {
                     BindingContext = e.SelectedItem as Livestock
-                });
-            }
+             });
+            
         }
 
         private void register(object sender, EventArgs e)

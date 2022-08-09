@@ -14,7 +14,10 @@
                         Android="20,100,20,0">
                     </OnPlatform>
                 </StackLayout.Padding>
-                <Image Source="logo3.jpg" BackgroundColor="Transparent"  HeightRequest="200"/>
+                <Frame>
+                    <Image Source="logo3.jpg" BackgroundColor="Transparent"  HeightRequest="200"/>
+                </Frame>
+              
                 <Label Text="Sign in" FontSize="Title" TextColor="Black"
                        HorizontalOptions="CenterAndExpand"
                        Margin="0,50,0,20"/>
@@ -55,7 +58,8 @@
                     Text="{Binding Password}"/>
                 <Button 
                     Text="Login"
-                    FontSize="12"
+                    FontSize="13"
+                    FontAttributes="Bold"
                     HorizontalOptions="CenterAndExpand"
                     BackgroundColor="White"
                     WidthRequest="200"
@@ -66,14 +70,10 @@
                     WidthRequest="200"
                     BorderWidth="5" 
                     HorizontalOptions="CenterAndExpand"
+                    BackgroundColor="White"
                     CornerRadius="10"  Text="Create account"
                     x:Name="Signup" 
                     Clicked="Signup_Clicked" />
-                <Button Text="-->" 
-                        Clicked="TestBtn" 
-                        BackgroundColor="White"
-                        BorderColor="White"
-                        />
 
             </StackLayout>
         </StackLayout>
