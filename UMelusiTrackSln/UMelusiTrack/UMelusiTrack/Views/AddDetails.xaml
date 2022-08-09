@@ -20,13 +20,13 @@
 
             <Button Margin="5"  Text="Save"
                   x:Name="Save"
-                Command="{Binding OnSubmitAsync}" CornerRadius="20" BackgroundColor="green" />
+                Command="{Binding RegisterLivestockSubmitCommand}" CornerRadius="20" BackgroundColor="green" />
 
             <Button Margin="5"  Text="Remove"
                  CornerRadius="20" BackgroundColor="green" />
 
             <Button Margin="5"  Text="Cancel"
-                 CornerRadius="20" BackgroundColor="green" />
+                 CornerRadius="20" Clicked="OnCancelClicked" BackgroundColor="green" />
 
         </StackLayout>
     </ContentPage.Content>

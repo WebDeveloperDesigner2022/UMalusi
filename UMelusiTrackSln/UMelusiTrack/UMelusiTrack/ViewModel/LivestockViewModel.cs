@@ -123,12 +123,12 @@ namespace UMelusiTrack.ViewModel
         public async void OnSubmitAsync()
         {
 
-            //   if (IsValidated())
-            {
+         //   if (IsValidated())
+            
                 await RegisterLivestock();
 
                 await App.Current.MainPage.Navigation.PushAsync(new Manage());
-            }
+            
         }
 
         public async Task RefreshDataAsync()
