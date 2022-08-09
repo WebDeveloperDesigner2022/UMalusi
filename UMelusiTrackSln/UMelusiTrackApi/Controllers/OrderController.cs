@@ -15,13 +15,14 @@ namespace UMelusiTrackApi.Controllers
         {
             _uMalusiDbRepository = uMalusiDbRepository;
         }
-       /* public IActionResult CreateOrder([FromBody] Order order)
+        [HttpPost]
+        public IActionResult CreateOrder([FromBody] Order order)
         {
             try
             {
                 if (order == null || !ModelState.IsValid)
                 {
-                    return BadRequest(SystemErrorCodes.LivestockNotValid.ToString());
+                    return BadRequest(SystemErrorCodes.OrderNotValid.ToString());
                 }
 
                 var farmer = _uMalusiDbRepository.GetFarmerById(order.FarmerId);
@@ -29,13 +30,15 @@ namespace UMelusiTrackApi.Controllers
 
 
                 _uMalusiDbRepository.CreateNewOrder(order);
+            
+            //farmer.email
             }
             catch (Exception ex)
             {
-                return BadRequest(SystemErrorCodes.LivestockCreationFailed.ToString());
+                return BadRequest(SystemErrorCodes.OrderCreationFailed.ToString());
             }
             return Ok(order);
-        }*/
+        }
 
     }
 }

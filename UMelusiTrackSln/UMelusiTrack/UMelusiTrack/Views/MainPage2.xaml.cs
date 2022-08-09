@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UMelusiTrack.ViewModel;
 using UMelusiTrack.Views;
 using Xamarin.Essentials;
 using Xamarin.Forms;
@@ -20,10 +21,15 @@ namespace UMelusiTrack
             InitializeComponent();
             flyout.listView.ItemSelected += OnSelectedItem;
             DisplayCurrentLocation();
-            
+            //            CreateFence();
+
+            var vm = new MapGeoJsonViewModel(Navigation);
+
+            BindingContext = vm;
+
         }
 
-    private async void MyHerdButton(object sender, EventArgs e)
+        private async void MyHerdButton(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new Manage());
         }
@@ -60,7 +66,7 @@ namespace UMelusiTrack
                     MapSpan mapSpan = MapSpan.FromCenterAndRadius(p, Distance.FromKilometers(.444));
                     map.MoveToRegion(mapSpan);
                     Console.WriteLine($"Latitude: {location.Latitude}, Longitude: {location.Longitude}, Altitude: {location.Altitude}");
-                    map.MapElements.Add(circle);
+                    
                 }
             }
            
@@ -81,16 +87,41 @@ namespace UMelusiTrack
                 // Unable to get location
             }
         }
-        Circle circle = new Circle
+        private void CreateFence()
         {
-            Center = new Position(-33.933189, 18.626520),
-            Radius = new Distance(2500),
-            StrokeColor = Color.FromHex("#88FF0000"),
-            StrokeWidth = 8,
-            FillColor = Color.FromHex("#88FFC0CB")
-        };
+            var vm = BindingContext as MapGeoJsonViewModel;
 
-       
+            if (vm != null)
+            {
+
+                var polygon = new Polygon();
+
+                polygon.FillColor = Color.Red;
+                polygon.StrokeColor = Color.Black;
+                polygon.StrokeWidth = 2;
+
+                if (vm.MapGeoFence != null)
+                {
+                    List<Position> positions = vm.MapGeoFence;
+
+                    foreach (var position in positions)
+                        polygon.Geopath.Add(position);
+                }
+
+
+                map.MapElements.Add(polygon);
+            }
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            CreateFence();
+
+        }
+
+
 
         //  private void ManageButton(object sender, EventArgs e)
         //  {
