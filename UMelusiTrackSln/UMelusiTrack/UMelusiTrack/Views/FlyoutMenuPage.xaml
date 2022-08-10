@@ -3,14 +3,15 @@
              xmlns:local="clr-namespace:UMelusiTrack"
              x:Class="UMelusiTrack.FlyoutMenuPage"
              Padding="0,40,0,0"
-             Title="UMelusi">
+             Title="UMelusi" BackgroundColor="#6FBF7B">
     <StackLayout>
         <ListView x:Name="listView" x:FieldModifier="public">
             <ListView.ItemsSource>
                 <x:Array Type="{x:Type local:FlyoutItemPage}">
-                    <local:FlyoutItemPage Title="Home" IconSource="icons.png" TargetPage="{x:Type local:HomePage}" />
+                    <local:FlyoutItemPage Title="My Profile" IconSource="icons.png" TargetPage="{x:Type local:Profile}" />
                     <local:FlyoutItemPage Title="About UMelusi" IconSource="faq.png" TargetPage="{x:Type local:AboutUs}" />
                     <local:FlyoutItemPage Title="Instructions" IconSource="info.png" TargetPage="{x:Type local:FAQ}" />
+                    
                 </x:Array>
             </ListView.ItemsSource>
             <ListView.ItemTemplate>
@@ -22,7 +23,7 @@
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
                             <Image Source="{Binding IconSource}" />
-                            <Label Grid.Column="1" Text="{Binding Title}" />
+                            <Label Grid.Column="1" Text="{Binding Title}"/>
                         </Grid>
                     </ViewCell>
                 </DataTemplate>

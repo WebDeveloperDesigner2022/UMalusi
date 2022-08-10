@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UMelusiTrack.ViewModel;
 using UMelusiTrack.Views;
 using Xamarin.Essentials;
 using Xamarin.Forms;
@@ -14,11 +15,31 @@ namespace UMelusiTrack
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MainPage2 : FlyoutPage
     {
+        //Map map = new Map();
         public MainPage2()
         {
             InitializeComponent();
             flyout.listView.ItemSelected += OnSelectedItem;
             DisplayCurrentLocation();
+            var vm = new MapGeoJsonViewModel(Navigation);
+
+            BindingContext = vm;
+
+        }
+
+        private async void MyHerdButton(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Manage());
+        }
+
+        private async void BuyButton(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new BuyPage());
+        }
+
+        private async void AlertButton(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Alerts());
         }
         void OnSelectedItem(object sender, SelectedItemChangedEventArgs e)
         {
@@ -43,9 +64,10 @@ namespace UMelusiTrack
                     MapSpan mapSpan = MapSpan.FromCenterAndRadius(p, Distance.FromKilometers(.444));
                     map.MoveToRegion(mapSpan);
                     Console.WriteLine($"Latitude: {location.Latitude}, Longitude: {location.Longitude}, Altitude: {location.Altitude}");
-                    map.MapElements.Add(circle);
+                    
                 }
             }
+           
             catch (FeatureNotSupportedException fnsEx)
             {
                 // Handle not supported on device exception
@@ -63,28 +85,41 @@ namespace UMelusiTrack
                 // Unable to get location
             }
         }
-        Circle circle = new Circle
+        private void CreateFence()
         {
-            Center = new Position(-33.933189, 18.626520),
-            Radius = new Distance(2500),
-            StrokeColor = Color.FromHex("#88FF0000"),
-            StrokeWidth = 8,
-            FillColor = Color.FromHex("#88FFC0CB")
-        };
+            var vm = BindingContext as MapGeoJsonViewModel;
 
-        private void ManageButton(object sender, EventArgs e)
+            if (vm != null)
+            {
+
+                var polygon = new Polygon();
+
+                polygon.FillColor = Color.Transparent;
+                polygon.StrokeColor = Color.Red;
+                polygon.StrokeWidth = 3;
+
+                if (vm.MapGeoFence != null)
+                {
+                    List<Position> positions = vm.MapGeoFence;
+
+                    foreach (var position in positions)
+                        polygon.Geopath.Add(position);
+                }
+
+
+                map.MapElements.Add(polygon);
+            }
+        }
+
+        protected override void OnAppearing()
         {
+            base.OnAppearing();
+
+            CreateFence();
 
         }
 
-        private void AlertButton(object sender, EventArgs e)
-        {
-
-        }
-
-        private void shopButton(object sender, EventArgs e)
-        {
-
-        }
     }
+
+   
 }

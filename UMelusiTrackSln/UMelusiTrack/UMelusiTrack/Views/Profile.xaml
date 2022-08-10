@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="UMelusiTrack.Profile"
+             Title="Profile">
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame BackgroundColor="Transparent" HeightRequest="115">
+                <StackLayout>
+                    <Image Source="icons.png" HeightRequest="60">
+                    </Image>
+                    <Label Text="Name:Mveleli" FontAttributes="Bold"/>
+                    <Label Text="Surname:Sikhuni" FontAttributes="Bold"/>
+                    <Label Text="Email sikhunimveleli@gmail.com" FontAttributes="Bold"/>
+                    <Button Text="Sign Out" Clicked="Signout" BackgroundColor="Green"/> 
+                </StackLayout>
+
+            </Frame>
+        </StackLayout>
+     
+    </ContentPage.Content>
+</ContentPage>

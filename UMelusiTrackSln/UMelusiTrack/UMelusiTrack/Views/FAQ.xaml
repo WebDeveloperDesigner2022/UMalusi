@@ -2,23 +2,39 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:umelusitrack="clr-namespace:UMelusiTrack" x:DataType="umelusitrack:MainPage2"
              x:Class="UMelusiTrack.FAQ"
-             Title="User Guidelines">
+             NavigationPage.HasNavigationBar="False" >
     <ContentPage.Content>
         <StackLayout>
             <Frame Padding="0">
                 <Image Source="Picsart.jpg" HeightRequest="90" Aspect="AspectFill">
                     
                 </Image>
-            </Frame> 
-                <Label Text="" TextColor="#36454f" HorizontalTextAlignment="Center" FontAttributes="Bold" FontSize="40" Margin="20">
-
+            </Frame>
+            <Label  Text="User Guidelines" TextColor="#36454f" HorizontalTextAlignment="Center" FontAttributes="Bold" FontSize="40" Margin="20">
             </Label>
-            <ScrollView VerticalOptions="FillAndExpand"
-                        HeightRequest="1">
-                
-                     
-              
-            </ScrollView>
+            <Label Text="Go to uMalusi Home Page" Padding="20,0,15,15" FontSize="15" FontAttributes="Bold"/>
+            <Label Text="Select The Buy Device button to buy the actual tracking device." Padding="20,0,15,15" FontSize="15" FontAttributes="Bold"/>
+            <Label Text="You will receive the device after making payment arrangements.
+            " HorizontalTextAlignment="Start" VerticalTextAlignment="Start"
+            VerticalOptions="Start" 
+             HorizontalOptions="CenterAndExpand" Padding="20,0,15,15" FontSize="15" FontAttributes="Bold"/>
+            <Label Text="Use the My Herd button to register livestock. The My Herd button will also allow you to add, delete or update existing livestock.
+             " HorizontalTextAlignment="Start" VerticalTextAlignment="Start"
+            VerticalOptions="Start" 
+             HorizontalOptions="CenterAndExpand" Padding="20,0,15,15" FontSize="15" FontAttributes="Bold"/>
+            <Label Text=" Livestock properties can also be added such as images to represent the cattle data." HorizontalTextAlignment="Start" VerticalTextAlignment="Start"
+            VerticalOptions="Start" 
+             HorizontalOptions="CenterAndExpand" Padding="20,0,15,15" FontSize="15" FontAttributes="Bold"/>
+            <Label Text="The My Farm button will allow the user to set up the geofence for location purposes." HorizontalTextAlignment="Start" VerticalTextAlignment="Start"
+            VerticalOptions="Start" 
+             HorizontalOptions="CenterAndExpand" Padding="20,0,15,15" FontSize="15" FontAttributes="Bold"/>
+            <Label Text="The Alert button manages alert settings so that the user can receive notifications about any abnormalities that livestock may come across."
+            HorizontalTextAlignment="Start" VerticalTextAlignment="Start"
+            VerticalOptions="Start" 
+             HorizontalOptions="CenterAndExpand" Padding="20,0,15,15" FontSize="15" FontAttributes="Bold"/>
+
+
+
 
 
         </StackLayout>

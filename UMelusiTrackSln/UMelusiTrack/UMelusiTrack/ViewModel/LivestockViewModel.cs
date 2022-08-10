@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Text;
@@ -16,7 +17,17 @@ namespace UMelusiTrack.ViewModel
 {
     public class LivestockViewModel : INotifyPropertyChanged
     {
-        public List<Livestock> Livestocks { get; set; }
+        private ObservableCollection<Livestock> _liveStocks;
+
+        public ObservableCollection<Livestock> Livestocks
+        {
+            get { return _liveStocks; }
+            set { _liveStocks = value;
+
+                PropertyChanged(this, new PropertyChangedEventArgs("Livestocks"));
+            }
+        }
+
         
         // private ILivestock _livestockService;
         public event PropertyChangedEventHandler PropertyChanged;
@@ -112,25 +123,24 @@ namespace UMelusiTrack.ViewModel
         public async void OnSubmitAsync()
         {
 
-            //   if (IsValidated())
-            {
+         //   if (IsValidated())
+            
                 await RegisterLivestock();
 
                 await App.Current.MainPage.Navigation.PushAsync(new Manage());
-            }
+            
         }
 
-        public async Task<List<Livestock>> RefreshDataAsync()
+        public async Task RefreshDataAsync()
         {
             
             LivestockService _livestockService = new LivestockService();
 
             var farmer = InMemoryDataCache.AuthenticatedFarmer;
-            var livestock = await _livestockService.RegisterLivestock(farmer, LivestockName, DOB,
-             Color, Image, FarmerId, LivestockTypeId);
+            var livestocks = await _livestockService.GetLivestockByFarmerId(farmer.FarmerId);
                       
            
-            return Livestocks;
+            Livestocks = new ObservableCollection<Livestock>(livestocks);
         }
 
         public async Task RegisterLivestock()

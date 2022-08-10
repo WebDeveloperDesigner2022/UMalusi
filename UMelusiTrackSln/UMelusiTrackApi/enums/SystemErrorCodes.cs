@@ -8,7 +8,9 @@
         AuthenticationFailed,
         LivestockNotValid,
         LivestockCreationFailed,
-        LivestockPositionCreationFailed
+        LivestockPositionCreationFailed,
+        OrderNotValid,
+        OrderCreationFailed
 
     }
 }

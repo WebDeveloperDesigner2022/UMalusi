@@ -47,7 +47,7 @@
                                     <ColumnDefinition Width="Auto"/>
                                 </Grid.ColumnDefinitions>
                                 <StackLayout Grid.Column="0" Grid.Row="0"  HorizontalOptions="Start"  VerticalOptions="CenterAndExpand">
-                                    <ImageButton Source="Manage.png" WidthRequest="50" HeightRequest="50" Clicked="ManageButton" BackgroundColor="Transparent" BorderColor="Black"/>
+                                    <ImageButton Source="Manage.png" WidthRequest="50" HeightRequest="50" Clicked="MyHerdButton" BackgroundColor="Transparent" BorderColor="Black"/>
                                     <Label Text="My Herd" TextColor="Black"  FontSize="15"/>
                                 </StackLayout>
                                 
@@ -57,14 +57,13 @@
                                 </StackLayout>
 
                                 <StackLayout  Grid.Column="2"  HorizontalOptions="End"  VerticalOptions="EndAndExpand">
-                                    <ImageButton Source="shop.png" WidthRequest="50" HeightRequest="50" Clicked="shopButton" BackgroundColor="Transparent"/>
+                                    <ImageButton Source="shop.png" WidthRequest="50" HeightRequest="50" Clicked="BuyButton" BackgroundColor="Transparent"/>
                                     <Label Text="Buy Device" TextColor="Black"  FontSize="15"/>
                                 </StackLayout>
 
                             </Grid>
                         </Frame>
-                        
-
+                       
                     </StackLayout>
 
                 </local:HomePage>

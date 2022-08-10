@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Text;
 using System.Windows.Input;
 using UMelusiTrack.Services;
+using UMelusiTrack.Services.Interfaces;
 using UMelusiTrack.Views;
 using Xamarin.Forms;
 
@@ -74,13 +75,12 @@ namespace UMelusiTrack.ViewModel
                     {
                         await App.Current.MainPage.Navigation.PushAsync(new MainPage2());
                     }
-
+                    //
                     else
                     {
                         MessagingCenter.Send(this, "Login Alert", "Wrong username or password");
                     }
                 }
-
             }
 
         }

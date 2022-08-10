@@ -29,8 +29,16 @@ namespace UMelusiTrack.Views
         protected async override void OnAppearing()
         {
             base.OnAppearing();
-           // Items = new List<TodoItem>();
-          //  listView.ItemsSource = await RefreshDataAsync();
+
+            var vm = (LivestockViewModel)BindingContext;
+
+            if (vm != null)
+            {
+                await vm.RefreshDataAsync();
+            }
+
+           //Items = new List<TodoItem>();
+          // listView.ItemsSource = await RefreshDataAsync();
 
             /* livestockDatabase database = await livestockDatabase.Instance;
              listView.ItemsSource = await database.GetItemsAsync();*/
@@ -48,13 +56,12 @@ namespace UMelusiTrack.Views
 
         async void OnListItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            if (e.SelectedItem != null)
-            {
-                await Navigation.PushAsync(new Manage
-                {
+           
+             await Navigation.PushAsync(new AddDetails
+             {
                     BindingContext = e.SelectedItem as Livestock
-                });
-            }
+             });
+            
         }
 
         private void register(object sender, EventArgs e)

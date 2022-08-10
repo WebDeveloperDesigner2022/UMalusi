@@ -1,21 +1,18 @@
 ﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="UMelusiTrack.ShopPage" BackgroundColor="White">
+              Padding="20,40,15,15"
+             x:Class="UMelusiTrack.BuyPage" BackgroundColor="White">
 
     <StackLayout>
-        <Frame BackgroundColor="DarkOliveGreen" HeightRequest="115">
-
-
-            <StackLayout>
-                <Image Source="https://cdn-icons-png.flaticon.com/512/270/270818.png?w=740" VerticalOptions="Center" HeightRequest="60"/>
-                <Label Text="Complete the order form below and click on the SEND ORDER button at the buttom of the form, For queries conntact us on +(064) 984-311 or E-Mail us at umalusitrackers@yahoo.com" TextColor="Black"/>
-            </StackLayout>
-
+        <Frame  HeightRequest="115">
+            <Image Source="trackingDevice.jpg" VerticalOptions="Center" HeightRequest="100"/>
         </Frame>
 
         <ScrollView VerticalOptions="FillAndExpand"
                         HeightRequest="1">
             <StackLayout>
+                <Label Text="Complete the order form below and click on the SEND ORDER button at the buttom of the form." TextColor="Black"/>
+
                 <Label Text="First Name : " />
                 <Entry Text="{Binding Name}" />
                 <Label Text="Last Name :" /> 
@@ -33,8 +30,7 @@
 
                 <Label Text="IMPORTANT:" FontSize="Subtitle"  TextColor="Black" FontAttributes="Italic"/>
                 <Label Text="Please ensure that the correct bank account and customer code reference number is used when depositing." TextColor="Black" FontAttributes="Italic" FontSize="Default"/>
-
-               <!-- <StackLayout>
+                <StackLayout>
                     <Label Text="BANKING DETAILS" FontAttributes="Bold"></Label>
                     <StackLayout>
                         <Label Text="BANK                      ABSA"></Label>
@@ -45,21 +41,16 @@
                         <Label Text="Payment Reference         Customer Code"></Label>
 
                     </StackLayout>
-                    <StackLayout>
-                        <Label Margin="0,0,0,10" Text="Email notification" FontAttributes="Bold" FontSize="Large" TextColor="#CA6F1E" HorizontalTextAlignment="Center" ></Label>
-                        <Entry x:Name="txtTo" Placeholder="umalusitrackers@yahoo.com"></Entry>
-                        <Entry x:Name="txtSubject" Placeholder="Order notification"></Entry>
-                        <Editor x:Name="txtBody" HeightRequest="50" Text="Umalusi trackers" ></Editor>
-                        <Button x:Name="btnSend" Text="Send" Clicked="BtnSend_Clicked" />
-                    </StackLayout>
-                </StackLayout>-->
+                </StackLayout>
+               
             </StackLayout>
         </ScrollView>
         <StackLayout Margin="80,10,50,10">
             <StackLayout Orientation="Horizontal">
-                <Button Text="Cancel" Clicked="CancelBtn" />
-                <Button Text="Order" Command="{Binding SignupSubmitCommand}" Clicked="orderBtn"/>
+                <Button Text="Cancel" Clicked="CancelBtn" BackgroundColor="#6FBF7B" />
+                <Button Text="Order" Command="{Binding SignupSubmitCommand}" Clicked="orderBtn" BackgroundColor="#6FBF7B"/>
             </StackLayout>
         </StackLayout>
     </StackLayout>
 </ContentPage>
+    

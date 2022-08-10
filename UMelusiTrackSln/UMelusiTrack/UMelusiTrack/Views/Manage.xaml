@@ -1,9 +1,13 @@
 ﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="UMelusiTrack.Views.Manage" NavigationPage.HasNavigationBar="False">
-    <ContentPage.Content>
-        <StackLayout>
-            <Frame BackgroundColor="green" Margin="0" CornerRadius="0" BorderColor="Black" HeightRequest="120" >
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             x:Class="UMelusiTrack.Views.Manage" NavigationPage.HasNavigationBar="False" BackgroundColor="White">
+    <ContentPage.Resources>
+    <ResourceDictionary>
+        <xct:ByteArrayToImageSourceConverter x:Key="ByteArrayToImageSourceConverter" />
+    </ResourceDictionary>
+    </ContentPage.Resources>
+    <StackLayout>
+            <Frame BackgroundColor="#6FBF7B" Margin="0" CornerRadius="0" BorderColor="Black" HeightRequest="120" >
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*"/>
@@ -26,31 +30,31 @@
             </Frame>
 
             <ScrollView>
-                <ListView x:Name="listView"
+                <ListView x:Name="listView" ItemsSource="{Binding Livestocks}"
               Margin="20"
               ItemSelected="OnListItemSelected">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
-                                <StackLayout Margin="20,0,0,0"
+                           
+                            <StackLayout Margin="20,0,0,0"
                                  Orientation="Horizontal"
                                  HorizontalOptions="FillAndExpand">
-                                    <Image BindingContext ="{Binding Image}" />
+                                
+                                <Image Source ="{Binding Image, Converter={StaticResource ByteArrayToImageSourceConverter}}" />
                                     <Label Text="{Binding LivestockName}"
                                VerticalTextAlignment="Center"
                                HorizontalOptions="Center" />
-                                    <Label Text="{Binding Color}"
+                                <Label Text="{Binding Color}"
                                VerticalTextAlignment="Center"
                                HorizontalOptions="Center" />
-
-                                </StackLayout>
+                            </StackLayout>
                             </ViewCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
             </ScrollView>
-            <Button Text="Registered new Livestock" TextColor="black" BackgroundColor="green" FontSize="20" Clicked="register"  BorderWidth="2"
+            <Button Text="Registered new Livestock" TextColor="black" BackgroundColor="#6FBF7B" FontSize="15" Clicked="register"  BorderWidth="2"
         BorderColor="white" CornerRadius="20"/>
         </StackLayout>
-    </ContentPage.Content>
 </ContentPage>
