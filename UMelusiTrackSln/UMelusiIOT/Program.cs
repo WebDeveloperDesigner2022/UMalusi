@@ -159,7 +159,7 @@ namespace UMelusiIOT
                             {
                                 var contentResponse = await response.Content.ReadAsStringAsync();
 
-                                var valueResponse = JsonConvert.DeserializeObject<LivestockPosition>(contentResponse);
+                                var valueResponse = JsonConvert.DeserializeObject<LivestockMovement>(contentResponse);
 
                                 return valueResponse;
                             }
