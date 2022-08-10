@@ -115,7 +115,7 @@ namespace UMelusiTrack.ViewModel
             {
                 await SaveSignUp();
 
-                await App.Current.MainPage.Navigation.PushAsync(new MainPage2());
+                await App.Current.MainPage.Navigation.PushAsync(new SignPage());
             }           
         }
 

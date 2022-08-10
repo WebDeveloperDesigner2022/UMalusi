@@ -2,24 +2,21 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="UMelusiTrack.AboutUs"
-             Title="About" BackgroundColor="#FFFFFF">
+             Title="About" BackgroundColor="#FFFFFF" NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
         
         <StackLayout>
             <Frame  Padding="0">
                 <Image Source="question.jpg" HeightRequest="90" Aspect="AspectFill"/>
             </Frame>
-            <Label Text="About Outliers" TextColor="#36454f" HorizontalTextAlignment="Center" FontAttributes="Bold" FontSize="40" Margin="20">
+            <Label Text="About uMalusi" TextColor="#36454f" HorizontalTextAlignment="Center" FontAttributes="Bold" FontSize="40" Margin="20">
 
             </Label>
-             <Label Text="The world of technology and artificial intelligence is growing
-                    we have been given the oppurtunity to be apart of paving the way.
- Outliers mission is to improve the olden techniques used to locate livestock.We believe 
-that current techniques used to locate and mark livestock 
-is both time consuming and labour-intensive.Our main objective is to promote a sustainable environment for all livestock by building a tracker that will be able to locate livestock will therefore solve the problems that farmers are currently facing."
+            <Label Text="uMalusi, surprisingly, was originally founded with the intent to address environmental sustainability in South Africa.
+We have recognized that small-scale farmers do not have access to commercial tools and devices and rural economic development is not exclusive of one another and that is why we came up with a tracking device to help small-scale farmers keep track and to trace their livestock remotely."
                     HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
   VerticalOptions="Start" 
-                HorizontalOptions="CenterAndExpand" />
+                HorizontalOptions="CenterAndExpand" Padding="20,4,15,15" FontSize="15" FontAttributes="Bold" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

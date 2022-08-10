@@ -17,7 +17,7 @@
 
                 <Frame
                      CornerRadius="300" BackgroundColor="#62BD77" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-                    <Image Source="logo3.jpg" HeightRequest="200">
+                    <Image Source="logo.3.jpg" HeightRequest="200">
                     </Image>
                 </Frame>
 

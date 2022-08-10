@@ -30,8 +30,7 @@
 
                 <Label Text="IMPORTANT:" FontSize="Subtitle"  TextColor="Black" FontAttributes="Italic"/>
                 <Label Text="Please ensure that the correct bank account and customer code reference number is used when depositing." TextColor="Black" FontAttributes="Italic" FontSize="Default"/>
-
-               <!-- <StackLayout>
+                <StackLayout>
                     <Label Text="BANKING DETAILS" FontAttributes="Bold"></Label>
                     <StackLayout>
                         <Label Text="BANK                      ABSA"></Label>
@@ -42,14 +41,8 @@
                         <Label Text="Payment Reference         Customer Code"></Label>
 
                     </StackLayout>
-                    <StackLayout>
-                        <Label Margin="0,0,0,10" Text="Email notification" FontAttributes="Bold" FontSize="Large" TextColor="#CA6F1E" HorizontalTextAlignment="Center" ></Label>
-                        <Entry x:Name="txtTo" Placeholder="umalusitrackers@yahoo.com"></Entry>
-                        <Entry x:Name="txtSubject" Placeholder="Order notification"></Entry>
-                        <Editor x:Name="txtBody" HeightRequest="50" Text="Umalusi trackers" ></Editor>
-                        <Button x:Name="btnSend" Text="Send" Clicked="BtnSend_Clicked" />
-                    </StackLayout>
-                </StackLayout>-->
+                </StackLayout>
+               
             </StackLayout>
         </ScrollView>
         <StackLayout Margin="80,10,50,10">
@@ -60,3 +53,4 @@
         </StackLayout>
     </StackLayout>
 </ContentPage>
+    

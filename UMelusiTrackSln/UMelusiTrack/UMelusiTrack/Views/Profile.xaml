@@ -13,11 +13,6 @@
                     <Label Text="Surname:Sikhuni" FontAttributes="Bold"/>
                     <Label Text="Email sikhunimveleli@gmail.com" FontAttributes="Bold"/>
                     <Button Text="Sign Out" Clicked="Signout" BackgroundColor="Green"/> 
-
-
-
-
-
                 </StackLayout>
 
             </Frame>
